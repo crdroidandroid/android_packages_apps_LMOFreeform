@@ -8,7 +8,7 @@
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="com.libremobileos.permission.START_FREEFORM" />
+    <uses-permission android:name="com.crdroid.permission.START_FREEFORM" />
 
     <application
         android:name=".LMOFreeform"
@@ -17,7 +17,7 @@
 
         <receiver
             android:name=".receiver.StartFreeformReceiver"
-            android:permission="com.libremobileos.permission.START_FREEFORM"
+            android:permission="com.crdroid.permission.START_FREEFORM"
             android:exported="true" >
             <intent-filter>
                 <action android:name="com.libremobileos.freeform.START_FREEFORM" />

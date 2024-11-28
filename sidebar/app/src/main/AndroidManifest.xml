@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
-    <uses-permission android:name="com.libremobileos.permission.START_FREEFORM" />
+    <uses-permission android:name="com.crdroid.permission.START_FREEFORM" />
 
     <application
         android:name=".app.SidebarApplication"

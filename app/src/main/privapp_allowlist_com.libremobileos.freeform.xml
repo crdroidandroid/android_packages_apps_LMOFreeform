@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <permissions>
     <privapp-permissions package="com.libremobileos.freeform">
-        <permission name="com.libremobileos.permission.START_FREEFORM"/>
+        <permission name="com.crdroid.permission.START_FREEFORM"/>
     </privapp-permissions>
 </permissions>
