@@ -46,9 +46,9 @@ class ServiceViewModel(private val application: Application): AndroidViewModel(a
     private val predictedAppList = MutableStateFlow<List<AppInfo>>(emptyList())
 
     private val launcherApps = application.getSystemService(Context.LAUNCHER_APPS_SERVICE)!! as LauncherApps
-    private val appPredictionManager = application.getSystemService(AppPredictionManager::class.java)!!
+    private val appPredictionManager = application.getSystemService(AppPredictionManager::class.java)
 
-    private lateinit var appPredictor: AppPredictor
+    private var appPredictor: AppPredictor? = null
     private val handlerExecutor = HandlerExecutor(Handler())
     private var callbacksRegistered = false
 
@@ -144,7 +144,7 @@ class ServiceViewModel(private val application: Application): AndroidViewModel(a
         if (!callbacksRegistered) return
         logger.d("unregisterCallbacks")
         launcherApps.unregisterCallback(launcherAppsCallback)
-        appPredictor.unregisterPredictionUpdates(appPredictionCallback)
+        appPredictor?.unregisterPredictionUpdates(appPredictionCallback)
         viewModelScope.coroutineContext.cancelChildren()
         callbacksRegistered = false
     }
@@ -155,14 +155,19 @@ class ServiceViewModel(private val application: Application): AndroidViewModel(a
     }
 
     private fun registerAppPredictionCallback() {
+        if (appPredictionManager == null) {
+            logger.e("appPredictionManager is null!")
+            return
+        }
         appPredictor = appPredictionManager.createAppPredictionSession(
             AppPredictionContext.Builder(application.applicationContext)
                 .setUiSurface("hotseat")
                 .setPredictedTargetCount(MAX_PREDICTED_APPS)
                 .build()
-        )
-        appPredictor.registerPredictionUpdates(handlerExecutor, appPredictionCallback)
-        appPredictor.requestPredictionUpdate()
+        ).apply {
+            registerPredictionUpdates(handlerExecutor, appPredictionCallback)
+            requestPredictionUpdate()
+        }
     }
 
     private fun initSidebarAppList() {
