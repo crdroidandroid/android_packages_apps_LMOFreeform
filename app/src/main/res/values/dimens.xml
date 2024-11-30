@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="top_bar_height">20dp</dimen>
+    <dimen name="top_bar_height">28dp</dimen>
     <dimen name="bottom_bar_height">28dp</dimen>
     <dimen name="scale_width">28dp</dimen>
 </resources>
