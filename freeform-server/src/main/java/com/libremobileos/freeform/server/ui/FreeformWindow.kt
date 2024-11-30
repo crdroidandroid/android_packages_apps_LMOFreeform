@@ -132,14 +132,14 @@ class FreeformWindow(
                 startApp()
             }
 
-            val rightView = resourceHolder.getLayoutChildViewByTag<View>(freeformLayout, "rightView")
-            if (null == rightView) {
+            val arrowBack = resourceHolder.getLayoutChildViewByTag<View>(freeformLayout, "arrowBack")
+            if (null == arrowBack) {
                 Slog.e(TAG, "right&rightScale view is null")
-                destroy("onDisplayAdd:rightView is null")
+                destroy("onDisplayAdd:backView is null")
                 return@post
             }
-            rightView.setOnClickListener(RightViewClickListener(displayId))
-            rightView.setOnLongClickListener(RightViewLongClickListener(this))
+            arrowBack.setOnClickListener(RightViewClickListener(displayId))
+            arrowBack.setOnLongClickListener(RightViewLongClickListener(this))
         }
     }
 
@@ -240,16 +240,16 @@ class FreeformWindow(
         val moveTouchListener = MoveTouchListener(this)
         topBarView.setOnTouchListener(moveTouchListener)
         middleView.setOnTouchListener(moveTouchListener)
-        val leftView = resourceHolder.getLayoutChildViewByTag<View>(freeformLayout, "leftView")
+        val minimizeView = resourceHolder.getLayoutChildViewByTag<View>(freeformLayout, "minimizeView")
         val leftScaleView = resourceHolder.getLayoutChildViewByTag<View>(freeformLayout, "leftScaleView")
         val rightScaleView = resourceHolder.getLayoutChildViewByTag<View>(freeformLayout, "rightScaleView")
-        if (null == leftView || null == leftScaleView || null == rightScaleView) {
+        if (null == minimizeView || null == leftScaleView || null == rightScaleView) {
             Slog.e(TAG, "left&leftScale&rightScale view is null")
             destroy("addFreeformView:left&leftScale&rightScale view is null")
             return false
         }
-        leftView.setOnClickListener(LeftViewClickListener(this))
-        leftView.setOnLongClickListener(LeftViewLongClickListener(this))
+        minimizeView.setOnClickListener(LeftViewClickListener(this))
+        minimizeView.setOnLongClickListener(LeftViewLongClickListener(this))
         leftScaleView.setOnTouchListener(ScaleTouchListener(this, false))
         rightScaleView.setOnTouchListener(ScaleTouchListener(this))
 
