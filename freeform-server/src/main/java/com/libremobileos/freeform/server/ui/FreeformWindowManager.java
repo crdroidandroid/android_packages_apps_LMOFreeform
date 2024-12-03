@@ -25,12 +25,6 @@ public class FreeformWindowManager {
         dlog(TAG, "addWindow: " + packageName + "/" + activityName + ", freeformId=" + window.getFreeformId()
                 + ", existing freeformWindows=" + freeformWindows);
 
-        // if freeform exist, remove old
-        freeformWindows.forEach((ignored, oldWindow) -> {
-            oldWindow.close();
-        });
-        freeformWindows.clear();
-
         freeformWindows.put(window.getFreeformId(), window);
     }
 
