@@ -7,48 +7,77 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/topBarView"
+            android:tag="topBarView"
             android:layout_width="0dp"
             android:layout_height="@dimen/top_bar_height"
             android:background="@drawable/color_background"
-            android:gravity="center"
-            android:tag="topBarView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
-            <View
-                android:id="@+id/arrowBack"
-                android:layout_width="16dp"
+            <ImageView
+                android:id="@+id/appIcon"
+                android:layout_width="24dp"
                 android:layout_height="16dp"
                 android:layout_marginStart="6dp"
-                android:background="@drawable/ic_arrow_back"
-                android:tag="arrowBack"
+                android:tag="appIcon"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
-
+            <TextView
+                android:id="@+id/packageName"
+                android:tag="packageName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="6dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="11sp"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintStart_toEndOf="@id/appIcon"
+                app:layout_constraintEnd_toStartOf="@id/pinView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
             <View
-                android:layout_width="48dp"
-                android:layout_height="2dp"
-                android:background="@drawable/bar_corners_bg"
+                android:id="@+id/spacer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:tag="spacer"
-                app:layout_constraintStart_toEndOf="@id/arrowBack"
+                app:layout_constraintStart_toEndOf="@id/packageName"
+                app:layout_constraintEnd_toStartOf="@id/pinView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+            <ImageView
+                android:id="@+id/pinView"
+                android:layout_width="24dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="6dp"
+                android:tag="pinView"
+                android:src="@drawable/ic_pin"
+                app:layout_constraintEnd_toStartOf="@id/maximizeView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+            <ImageView
+                android:id="@+id/maximizeView"
+                android:layout_width="24dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="6dp"
+                android:tag="maximizeView"
+                android:src="@drawable/ic_maximize"
                 app:layout_constraintEnd_toStartOf="@id/minimizeView"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
-
-            <View
+            <ImageView
                 android:id="@+id/minimizeView"
                 android:layout_width="24dp"
                 android:layout_height="16dp"
-                android:background="@drawable/ic_minimize"
-                android:tag="minimizeView"
                 android:layout_marginEnd="6dp"
+                android:tag="minimizeView"
+                android:src="@drawable/ic_minimize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
@@ -94,22 +123,21 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/middleView"
+                android:id="@+id/arrowBack"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:tag="middleView"
+                android:tag="arrowBack"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline3"
                 app:layout_constraintStart_toStartOf="@+id/guideline2"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <View
-                    android:layout_width="48dp"
-                    android:layout_height="2dp"
-                    android:background="@drawable/bar_corners_bg"
-                    android:tag="middleViewBar" />
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/ic_arrow_back" />
             </LinearLayout>
 
             <LinearLayout
