@@ -37,7 +37,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textSize="11sp"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/color_text"
                 app:layout_constraintStart_toEndOf="@id/appIcon"
                 app:layout_constraintEnd_toStartOf="@id/pinView"
                 app:layout_constraintTop_toTopOf="parent"

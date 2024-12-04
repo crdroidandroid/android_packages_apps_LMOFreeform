@@ -9,5 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="google_grey_900">#202124</color>
     <color name="color_text">@color/black</color>
-    <color name="color_surface">@color/white</color>
+    <color name="color_surface">@*android:color/system_neutral1_50</color>
 </resources>
