@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="16dp">
+    app:cardCornerRadius="16dp"
+    app:cardBackgroundColor="@color/color_surface">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -92,6 +93,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topBarView" />
+
+        <FrameLayout
+            android:id="@+id/veilView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="veilView"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topBarView" >
+            <ImageView
+                android:id="@+id/veilAppIcon"
+                android:tag="veilAppIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_centerInParent="true"/>
+        </FrameLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bottomBar"
