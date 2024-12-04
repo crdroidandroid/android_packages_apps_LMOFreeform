@@ -2,6 +2,7 @@ package com.libremobileos.freeform.server.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.graphics.PixelFormat
 import android.graphics.SurfaceTexture
 import android.os.Build
@@ -17,6 +18,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.TextView
 import com.android.server.LocalServices
 import com.android.server.wm.WindowManagerInternal
 import com.libremobileos.freeform.ILMOFreeformDisplayCallback
@@ -52,6 +55,9 @@ class FreeformWindow(
     private val hangUpGestureListener = HangUpGestureListener(this)
     private val defaultDisplayInfo = DisplayInfo()
     private val destroyRunnable = Runnable { destroy("destroyRunnable") }
+    
+    private lateinit var appPackageName: String
+    private var appIcon: Drawable? = null
 
     companion object {
         private const val TAG = "LMOFreeform/FreeformWindow"
@@ -63,6 +69,7 @@ class FreeformWindow(
     init {
         if (LMOFreeformServiceHolder.ping()) {
             Slog.i(TAG, "FreeformWindow init")
+            extractPackageInfo()
             populateFreeformConfig()
             handler.post { if (!addFreeformView()) destroy("init:addFreeform failed") }
         } else {
@@ -139,7 +146,6 @@ class FreeformWindow(
                 return@post
             }
             arrowBack.setOnClickListener(RightViewClickListener(displayId))
-            arrowBack.setOnLongClickListener(RightViewLongClickListener(this))
         }
     }
 
@@ -236,20 +242,27 @@ class FreeformWindow(
         freeformRootView = resourceHolder.getLayoutChildViewByTag<FrameLayout>(freeformLayout, "freeform_root") ?: return false
         topBarView = resourceHolder.getLayoutChildViewByTag(freeformLayout, "topBarView") ?: return false
         bottomBarView = resourceHolder.getLayoutChildViewByTag(freeformLayout, "bottomBarView") ?: return false
-        val middleView = resourceHolder.getLayoutChildViewByTag<View>(freeformLayout, "middleView") ?: return false
         val moveTouchListener = MoveTouchListener(this)
         topBarView.setOnTouchListener(moveTouchListener)
-        middleView.setOnTouchListener(moveTouchListener)
+        bottomBarView.setOnTouchListener(moveTouchListener)
+        val appIconView = resourceHolder.getLayoutChildViewByTag<ImageView>(freeformLayout, "appIcon")
+        val packageNameView = resourceHolder.getLayoutChildViewByTag<TextView>(freeformLayout, "packageName")
+        val maximizeView = resourceHolder.getLayoutChildViewByTag<View>(freeformLayout, "maximizeView")
         val minimizeView = resourceHolder.getLayoutChildViewByTag<View>(freeformLayout, "minimizeView")
+        val pinView = resourceHolder.getLayoutChildViewByTag<View>(freeformLayout, "pinView")
         val leftScaleView = resourceHolder.getLayoutChildViewByTag<View>(freeformLayout, "leftScaleView")
         val rightScaleView = resourceHolder.getLayoutChildViewByTag<View>(freeformLayout, "rightScaleView")
-        if (null == minimizeView || null == leftScaleView || null == rightScaleView) {
+        if (null == minimizeView || null == leftScaleView || null == rightScaleView 
+                || null == maximizeView || null == pinView || null == appIconView || null == packageNameView) {
             Slog.e(TAG, "left&leftScale&rightScale view is null")
             destroy("addFreeformView:left&leftScale&rightScale view is null")
             return false
         }
+        appIconView.setImageDrawable(appIcon)
+        packageNameView.text = appPackageName
         minimizeView.setOnClickListener(LeftViewClickListener(this))
-        minimizeView.setOnLongClickListener(LeftViewLongClickListener(this))
+        maximizeView.setOnClickListener(MaximizeClickListener(this))
+        pinView.setOnClickListener(PinClickListener(this))
         leftScaleView.setOnTouchListener(ScaleTouchListener(this, false))
         rightScaleView.setOnTouchListener(ScaleTouchListener(this))
 
@@ -408,5 +421,18 @@ class FreeformWindow(
         LMOFreeformServiceHolder.releaseFreeform(this)
         FreeformWindowManager.removeWindow(getFreeformId())
         windowManagerInt.unregisterDisplaySecureContentListener(this)
+    }
+    
+    private fun extractPackageInfo() {
+        try {
+            val pm = context.packageManager
+            val ai = pm.getApplicationInfo(appConfig.packageName, 0)
+            appPackageName = pm.getApplicationLabel(ai).toString()
+            appIcon = pm.getApplicationIcon(ai)
+        } catch (e: Exception) {
+            Slog.e(TAG, "Failed to retrieve app info: ${e.message}")
+            appPackageName = ""
+            appIcon = null
+        }
     }
 }
