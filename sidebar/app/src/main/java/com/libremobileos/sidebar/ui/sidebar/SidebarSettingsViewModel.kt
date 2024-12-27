@@ -16,6 +16,7 @@ import com.libremobileos.sidebar.room.DatabaseRepository
 import com.libremobileos.sidebar.service.SidebarService
 import com.libremobileos.sidebar.utils.Logger
 import com.libremobileos.sidebar.utils.contains
+import com.libremobileos.sidebar.utils.isResizeableActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -72,17 +73,22 @@ class SidebarSettingsViewModel(private val application: Application) : AndroidVi
             userManager.userProfiles.forEach { userHandle ->
                 val list = launcherApps.getActivityList(null, userHandle)
                 list.forEach { info ->
-                    val userId = userHandle.identifier
-                    allAppList.add(
-                        SidebarAppInfo(
-                            "${info.label}${if (userId != 0) -userId else ""}",
-                            info.applicationInfo.loadIcon(application.packageManager),
-                            info.componentName.packageName,
-                            info.componentName.className,
-                            userId,
-                            sidebarAppList?.contains(info.componentName.packageName, info.componentName.className, userId) ?: false
+                    val component = info.componentName
+                    if (!application.isResizeableActivity(component)) {
+                        logger.d("activity not resizeable, skipped $component")
+                    } else {
+                        val userId = userHandle.identifier
+                        allAppList.add(
+                            SidebarAppInfo(
+                                "${info.label}${if (userId != 0) -userId else ""}",
+                                info.applicationInfo.loadIcon(application.packageManager),
+                                component.packageName,
+                                component.className,
+                                userId,
+                                sidebarAppList?.contains(info.componentName.packageName, info.componentName.className, userId) ?: false
+                            )
                         )
-                    )
+                    }
                 }
             }
             Collections.sort(allAppList, appComparator)

@@ -25,7 +25,7 @@ import java.util.logging.FileHandler
 import java.util.logging.Logger
 import java.util.logging.SimpleFormatter
 
-private const val MAIN_TAG = "LMOFreeformSidebar"
+const val MAIN_TAG = "LMOFreeformSidebar"
 
 class Logger {
     private val TAG: String

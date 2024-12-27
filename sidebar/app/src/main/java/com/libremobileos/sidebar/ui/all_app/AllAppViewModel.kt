@@ -14,6 +14,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.libremobileos.sidebar.bean.AppInfo
 import com.libremobileos.sidebar.utils.Logger
 import com.libremobileos.sidebar.utils.getInfo
+import com.libremobileos.sidebar.utils.isResizeableActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -58,6 +59,10 @@ class AllAppViewModel(private val application: Application): AndroidViewModel(ap
                 val launchIntent = application.packageManager.getLaunchIntentForPackage(packageName)
                 val userId = user.identifier
                 if (launchIntent != null && launchIntent.component != null) {
+                    if (!application.isResizeableActivity(launchIntent.component!!)) {
+                        logger.d("onPackageAdded: activity not resizeable, skipped ${launchIntent.component}")
+                        return
+                    }
                     viewModelScope.launch(Dispatchers.IO) {
                         allAppList.add(
                             AppInfo(
@@ -73,6 +78,7 @@ class AllAppViewModel(private val application: Application): AndroidViewModel(ap
                     }
                 }
             }
+                .onFailure { logger.e("onPackageAdded: error in $packageName", it) }
         }
 
         override fun onPackageChanged(packageName: String, user: UserHandle) {
@@ -116,16 +122,21 @@ class AllAppViewModel(private val application: Application): AndroidViewModel(ap
             userManager.userProfiles.forEach { userHandle ->
                 val list = launcherApps.getActivityList(null, userHandle)
                 list.forEach { info ->
-                    val userId = userHandle.identifier
-                    allAppList.add(
-                        AppInfo(
-                            "${info.label}${if (userId != 0) -userId else ""}",
-                            info.applicationInfo.loadIcon(application.packageManager),
-                            info.componentName.packageName,
-                            info.componentName.className,
-                            userId
+                    val component = info.componentName
+                    if (!application.isResizeableActivity(component)) {
+                        logger.d("activity not resizeable, skipped $component")
+                    } else {
+                        val userId = userHandle.identifier
+                        allAppList.add(
+                            AppInfo(
+                                "${info.label}${if (userId != 0) -userId else ""}",
+                                info.applicationInfo.loadIcon(application.packageManager),
+                                component.packageName,
+                                component.className,
+                                userId
+                            )
                         )
-                    )
+                    }
                 }
             }
             Collections.sort(allAppList, appComparator)
