@@ -21,6 +21,7 @@ import com.libremobileos.sidebar.room.DatabaseRepository
 import com.libremobileos.sidebar.utils.Logger
 import com.libremobileos.sidebar.utils.contains
 import com.libremobileos.sidebar.utils.getInfo
+import com.libremobileos.sidebar.utils.isResizeableActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelChildren
@@ -106,14 +107,20 @@ class ServiceViewModel(private val application: Application): AndroidViewModel(a
                     runCatching {
                         val info = application.packageManager.getApplicationInfo(target.packageName, PackageManager.GET_ACTIVITIES)
                         val launchIntent = application.packageManager.getLaunchIntentForPackage(target.packageName)
+                        val component = launchIntent!!.component!!
                         val userId = target.user.identifier
-                        AppInfo(
-                            info.loadLabel(application.packageManager).toString(),
-                            info.loadIcon(application.packageManager),
-                            info.packageName,
-                            launchIntent!!.component!!.className,
-                            userId
-                        )
+                        if (!application.isResizeableActivity(component)) {
+                            logger.d("appPredictionCallback: activity is not resizeable, skipped $target")
+                            null
+                        } else {
+                            AppInfo(
+                                info.loadLabel(application.packageManager).toString(),
+                                info.loadIcon(application.packageManager),
+                                info.packageName,
+                                component.className,
+                                userId
+                            )
+                        }
                     }.onFailure { e ->
                         logger.e("failed to add $target: ", e)
                     }.getOrNull()
@@ -178,6 +185,9 @@ class ServiceViewModel(private val application: Application): AndroidViewModel(a
                         logger.d("sidebarApps=$sidebarApps predictedApps=$predictedApps")
                         sidebarApps?.forEach { entity ->
                             runCatching {
+                                if (!application.isResizeableActivity(entity.packageName, entity.activityName)) {
+                                    throw Exception("activity is not resizeable")
+                                }
                                 val info = application.packageManager.getApplicationInfo(entity.packageName, PackageManager.GET_ACTIVITIES)
                                 if (!info.enabled) {
                                     throw Exception("package is disabled.")
@@ -192,7 +202,7 @@ class ServiceViewModel(private val application: Application): AndroidViewModel(a
                                     )
                                 )
                             }.onFailure { e ->
-                                logger.e("initSidebarAppList: failed to add $entity: ", e)
+                                logger.w("initSidebarAppList: removing $entity: ", e)
                                 repository.deleteSidebarApp(entity.packageName, entity.activityName, entity.userId)
                             }
                         }
