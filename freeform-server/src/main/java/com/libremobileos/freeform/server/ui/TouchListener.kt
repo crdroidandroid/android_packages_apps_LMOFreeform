@@ -97,8 +97,14 @@ class ScaleTouchListener(private val window: FreeformWindow, private val isRight
             }
             MotionEvent.ACTION_MOVE -> {
                 window.freeformRootView.layoutParams = window.freeformRootView.layoutParams.apply {
-                    width = max(25, (window.freeformRootView.width + if (isRight) (event.rawX - startX) else (startX - event.rawX)).roundToInt())
-                    height = max(25, (window.freeformRootView.height + event.rawY - startY).roundToInt())
+                    val xDelta = if (isRight) (event.rawX - startX) else (startX - event.rawX)
+                    val yDelta = event.rawY - startY
+                    width = max(25, (window.freeformRootView.width + xDelta).roundToInt())
+                    height = max(25, (window.freeformRootView.height + yDelta).roundToInt())
+                    if (width > height) {
+                        if (xDelta < 0) width = height
+                        else height = width
+                    }
                 }
                 startX = event.rawX
                 startY = event.rawY
