@@ -11,6 +11,7 @@ import android.util.Slog
 import android.view.Display
 import android.view.DisplayInfo
 import android.view.GestureDetector
+import android.view.IRotationWatcher
 import android.view.MotionEvent
 import android.view.Surface
 import android.view.TextureView
@@ -52,13 +53,39 @@ class FreeformWindow(
     private var displayId = Display.INVALID_DISPLAY
     var defaultDisplayWidth = context.resources.displayMetrics.widthPixels
     var defaultDisplayHeight = context.resources.displayMetrics.heightPixels
-    private val rotationWatcher = RotationWatcher(this)
+    var defaultDisplayRotation = context.display.rotation
     private val hangUpGestureListener = HangUpGestureListener(this)
     private val defaultDisplayInfo = DisplayInfo()
     private val destroyRunnable = Runnable { destroy("destroyRunnable") }
     
     private lateinit var appPackageName: String
     private var appIcon: Drawable? = null
+
+    private val rotationWatcher = object : IRotationWatcher.Stub() {
+        override fun onRotationChanged(rotation: Int) {
+            dlog(TAG, "onRotationChanged($rotation)")
+            defaultDisplayWidth = context.resources.displayMetrics.widthPixels
+            defaultDisplayHeight = context.resources.displayMetrics.heightPixels
+            defaultDisplayRotation = context.display.rotation
+            measureSize()
+            handler.post {
+                changeOrientation()
+                if (freeformConfig.isHangUp) toHangUp()
+                else makeSureFreeformInScreen()
+            }
+            measureScale()
+            LMOFreeformServiceHolder.resizeFreeform(
+                this@FreeformWindow,
+                freeformConfig.freeformWidth,
+                freeformConfig.freeformHeight,
+                freeformConfig.densityDpi
+            )
+            freeformView?.surfaceTexture?.setDefaultBufferSize(
+                freeformConfig.freeformWidth,
+                freeformConfig.freeformHeight
+            )
+        }
+    }
 
     companion object {
         private const val TAG = "LMOFreeform/FreeformWindow"
@@ -217,19 +244,40 @@ class FreeformWindow(
      * get freeform screen dimen / freeform view dimen
      */
     private fun populateFreeformConfig() {
+        measureSize()
         measureScale()
         context.display.getDisplayInfo(defaultDisplayInfo)
-        freeformConfig.refreshRate = defaultDisplayInfo.refreshRate
-        freeformConfig.presentationDeadlineNanos = defaultDisplayInfo.presentationDeadlineNanos
-        dlog(TAG, "populateFreeformConfig: $freeformConfig")
+        freeformConfig.apply {
+            refreshRate = defaultDisplayInfo.refreshRate
+            presentationDeadlineNanos = defaultDisplayInfo.presentationDeadlineNanos
+            dlog(TAG, "populateFreeformConfig: $this")
+        }
+    }
+
+    fun measureSize() {
+        val isPortrait = defaultDisplayRotation == Surface.ROTATION_0 ||
+                defaultDisplayRotation == Surface.ROTATION_180
+        freeformConfig.apply {
+            height = (defaultDisplayHeight * (if (isPortrait) 0.5 else 0.6)).roundToInt()
+            width = if (isPortrait) {
+                (defaultDisplayWidth * 0.75).roundToInt()
+            } else {
+                // preserving the aspect ratio
+                defaultDisplayHeight * defaultDisplayHeight / defaultDisplayWidth
+            }
+            dlog(TAG, "measureSize: isPortrait=$isPortrait width=$width height=$height")
+        }
     }
 
     fun measureScale() {
-        val widthScale = min(defaultDisplayWidth, defaultDisplayHeight) * 1.0f / min(freeformConfig.width, freeformConfig.height)
-        val heightScale = max(defaultDisplayWidth, defaultDisplayHeight) * 1.0f / max(freeformConfig.width, freeformConfig.height)
-        freeformConfig.scale = min(widthScale, heightScale)
-        freeformConfig.freeformWidth = (freeformConfig.width * freeformConfig.scale).roundToInt()
-        freeformConfig.freeformHeight = (freeformConfig.height * freeformConfig.scale).roundToInt()
+        freeformConfig.apply {
+            val widthScale = min(defaultDisplayWidth, defaultDisplayHeight) * 1.0f / min(width, height)
+            val heightScale = max(defaultDisplayWidth, defaultDisplayHeight) * 1.0f / max(width, height)
+            scale = min(widthScale, heightScale)
+            freeformWidth = (width * scale).roundToInt()
+            freeformHeight = (height * scale).roundToInt()
+            dlog(TAG, "measureScale: $scale freeformWidth=$freeformWidth freeformHeight=$freeformHeight")
+        }
     }
 
     /**
@@ -292,9 +340,9 @@ class FreeformWindow(
             format = PixelFormat.RGBA_8888
             windowAnimations = android.R.style.Animation_Dialog
         }
-        SystemServiceHolder.windowManager.watchRotation(rotationWatcher, Display.DEFAULT_DISPLAY)
         runCatching {
             windowManager.addView(freeformLayout, windowParams)
+            SystemServiceHolder.windowManager.watchRotation(rotationWatcher, Display.DEFAULT_DISPLAY)
             windowManagerInt.registerDisplaySecureContentListener(this)
         }.onFailure {
             Slog.e(TAG, "addView failed: $it")
