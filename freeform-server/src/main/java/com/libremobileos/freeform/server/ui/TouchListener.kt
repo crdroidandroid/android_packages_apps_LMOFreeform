@@ -148,16 +148,41 @@ class HangUpGestureListener(private val window: FreeformWindow) : SimpleOnGestur
         distanceX: Float,
         distanceY: Float
     ): Boolean {
-        if (e1 == null) return true
-        if (e2.rawX.isNaN() || e2.rawY.isNaN()) {
+        if (!isValidMotionEvent(e1) || !isValidMotionEvent(e2)) {
             return true
         }
-        window.handler.post {
-            window.windowManager.updateViewLayout(window.freeformLayout, window.windowParams.apply {
-                x = (startX + e2.rawX - e1.rawX).roundToInt()
-                y = (startY + e2.rawY - e1.rawY).roundToInt()
-            })
+
+        val e1RawX = e1?.rawX ?: 0f
+        val e1RawY = e1?.rawY ?: 0f
+
+        if (!isValidCoordinate(e1RawX) || !isValidCoordinate(e1RawY) 
+                || !isValidCoordinate(e2.rawX) || !isValidCoordinate(e2.rawY)) {
+            return true
         }
+        
+        val newX = (startX + e2.rawX - e1RawX).roundToInt()
+        val newY = (startY + e2.rawY - e1RawY).roundToInt()
+
+        try {
+            window.handler.post {
+                window.windowManager.updateViewLayout(window.freeformLayout, window.windowParams.apply {
+                    x = newX
+                    y = newY
+                })
+            }
+        } catch (e: Exception) {}
         return true
+    }
+
+    fun isValidMotionEvent(event: MotionEvent?): Boolean {
+        return event != null &&
+                !event.rawX.isNaN() &&
+                !event.rawY.isNaN() &&
+                event.rawX.isFinite() &&
+                event.rawY.isFinite()
+    }
+    
+    fun isValidCoordinate(coordinate: Float): Boolean {
+        return !coordinate.isNaN() && coordinate.isFinite()
     }
 }
