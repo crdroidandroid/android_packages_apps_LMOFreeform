@@ -258,9 +258,9 @@ class FreeformWindow(
         val isPortrait = defaultDisplayRotation == Surface.ROTATION_0 ||
                 defaultDisplayRotation == Surface.ROTATION_180
         freeformConfig.apply {
-            height = (defaultDisplayHeight * (if (isPortrait) 0.5 else 0.6)).roundToInt()
+            height = (defaultDisplayHeight * (if (isPortrait) 0.4 else 0.7)).roundToInt()
             width = if (isPortrait) {
-                (defaultDisplayWidth * 0.75).roundToInt()
+                (defaultDisplayWidth * 0.7).roundToInt()
             } else {
                 // preserving the aspect ratio
                 defaultDisplayHeight * defaultDisplayHeight / defaultDisplayWidth
