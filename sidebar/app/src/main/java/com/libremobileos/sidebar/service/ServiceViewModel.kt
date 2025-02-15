@@ -86,9 +86,15 @@ class ServiceViewModel(private val application: Application): AndroidViewModel(a
 
         override fun onPackageChanged(packageName: String, user: UserHandle) {
             logger.d("onPackageChanged: $packageName")
-            val appInfo = application.packageManager.getApplicationInfo(packageName, 0)
-            if (!appInfo.enabled) {
+            try {
+                val appInfo = application.packageManager.getApplicationInfo(packageName, 0)
+                if (!appInfo.enabled) {
+                    onPackageRemoved(packageName, user)
+                }
+            } catch (e: PackageManager.NameNotFoundException) {
                 onPackageRemoved(packageName, user)
+            } catch (e: Exception) {
+                logger.e("Error checking package status", e)
             }
         }
 
