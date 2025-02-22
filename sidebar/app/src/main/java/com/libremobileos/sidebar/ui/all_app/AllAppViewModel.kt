@@ -1,7 +1,12 @@
 package com.libremobileos.sidebar.ui.all_app
 
 import android.app.Application
+import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.Intent
+import android.content.Intent.ACTION_PROFILE_AVAILABLE
+import android.content.Intent.ACTION_PROFILE_UNAVAILABLE
+import android.content.IntentFilter
 import android.content.pm.LauncherApps
 import android.content.pm.PackageManager
 import android.os.UserHandle
@@ -13,8 +18,11 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.libremobileos.sidebar.bean.AppInfo
 import com.libremobileos.sidebar.utils.Logger
+import com.libremobileos.sidebar.utils.getBadgedIcon
+import com.libremobileos.sidebar.utils.getSidebarFilteredUsers
 import com.libremobileos.sidebar.utils.getInfo
 import com.libremobileos.sidebar.utils.isResizeableActivity
+import com.libremobileos.sidebar.utils.isSidebarUserAllowed
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -36,8 +44,17 @@ class AllAppViewModel(private val application: Application): AndroidViewModel(ap
     private val _appList = MutableStateFlow<List<AppInfo>>(emptyList())
     private val appComparator = AppComparator()
 
+    private val appContext = application.applicationContext
     private val userManager = application.getSystemService(Context.USER_SERVICE) as UserManager
     private val launcherApps = application.getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
+
+    private val userProfileReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            logger.d("userProfileReceiver received ${intent.action}")
+            allAppList.clear()
+            initAllAppList()
+        }
+    }
 
     private val launcherAppsCallback = object : LauncherApps.Callback() {
         override fun onPackageRemoved(packageName: String, user: UserHandle) {
@@ -58,6 +75,10 @@ class AllAppViewModel(private val application: Application): AndroidViewModel(ap
                 val info = application.packageManager.getApplicationInfo(packageName, PackageManager.GET_ACTIVITIES)
                 val launchIntent = application.packageManager.getLaunchIntentForPackage(packageName)
                 val userId = user.identifier
+                if (!userManager.isSidebarUserAllowed(userId)) {
+                    logger.d("onPackageAdded: $packageName userId=$userId not allowed")
+                    return
+                }
                 if (launchIntent != null && launchIntent.component != null) {
                     if (!application.isResizeableActivity(launchIntent.component!!)) {
                         logger.d("onPackageAdded: activity not resizeable, skipped ${launchIntent.component}")
@@ -66,8 +87,8 @@ class AllAppViewModel(private val application: Application): AndroidViewModel(ap
                     viewModelScope.launch(Dispatchers.IO) {
                         allAppList.add(
                             AppInfo(
-                                "${info.loadLabel(application.packageManager)}${if (userId != 0) -userId else ""}",
-                                info.loadIcon(application.packageManager),
+                                info.loadLabel(application.packageManager).toString(),
+                                application.getBadgedIcon(info, user),
                                 info.packageName,
                                 launchIntent.component!!.className,
                                 userId
@@ -110,30 +131,40 @@ class AllAppViewModel(private val application: Application): AndroidViewModel(ap
         logger.d("init")
         initAllAppList()
         launcherApps.registerCallback(launcherAppsCallback)
+        appContext.registerReceiverAsUser(
+            userProfileReceiver,
+            UserHandle.CURRENT,
+            IntentFilter().apply {
+                addAction(ACTION_PROFILE_AVAILABLE)
+                addAction(ACTION_PROFILE_UNAVAILABLE)
+            },
+            null,
+            null
+        )
     }
 
     override fun onCleared() {
         logger.d("onCleared")
         launcherApps.unregisterCallback(launcherAppsCallback)
+        appContext.unregisterReceiver(userProfileReceiver)
     }
 
     private fun initAllAppList() {
         viewModelScope.launch(Dispatchers.IO) {
-            userManager.userProfiles.forEach { userHandle ->
-                val list = launcherApps.getActivityList(null, userHandle)
+            userManager.getSidebarFilteredUsers().forEach { userInfo ->
+                val list = launcherApps.getActivityList(null, userInfo.userHandle)
                 list.forEach { info ->
                     val component = info.componentName
                     if (!application.isResizeableActivity(component)) {
                         logger.d("activity not resizeable, skipped $component")
                     } else {
-                        val userId = userHandle.identifier
                         allAppList.add(
                             AppInfo(
-                                "${info.label}${if (userId != 0) -userId else ""}",
-                                info.applicationInfo.loadIcon(application.packageManager),
+                                info.label.toString(),
+                                info.getBadgedIcon(0),
                                 component.packageName,
                                 component.className,
-                                userId
+                                userInfo.userId
                             )
                         )
                     }
