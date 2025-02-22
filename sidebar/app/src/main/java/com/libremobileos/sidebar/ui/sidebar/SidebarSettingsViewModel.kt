@@ -1,7 +1,12 @@
 package com.libremobileos.sidebar.ui.sidebar
 
 import android.app.Application
+import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.Intent
+import android.content.Intent.ACTION_PROFILE_AVAILABLE
+import android.content.Intent.ACTION_PROFILE_UNAVAILABLE
+import android.content.IntentFilter
 import android.content.pm.LauncherApps
 import android.os.UserHandle
 import android.os.UserManager
@@ -16,6 +21,7 @@ import com.libremobileos.sidebar.room.DatabaseRepository
 import com.libremobileos.sidebar.service.SidebarService
 import com.libremobileos.sidebar.utils.Logger
 import com.libremobileos.sidebar.utils.contains
+import com.libremobileos.sidebar.utils.getSidebarFilteredUsers
 import com.libremobileos.sidebar.utils.isResizeableActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -38,17 +44,37 @@ class SidebarSettingsViewModel(private val application: Application) : AndroidVi
     private val _appList = MutableStateFlow<List<SidebarAppInfo>>(emptyList())
     private val appComparator = AppComparator()
 
+    private val appContext = application.applicationContext
     private val launcherApps = application.getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
     private val userManager = application.getSystemService(Context.USER_SERVICE) as UserManager
-    private val sp = application.applicationContext.getSharedPreferences(SidebarApplication.CONFIG, Context.MODE_PRIVATE)
+    private val sp = appContext.getSharedPreferences(SidebarApplication.CONFIG, Context.MODE_PRIVATE)
+
+    private val userProfileReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            logger.d("userProfileReceiver received ${intent.action}")
+            allAppList.clear()
+            initAllAppList()
+        }
+    }
 
     init {
         logger.d("init")
         initAllAppList()
+        appContext.registerReceiverAsUser(
+            userProfileReceiver,
+            UserHandle.CURRENT,
+            IntentFilter().apply {
+                addAction(ACTION_PROFILE_AVAILABLE)
+                addAction(ACTION_PROFILE_UNAVAILABLE)
+            },
+            null,
+            null
+        )
     }
 
     override fun onCleared() {
         logger.d("onCleared")
+        appContext.unregisterReceiver(userProfileReceiver)
     }
 
     fun getSidebarEnabled(): Boolean =
@@ -69,28 +95,34 @@ class SidebarSettingsViewModel(private val application: Application) : AndroidVi
 
     private fun initAllAppList() {
         viewModelScope.launch(Dispatchers.IO) {
-            val sidebarAppList = repository.getAllSidebarWithoutLiveData()
-            userManager.userProfiles.forEach { userHandle ->
-                val list = launcherApps.getActivityList(null, userHandle)
+            userManager.getSidebarFilteredUsers().forEach { userInfo ->
+                logger.d("initAllAppList for user $userInfo")
+                val list = launcherApps.getActivityList(null, userInfo.userHandle)
+                val sidebarAppList = repository.getAllSidebarWithoutLiveData()
+
                 list.forEach { info ->
                     val component = info.componentName
                     if (!application.isResizeableActivity(component)) {
                         logger.d("activity not resizeable, skipped $component")
                     } else {
-                        val userId = userHandle.identifier
                         allAppList.add(
                             SidebarAppInfo(
-                                "${info.label}${if (userId != 0) -userId else ""}",
-                                info.applicationInfo.loadIcon(application.packageManager),
+                                "${info.label}${userInfo.suffix}",
+                                info.getBadgedIcon(0),
                                 component.packageName,
                                 component.className,
-                                userId,
-                                sidebarAppList?.contains(info.componentName.packageName, info.componentName.className, userId) ?: false
+                                userInfo.userId,
+                                sidebarAppList?.contains(
+                                    info.componentName.packageName,
+                                    info.componentName.className,
+                                    userInfo.userId
+                                ) ?: false
                             )
                         )
                     }
                 }
             }
+
             Collections.sort(allAppList, appComparator)
             _appList.value = allAppList
             logger.d("emitted allAppList: $allAppList")
