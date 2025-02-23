@@ -83,29 +83,10 @@ class SidebarView(
     fun showView() {
         if (isShowing) return
 
-        val screenWidth = context.resources.displayMetrics.widthPixels
-        val screenHeight = context.resources.displayMetrics.heightPixels
-        val sidebarHeight = if (context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            screenHeight / 3
-        } else {
-            (screenHeight * 0.8f).roundToInt()
-        }
-
-        sidebarPositionX = sharedPrefs.getInt(SidebarService.SIDELINE_POSITION_X, 1)
-        sidebarPositionY = if (context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            sharedPrefs.getInt(SidebarService.SIDELINE_POSITION_Y_PORTRAIT, -screenHeight / 6)
-        } else {
-            0
-        }
-
         initComposeView()
 
         layoutParams.apply {
             type = LayoutParams.TYPE_APPLICATION_OVERLAY
-            width = LayoutParams.WRAP_CONTENT
-            height = sidebarHeight
-            x = sidebarPositionX * (screenWidth / 2 - OFFSET_X)
-            y = sidebarPositionY
             flags = LayoutParams.FLAG_LAYOUT_IN_SCREEN or
                     LayoutParams.FLAG_HARDWARE_ACCELERATED
             privateFlags = LayoutParams.PRIVATE_FLAG_TRUSTED_OVERLAY or
@@ -115,11 +96,8 @@ class SidebarView(
             layoutInDisplayCutoutMode = LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER
         }
 
-        logger.d("showView: posX=$sidebarPositionX posY=$sidebarPositionY lp.x=${layoutParams.x}" +
-                " lp.y=${layoutParams.y} height=$sidebarHeight")
-
+        updateSidebarPosition()
         composeView.translationX = sidebarPositionX * 1.0f * 200
-
         composeView.setOnTouchListener { view, event ->
             logger.d("composeView: $event")
             if (event.action == MotionEvent.ACTION_UP) {
@@ -153,6 +131,43 @@ class SidebarView(
                 isShowing = false
             }.onFailure {
                 logger.e("failed to remove sidebar view: $it")
+            }
+        }
+    }
+
+    fun updateSidebarPosition() {
+        val screenWidth = context.resources.displayMetrics.widthPixels
+        val screenHeight = context.resources.displayMetrics.heightPixels
+        val sidebarHeight = if (context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            screenHeight / 3
+        } else {
+            (screenHeight * 0.8f).roundToInt()
+        }
+
+        sidebarPositionX = sharedPrefs.getInt(SidebarService.SIDELINE_POSITION_X, 1)
+        sidebarPositionY = if (context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            sharedPrefs.getInt(SidebarService.SIDELINE_POSITION_Y_PORTRAIT, -screenHeight / 6)
+        } else {
+            0
+        }
+
+        layoutParams.apply {
+            width = LayoutParams.WRAP_CONTENT
+            height = sidebarHeight
+            x = sidebarPositionX * (screenWidth / 2 - OFFSET_X)
+            y = sidebarPositionY
+        }
+
+        logger.d("updateSidebarPosition: posX=$sidebarPositionX posY=$sidebarPositionY" +
+                " lp.x=${layoutParams.x} lp.y=${layoutParams.y} height=${layoutParams.height}")
+
+        if (isShowing) {
+            handler.post {
+                runCatching {
+                    windowManager.updateViewLayout(composeView, layoutParams)
+                }.onFailure { e ->
+                    logger.e("failed to updateViewLayout: ", e)
+                }
             }
         }
     }
