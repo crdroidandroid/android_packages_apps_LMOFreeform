@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.Intent.ACTION_PROFILE_AVAILABLE
 import android.content.Intent.ACTION_PROFILE_UNAVAILABLE
 import android.content.IntentFilter
+import android.content.SharedPreferences
 import android.content.pm.LauncherApps
 import android.os.UserHandle
 import android.os.UserManager
@@ -44,10 +45,11 @@ class SidebarSettingsViewModel(private val application: Application) : AndroidVi
     private val _appList = MutableStateFlow<List<SidebarAppInfo>>(emptyList())
     private val appComparator = AppComparator()
 
+    val isEnabled = UserHandle.myUserId() == 0
     private val appContext = application.applicationContext
-    private val launcherApps = application.getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
-    private val userManager = application.getSystemService(Context.USER_SERVICE) as UserManager
-    private val sp = appContext.getSharedPreferences(SidebarApplication.CONFIG, Context.MODE_PRIVATE)
+    private lateinit var launcherApps: LauncherApps
+    private lateinit var userManager: UserManager
+    private lateinit var sp: SharedPreferences
 
     private val userProfileReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
@@ -58,27 +60,34 @@ class SidebarSettingsViewModel(private val application: Application) : AndroidVi
     }
 
     init {
-        logger.d("init")
-        initAllAppList()
-        appContext.registerReceiverAsUser(
-            userProfileReceiver,
-            UserHandle.CURRENT,
-            IntentFilter().apply {
-                addAction(ACTION_PROFILE_AVAILABLE)
-                addAction(ACTION_PROFILE_UNAVAILABLE)
-            },
-            null,
-            null
-        )
+        if (isEnabled) {
+            logger.d("init")
+            launcherApps = application.getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
+            userManager = application.getSystemService(Context.USER_SERVICE) as UserManager
+            sp = appContext.getSharedPreferences(SidebarApplication.CONFIG, Context.MODE_PRIVATE)
+
+            initAllAppList()
+            appContext.registerReceiverAsUser(
+                userProfileReceiver,
+                UserHandle.CURRENT,
+                IntentFilter().apply {
+                    addAction(ACTION_PROFILE_AVAILABLE)
+                    addAction(ACTION_PROFILE_UNAVAILABLE)
+                },
+                null,
+                null
+            )
+        }
     }
 
     override fun onCleared() {
         logger.d("onCleared")
+        if (!isEnabled) return
         appContext.unregisterReceiver(userProfileReceiver)
     }
 
     fun getSidebarEnabled(): Boolean =
-        sp.getBoolean(SidebarService.SIDELINE, false)
+        isEnabled && sp.getBoolean(SidebarService.SIDELINE, false)
 
     fun setSidebarEnabled(enabled: Boolean) =
         sp.edit()
