@@ -1,14 +1,19 @@
 package com.libremobileos.sidebar.service
 
 import android.annotation.SuppressLint
+import android.app.IActivityManager
 import android.app.Service
+import android.app.UserSwitchObserver
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.graphics.PixelFormat
 import android.graphics.Rect
+import android.os.Handler
 import android.os.IBinder
+import android.os.ServiceManager
+import android.os.UserHandle
 import android.view.View
 import android.view.WindowManager
 import android.view.WindowManager.LayoutParams
@@ -24,8 +29,11 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
     private val logger = Logger(TAG)
     private lateinit var viewModel: ServiceViewModel
     private lateinit var windowManager: WindowManager
+    private lateinit var iActivityManager: IActivityManager
     private lateinit var sidebarView: SidebarView
     private lateinit var sharedPrefs: SharedPreferences
+    private var userId = 0
+    private var serviceStarted = false
     private var showSideline = false
     private var isShowingSidebar = false
     private var isShowingSideline = false
@@ -34,6 +42,7 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
     private var screenWidth = 0
     private var screenHeight = 0
     private val layoutParams = LayoutParams()
+    private val handler = Handler()
     private val sideLineView by lazy {
         val gestureManager = MGestureManager(this@SidebarService, GestureListener(this@SidebarService))
         View(this).apply {
@@ -41,6 +50,18 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
             setOnTouchListener { _, event ->
                 gestureManager.onTouchEvent(event)
                 true
+            }
+        }
+    }
+
+    private val userSwitchObserver = object : UserSwitchObserver() {
+        override fun onUserSwitchComplete(newUserId: Int) {
+            logger.d("onUserSwitchComplete($userId)")
+            if (!showSideline) return
+            if (newUserId != userId) {
+                removeView(force = true)
+            } else {
+                showView()
             }
         }
     }
@@ -73,13 +94,24 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        logger.d("starting service")
+        userId = UserHandle.myUserId()
+        if (userId != 0) {
+            logger.d("not starting for non-system user $userId")
+            stopSelf()
+            return START_STICKY // this is just to skip the rest of the code
+        }
+
+        logger.d("starting service for user $userId")
         viewModel = ServiceViewModel(application)
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        iActivityManager = IActivityManager.Stub.asInterface(ServiceManager.getService(Context.ACTIVITY_SERVICE))
         screenWidth = resources.displayMetrics.widthPixels
         screenHeight = resources.displayMetrics.heightPixels
         sharedPrefs = application.applicationContext.getSharedPreferences(SidebarApplication.CONFIG, Context.MODE_PRIVATE)
         sharedPrefs.registerOnSharedPreferenceChangeListener(this)
+        iActivityManager.registerUserSwitchObserver(userSwitchObserver, TAG)
+        serviceStarted = true
+
         sidebarView = SidebarView(this@SidebarService, viewModel, object : SidebarView.Callback {
             override fun onRemove() {
                 logger.d("sidebar view removed")
@@ -87,6 +119,7 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
                 isShowingSidebar = false
             }
         })
+        isShowingSidebar = false
         showSideline = sharedPrefs.getBoolean(SIDELINE, false)
         logger.d("screenWidth=$screenWidth screenHeight=$screenHeight showSideline=$showSideline")
         if (showSideline) showView()
@@ -105,7 +138,9 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
 
     override fun onDestroy() {
         super.onDestroy()
+        if (!serviceStarted) return
         sharedPrefs.unregisterOnSharedPreferenceChangeListener(this)
+        iActivityManager.unregisterUserSwitchObserver(userSwitchObserver)
         removeView(force = true)
         viewModel.destroy()
     }
@@ -214,12 +249,14 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
 
         updateSidelinePosition()
 
-        runCatching {
-            windowManager.addView(sideLineView, layoutParams)
-            viewModel.registerCallbacks()
-            isShowingSideline = true
-        }.onFailure { e ->
-            logger.e("failed to add sideline view: ", e)
+        handler.post {
+            runCatching {
+                windowManager.addView(sideLineView, layoutParams)
+                viewModel.registerCallbacks()
+                isShowingSideline = true
+            }.onFailure { e ->
+                logger.e("failed to add sideline view: ", e)
+            }
         }
     }
 
@@ -250,10 +287,12 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
     }
 
     private fun updateViewLayout() {
-        runCatching {
-            windowManager.updateViewLayout(sideLineView, layoutParams)
-        }.onFailure { e ->
-            logger.e("failed to updateViewLayout: ", e)
+        handler.post {
+            runCatching {
+                windowManager.updateViewLayout(sideLineView, layoutParams)
+            }.onFailure { e ->
+                logger.e("failed to updateViewLayout: ", e)
+            }
         }
     }
 
@@ -263,10 +302,12 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
         logger.d("removeView")
         viewModel.unregisterCallbacks()
 
-        runCatching {
-            windowManager.removeViewImmediate(sideLineView)
-        }.onFailure { e ->
-            logger.e("failed to remove sideline view: $e")
+        handler.post {
+            runCatching {
+                windowManager.removeViewImmediate(sideLineView)
+            }.onFailure { e ->
+                logger.e("failed to remove sideline view: $e")
+            }
         }
 
         sidebarView.removeView(force)

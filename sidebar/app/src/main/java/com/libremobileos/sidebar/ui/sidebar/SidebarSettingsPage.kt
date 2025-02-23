@@ -44,6 +44,7 @@ fun SidebarSettingsPage(
                 MainSwitchPreference(object : SwitchPreferenceModel {
                     override val title = stringResource(R.string.enable_sideline)
                     override val checked = { mainChecked.value }
+                    override val changeable = { viewModel.isEnabled }
                     override val onCheckedChange: (Boolean) -> Unit = {
                         mainChecked.value = it
                         viewModel.setSidebarEnabled(it)

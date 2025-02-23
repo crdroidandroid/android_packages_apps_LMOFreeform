@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.PixelFormat
+import android.os.Handler
 import android.os.UserHandle
 import android.view.MotionEvent
 import android.view.View
@@ -50,6 +51,7 @@ class SidebarView(
     private val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
     private val layoutParams = LayoutParams()
     private val logger = Logger(TAG)
+    private val handler = Handler()
 
     private val sharedPrefs by lazy {
         context.getSharedPreferences(SidebarApplication.CONFIG, Context.MODE_PRIVATE)
@@ -119,7 +121,7 @@ class SidebarView(
         composeView.translationX = sidebarPositionX * 1.0f * 200
 
         composeView.setOnTouchListener { view, event ->
-            logger.d("$view $event")
+            logger.d("composeView: $event")
             if (event.action == MotionEvent.ACTION_UP) {
                 removeView()
                 true
@@ -127,13 +129,15 @@ class SidebarView(
             false
         }
 
-        runCatching {
-            lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START)
-            windowManager.addView(composeView, layoutParams)
-            composeView.animate().translationX(0f).setDuration(300).start()
-            isShowing = true
-        }.onFailure {
-            logger.e("failed to add sidebar view: ", it)
+        handler.post {
+            runCatching {
+                lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START)
+                windowManager.addView(composeView, layoutParams)
+                composeView.animate().translationX(0f).setDuration(300).start()
+                isShowing = true
+            }.onFailure {
+                logger.e("failed to add sidebar view: ", it)
+            }
         }
     }
 
@@ -141,13 +145,15 @@ class SidebarView(
         if (!isShowing && !force) return
 
         logger.d("removeView")
-        runCatching {
-            lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-            windowManager.removeViewImmediate(composeView)
-            callback.onRemove()
-            isShowing = false
-        }.onFailure {
-            logger.e("failed to remove sidebar view: $it")
+        handler.post {
+            runCatching {
+                lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+                windowManager.removeViewImmediate(composeView)
+                callback.onRemove()
+                isShowing = false
+            }.onFailure {
+                logger.e("failed to remove sidebar view: $it")
+            }
         }
     }
 
