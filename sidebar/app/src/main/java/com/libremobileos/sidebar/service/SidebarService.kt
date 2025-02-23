@@ -127,12 +127,21 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
-        screenWidth = resources.displayMetrics.widthPixels
-        screenHeight = resources.displayMetrics.heightPixels
-        logger.d("onConfigChanged: screenWidth=$screenWidth height=$screenHeight isShowingSideline=$isShowingSideline")
-        if (isShowingSideline) {
+        val newWidth = resources.displayMetrics.widthPixels
+        val newHeight = resources.displayMetrics.heightPixels
+        if (newWidth == screenWidth && newHeight == screenHeight) {
+            return
+        }
+        screenWidth = newWidth
+        screenHeight = newHeight
+        logger.d("onConfigChanged: screenWidth=$screenWidth height=$screenHeight" +
+                " isShowingSideline=$isShowingSideline isShowingSidebar=$isShowingSidebar")
+
+        if (showSideline) {
             updateSidelinePosition()
-            updateViewLayout()
+        }
+        if (isShowingSidebar) {
+            sidebarView.updateSidebarPosition()
         }
     }
 
@@ -283,6 +292,10 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
                 flags = (flags and LayoutParams.FLAG_LAYOUT_NO_LIMITS.inv()) or
                     LayoutParams.FLAG_LAYOUT_IN_SCREEN
             }
+        }
+
+        if (isShowingSideline) {
+            updateViewLayout()
         }
     }
 
