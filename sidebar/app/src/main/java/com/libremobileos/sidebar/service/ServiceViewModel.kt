@@ -25,6 +25,7 @@ import com.libremobileos.sidebar.app.SidebarApplication
 import com.libremobileos.sidebar.bean.AppInfo
 import com.libremobileos.sidebar.room.DatabaseRepository
 import com.libremobileos.sidebar.room.SidebarAppsEntity
+import com.libremobileos.sidebar.ui.sidebar.SidebarSettingsActivity
 import com.libremobileos.sidebar.utils.Logger
 import com.libremobileos.sidebar.utils.contains
 import com.libremobileos.sidebar.utils.getBadgedIcon
@@ -207,6 +208,14 @@ class ServiceViewModel(private val application: Application): AndroidViewModel(a
     fun destroy() {
         logger.d("destroy")
         runCatching { viewModelScope.cancel() }
+    }
+
+    fun openSidebarSettings() {
+        appContext.startActivity(
+            Intent(appContext, SidebarSettingsActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+        )
     }
 
     private fun registerAppPredictionCallback() {

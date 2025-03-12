@@ -6,4 +6,5 @@
     <string name="sidebar_label">Sidebar</string>
     <string name="sidebar_summary">Quickly open apps in a floating window</string>
     <string name="sidebar_app_setting_label">Pinned apps</string>
+    <string name="sidebar_settings_description">Open sidebar settings</string>
 </resources>

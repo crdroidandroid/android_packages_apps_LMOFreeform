@@ -15,14 +15,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.android.settingslib.spa.framework.compose.rememberDrawablePainter
+import com.libremobileos.sidebar.R
 import com.libremobileos.sidebar.bean.AppInfo
 
 @Composable
 fun SidebarComposeView(
     viewModel: ServiceViewModel,
-    onClick: (AppInfo) -> Unit,
+    launchApp: (AppInfo) -> Unit,
+    closeSidebar: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val sidebarAppList by viewModel.sidebarAppListFlow.collectAsState()
@@ -44,7 +48,7 @@ fun SidebarComposeView(
                         .size(50.dp)
                         .padding(8.dp)
                         .clickable {
-                            onClick(viewModel.allAppActivity)
+                            launchApp(viewModel.allAppActivity)
                         }
                 )
             }
@@ -58,7 +62,20 @@ fun SidebarComposeView(
                         .size(50.dp)
                         .padding(8.dp)
                         .clickable {
-                            onClick(appInfo)
+                            launchApp(appInfo)
+                        }
+                )
+            }
+            item {
+                Icon(
+                    painter = painterResource(R.drawable.edit_24px),
+                    contentDescription = stringResource(R.string.sidebar_settings_description),
+                    modifier = Modifier
+                        .size(50.dp)
+                        .padding(10.dp)
+                        .clickable {
+                            viewModel.openSidebarSettings()
+                            closeSidebar()
                         }
                 )
             }

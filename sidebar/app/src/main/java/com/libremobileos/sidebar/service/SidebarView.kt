@@ -68,7 +68,7 @@ class SidebarView(
         savedStateRegistryController.performRestore(null)
     }
 
-    private fun onClick(appInfo: AppInfo) {
+    private fun launchAppInFreeform(appInfo: AppInfo) {
         val intent = Intent(ACTION).apply {
             setPackage(PACKAGE)
             putExtra("packageName", appInfo.packageName)
@@ -186,7 +186,8 @@ class SidebarView(
                 SidebarTheme {
                     SidebarComposeView(
                         viewModel = viewModel,
-                        onClick = { onClick(it) },
+                        launchApp = { launchAppInFreeform(it) },
+                        closeSidebar = { removeView() },
                         modifier = Modifier
                             .fillMaxHeight()
                             .wrapContentWidth()
