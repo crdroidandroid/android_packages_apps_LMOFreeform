@@ -83,6 +83,9 @@ class FreeformTaskStackListener(
         }
     }
 
+    override fun onRecentTaskRemovedForAddTask(taskId: Int) {
+    }
+
     override fun onTaskMovedToFront(taskInfo: ActivityManager.RunningTaskInfo?) {
         val displayId = taskInfo?.displayId ?: return
         if (this.displayId == displayId) {
