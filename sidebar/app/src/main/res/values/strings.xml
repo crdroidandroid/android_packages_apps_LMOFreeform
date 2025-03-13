@@ -7,4 +7,6 @@
     <string name="sidebar_summary">Quickly open apps in a floating window</string>
     <string name="sidebar_app_setting_label">Pinned apps</string>
     <string name="sidebar_settings_description">Open sidebar settings</string>
+    <string name="sidebar_predicted_apps">Show app suggestions</string>
+    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
 </resources>

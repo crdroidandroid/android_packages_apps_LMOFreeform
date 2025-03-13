@@ -51,6 +51,12 @@ fun SidebarSettingsPage(
                     }
                 })
                 if (mainChecked.value) {
+                    SidebarSettingSwitch(
+                        title = stringResource(R.string.sidebar_predicted_apps),
+                        summary = stringResource(R.string.sidebar_predicted_apps_summary),
+                        isChecked = viewModel.getPredictedAppsEnabled(),
+                        onCheckedChange = { viewModel.setPredictedAppsEnabled(it) }
+                    )
                     SidebarAppList(viewModel)
                 }
             }
@@ -102,6 +108,27 @@ fun SidebarAppListItem(
             override val checked = { appChecked.value }
             override val onCheckedChange: (Boolean) -> Unit = {
                 appChecked.value = it
+                onCheckedChange(it)
+            }
+        },
+    )
+}
+
+@Composable
+fun SidebarSettingSwitch(
+    title: String,
+    summary: String?,
+    isChecked: Boolean,
+    onCheckedChange: (Boolean) -> Unit
+) {
+    var myChecked = rememberSaveable { mutableStateOf(isChecked) }
+    SwitchPreference(
+        model = object : SwitchPreferenceModel {
+            override val title = title
+            override val summary = { summary ?: "" }
+            override val checked = { myChecked.value }
+            override val onCheckedChange: (Boolean) -> Unit = {
+                myChecked.value = it
                 onCheckedChange(it)
             }
         },
