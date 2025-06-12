@@ -5,7 +5,6 @@
         <permission name="android.permission.INTERACT_ACROSS_USERS"/>
         <permission name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
         <permission name="android.permission.ACCESS_HIDDEN_PROFILES"/>
-        <permission name="android.permission.ACCESS_HIDDEN_PROFILES_FULL"/>
         <permission name="android.permission.PACKAGE_USAGE_STATS"/>
         <permission name="android.permission.GET_TASKS"/>
     </privapp-permissions>
