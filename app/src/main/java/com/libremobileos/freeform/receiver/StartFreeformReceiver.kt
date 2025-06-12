@@ -5,6 +5,7 @@ import android.app.ActivityOptions
 import android.app.WindowConfiguration
 import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.ComponentName
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Point
@@ -42,9 +43,7 @@ class StartFreeformReceiver : BroadcastReceiver() {
                 "freeform_launch_mode",
                 0
             ) == 0
-            val isSideBarBroadcast = 
-                intent.getStringExtra("packageName").equals(PACKAGE_NAME)
-            if ((!ActivityManager.isHighEndGfx() || isNativeFreeformEnabled) && !isSideBarBroadcast) {
+            if (!ActivityManager.isHighEndGfx() || isNativeFreeformEnabled) {
                 launchAppInNativeFreeform(context, intent)
             } else {
                 launchAppInLMOFreeform(context, intent)
@@ -82,6 +81,7 @@ class StartFreeformReceiver : BroadcastReceiver() {
 
     private fun launchAppInNativeFreeform(context: Context, intent: Intent) {
         val packageName = intent.getStringExtra("packageName") ?: return
+        val activityName = intent.getStringExtra("activityName") ?: ""
 
         val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as? android.view.WindowManager
 
@@ -100,17 +100,25 @@ class StartFreeformReceiver : BroadcastReceiver() {
             setTaskAlwaysOnTop(true)
         }
 
-        val packageManager = context.packageManager
-        val startAppIntent = packageManager.getLaunchIntentForPackage(packageName)?.apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        val activityIntent = if (!activityName.isNullOrEmpty()) {
+            Intent().apply {
+                component = ComponentName(packageName, activityName)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+        } else {
+            context.packageManager.getLaunchIntentForPackage(packageName)?.apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
         }
 
         try {
-            startAppIntent?.let {
-                context.startActivity(it, activityOptions.toBundle())
+            if (activityIntent != null) {
+                context.startActivity(activityIntent, activityOptions.toBundle())
+            } else {
+                logger.e("Failed to create intent for package: $packageName")
             }
         } catch (e: Exception) {
-            logger.e("Error launching app in native freeform: $e")
+            logger.e("Error launching activity in native freeform: $e")
         }
     }
 }
