@@ -1,7 +1,10 @@
 package com.libremobileos.sidebar.service
 
+import android.graphics.drawable.AdaptiveIconDrawable
+import android.provider.Settings
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,7 +17,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.android.settingslib.spa.framework.compose.rememberDrawablePainter
 import com.libremobileos.sidebar.bean.AppInfo
@@ -26,6 +34,17 @@ fun SidebarComposeView(
     modifier: Modifier = Modifier
 ) {
     val sidebarAppList by viewModel.sidebarAppListFlow.collectAsState()
+    val context = LocalContext.current
+    val isDark = isSystemInDarkTheme()
+    val isThemedIconsEnabled by remember {
+        mutableStateOf(
+            Settings.System.getInt(
+                context.contentResolver,
+                "sidebar_themed_icons",
+                0
+            ) == 1
+        )
+    }
     Card(
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceContainer
@@ -49,10 +68,23 @@ fun SidebarComposeView(
                 )
             }
             items(sidebarAppList) { appInfo ->
+                val adaptiveIconDrawable = if (appInfo.icon is AdaptiveIconDrawable) {
+                    appInfo.icon as AdaptiveIconDrawable
+                } else null
                 Image(
                     painter = rememberDrawablePainter(
-                        drawable = appInfo.icon
+                        drawable = if (isThemedIconsEnabled &&
+                            adaptiveIconDrawable?.monochrome != null
+                        )
+                            adaptiveIconDrawable.monochrome
+                        else appInfo.icon
                     ),
+                    colorFilter = if (isThemedIconsEnabled &&
+                            adaptiveIconDrawable?.monochrome != null
+                        ) {
+                        if (isDark) ColorFilter.tint(Color.White)
+                        else ColorFilter.tint(Color.Black)
+                    } else null,
                     contentDescription = appInfo.label,
                     modifier = Modifier
                         .size(50.dp)
