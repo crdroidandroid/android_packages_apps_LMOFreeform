@@ -1,5 +1,6 @@
 package com.libremobileos.sidebar.ui.sidebar
 
+import android.provider.Settings
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -12,8 +13,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.rememberNavController
 import com.android.settingslib.spa.framework.compose.localNavController
@@ -33,6 +36,17 @@ fun SidebarSettingsPage(
 ) {
     val navController = rememberNavController()
     var mainChecked = rememberSaveable { mutableStateOf(viewModel.getSidebarEnabled()) }
+    val context = LocalContext.current
+    val themedIconsProp = "sidebar_themed_icons"
+    var isThemedIconsEnabled by remember {
+        mutableStateOf(
+            Settings.System.getInt(
+                context.contentResolver,
+                themedIconsProp,
+                0
+            ) == 1
+        )
+    }
 
     CompositionLocalProvider(navController.localNavController()) {
         SettingsScaffold(
@@ -48,8 +62,27 @@ fun SidebarSettingsPage(
                     override val onCheckedChange: (Boolean) -> Unit = {
                         mainChecked.value = it
                         viewModel.setSidebarEnabled(it)
+                        if(!it) {
+                            viewModel.deleteAllSidebarApps()
+                        }
                     }
                 })
+
+                SwitchPreference(
+                    model = object : SwitchPreferenceModel {
+                        override val title = stringResource(R.string.sidebar_themed_icons_label)
+                        override val checked = { isThemedIconsEnabled }
+                        override val onCheckedChange: (Boolean) -> Unit = {
+                            isThemedIconsEnabled = it
+                            Settings.System.putInt(
+                                context.contentResolver,
+                                themedIconsProp,
+                                if (it) 1 else 0
+                            )
+                        }
+                    },
+                )
+
                 if (mainChecked.value) {
                     SidebarAppList(viewModel)
                 }
