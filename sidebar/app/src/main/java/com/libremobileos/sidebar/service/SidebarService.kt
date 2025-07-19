@@ -77,10 +77,12 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
         private const val SIDELINE_WIDTH = 100
         //侧边条移动时的宽度
         private const val SIDELINE_MOVE_WIDTH = 200
-        private const val SIDELINE_HEIGHT = 200
-        //侧边条屏幕边缘偏移量
+        private const val DEFAULT_SIDELINE_HEIGHT = 200
         private const val OFFSET_PORTRAIT = 20
         private const val OFFSET_LANDSCAPE = 0
+
+        const val SLIDER_TRANSPARENCY = "slider_transparency"
+        const val SLIDER_LENGTH = "slider_length"
 
         //是否展示侧边条
         const val SIDELINE = "sideline"
@@ -164,6 +166,19 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
                     removeView(force = true)
                 }
             }
+            SLIDER_TRANSPARENCY -> {
+                if (isShowingSideline) {
+                    val transparency = sharedPrefs.getFloat(SLIDER_TRANSPARENCY, 1.0f)
+                    sideLineView.alpha = transparency
+                }
+            }
+            SLIDER_LENGTH, SIDELINE_POSITION_X -> {
+                if (isShowingSideline) {
+                    layoutParams.height = getSliderLength()
+                    updateSidelinePosition()
+                    updateViewLayout()
+                }
+            }
         }
     }
 
@@ -218,15 +233,18 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
         val sbHeight = SystemBarUtils.getStatusBarHeight(this)
         val navbarHeight = if (isPortrait) {
             resources.getDimensionPixelSize(com.android.internal.R.dimen.navigation_bar_height)
-        } else {
-            0
-        }
-        val newY = y.coerceIn(
-            -(screenHeight / 2 - sbHeight - SIDELINE_HEIGHT / 2),
-            screenHeight / 2 - navbarHeight - SIDELINE_HEIGHT / 2
-        )
+        } else 0
+
+        val half = getSliderLength() / 2
+        val minVal = -(screenHeight / 2 - sbHeight - half)
+        val maxVal = screenHeight / 2 - navbarHeight - half
+        val newY = y.coerceIn(minVal, maxVal)
         logger.d("constrainY: $y -> $newY")
         return newY
+    }
+
+    private fun getSliderLength(): Int {
+        return sharedPrefs.getInt(SLIDER_LENGTH, DEFAULT_SIDELINE_HEIGHT)
     }
 
     /**
@@ -241,7 +259,7 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
         layoutParams.apply {
             type = LayoutParams.TYPE_APPLICATION_OVERLAY
             width = SIDELINE_WIDTH
-            height = SIDELINE_HEIGHT
+            height = getSliderLength()
             flags = LayoutParams.FLAG_NOT_FOCUSABLE or
                     LayoutParams.FLAG_NOT_TOUCH_MODAL or
                     LayoutParams.FLAG_HARDWARE_ACCELERATED
@@ -252,8 +270,11 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
             windowAnimations = android.R.style.Animation_Dialog
         }
 
+        val transparency = sharedPrefs.getFloat(SLIDER_TRANSPARENCY, 1.0f)
+        sideLineView.alpha = transparency
+
         sideLineView.setSystemGestureExclusionRects(
-            listOf(Rect(0, 0, SIDELINE_WIDTH, SIDELINE_HEIGHT))
+            listOf(Rect(0, 0, SIDELINE_WIDTH, getSliderLength()))
         )
 
         updateSidelinePosition()
