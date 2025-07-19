@@ -262,8 +262,9 @@ class FreeformWindow(
             width = if (isPortrait) {
                 (defaultDisplayWidth * 0.7).roundToInt()
             } else {
-                // preserving the aspect ratio
-                defaultDisplayHeight * defaultDisplayHeight / defaultDisplayWidth
+                // Landscape: increase width by 1.6x while preserving aspect ratio base
+                val baseWidth = defaultDisplayHeight * defaultDisplayHeight / defaultDisplayWidth
+                (baseWidth * 1.6).roundToInt()
             }
             dlog(TAG, "measureSize: isPortrait=$isPortrait width=$width height=$height")
         }
@@ -340,6 +341,9 @@ class FreeformWindow(
             format = PixelFormat.RGBA_8888
             windowAnimations = android.R.style.Animation_Dialog
         }
+        // Set initial positioning based on sidebar position
+        setSidebarAwarePosition()
+        
         runCatching {
             windowManager.addView(freeformLayout, windowParams)
             SystemServiceHolder.windowManager.watchRotation(rotationWatcher, Display.DEFAULT_DISPLAY)
@@ -487,5 +491,31 @@ class FreeformWindow(
             appPackageName = ""
             appIcon = null
         }
+    }
+    
+    private fun setSidebarAwarePosition() {
+        val isLandscape = defaultDisplayWidth > defaultDisplayHeight
+        val windowWidth = freeformConfig.width
+        val margin = 80 // pixels from edge
+        
+        windowParams.apply {
+            if (isLandscape) {
+                // Landscape: position on left side of screen
+                x = -(defaultDisplayWidth / 2) + (windowWidth / 2) + margin
+                y = 0 // center vertically
+            } else {
+                // Portrait: center on screen
+                x = 0 // center horizontally
+                y = -(defaultDisplayHeight / 8) // slightly above center
+            }
+        }
+        
+        val mode = if (isLandscape) "landscape (left side)" else "portrait (center)"
+        dlog(TAG, "Orientation-aware positioning: $mode, windowX=${windowParams.x}, windowY=${windowParams.y}, screenSize=${defaultDisplayWidth}x${defaultDisplayHeight}")
+    }
+    
+    private fun setDefaultPosition() {
+        // Use the same left side positioning as default
+        setSidebarAwarePosition()
     }
 }
