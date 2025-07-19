@@ -9,4 +9,8 @@
     <string name="sidebar_settings_description">Open sidebar settings</string>
     <string name="sidebar_predicted_apps">Show app suggestions</string>
     <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
+    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
+    <string name="sidebar_per_app_config">Configure apps</string>
+    <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
 </resources>

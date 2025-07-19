@@ -117,14 +117,26 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
         sidebarView = SidebarView(this@SidebarService, viewModel, object : SidebarView.Callback {
             override fun onRemove() {
                 logger.d("sidebar view removed")
-                if (isShowingSidebar && showSideline) animateShowSideline()
                 isShowingSidebar = false
+                val masterEnabled = sharedPrefs.getBoolean(SIDELINE, false)
+                val autoEnabled = sharedPrefs.getBoolean(SidebarMonitorService.KEY_AUTO_ENABLED_TEMP, false)
+                val shouldShowService = masterEnabled || autoEnabled
+                
+                logger.d("onRemove - masterEnabled: $masterEnabled, autoEnabled: $autoEnabled, shouldShowService: $shouldShowService, isShowingSideline: $isShowingSideline")
+                
+                if (shouldShowService && isShowingSideline) {
+                    sideLineView.animate().cancel()
+                    animateShowSideline()
+                }
             }
         })
         isShowingSidebar = false
         showSideline = sharedPrefs.getBoolean(SIDELINE, false)
-        logger.d("screenWidth=$screenWidth screenHeight=$screenHeight showSideline=$showSideline")
-        if (showSideline) showView()
+        val autoEnabled = sharedPrefs.getBoolean(SidebarMonitorService.KEY_AUTO_ENABLED_TEMP, false)
+        val shouldShow = showSideline || autoEnabled
+        
+        logger.d("screenWidth=$screenWidth screenHeight=$screenHeight showSideline=$showSideline autoEnabled=$autoEnabled")
+        if (shouldShow) showView()
         return START_STICKY
     }
 
@@ -139,7 +151,11 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
         logger.d("onConfigChanged: screenWidth=$screenWidth height=$screenHeight" +
                 " isShowingSideline=$isShowingSideline isShowingSidebar=$isShowingSidebar")
 
-        if (showSideline) {
+        val masterEnabled = sharedPrefs.getBoolean(SIDELINE, false)
+        val autoEnabled = sharedPrefs.getBoolean(SidebarMonitorService.KEY_AUTO_ENABLED_TEMP, false)
+        val shouldShow = masterEnabled || autoEnabled
+        
+        if (shouldShow && isShowingSideline) {
             updateSidelinePosition()
         }
         if (isShowingSidebar) {
@@ -160,7 +176,21 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
         when (key) {
             SIDELINE -> {
                 showSideline = sharedPrefs.getBoolean(SIDELINE, false)
-                if (showSideline) {
+                val autoEnabled = sharedPrefs.getBoolean(SidebarMonitorService.KEY_AUTO_ENABLED_TEMP, false)
+                val shouldShow = showSideline || autoEnabled
+                
+                if (shouldShow) {
+                    showView()
+                } else {
+                    removeView(force = true)
+                }
+            }
+            SidebarMonitorService.KEY_AUTO_ENABLED_TEMP -> {
+                val masterEnabled = sharedPrefs.getBoolean(SIDELINE, false)
+                val autoEnabled = sharedPrefs.getBoolean(SidebarMonitorService.KEY_AUTO_ENABLED_TEMP, false)
+                val shouldShow = masterEnabled || autoEnabled
+                
+                if (shouldShow) {
                     showView()
                 } else {
                     removeView(force = true)

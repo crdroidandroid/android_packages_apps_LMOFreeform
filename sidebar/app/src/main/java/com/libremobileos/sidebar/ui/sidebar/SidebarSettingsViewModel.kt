@@ -21,6 +21,7 @@ import com.libremobileos.sidebar.bean.SidebarAppInfo
 import com.libremobileos.sidebar.room.DatabaseRepository
 import com.libremobileos.sidebar.service.ServiceViewModel.Companion.KEY_SHOW_PREDICTED_APPS
 import com.libremobileos.sidebar.service.SidebarService
+import com.libremobileos.sidebar.service.SidebarMonitorService
 import com.libremobileos.sidebar.utils.Logger
 import com.libremobileos.sidebar.utils.contains
 import com.libremobileos.sidebar.utils.getSidebarFilteredUsers
@@ -109,6 +110,14 @@ class SidebarSettingsViewModel(private val application: Application) : AndroidVi
     fun setPredictedAppsEnabled(enabled: Boolean) =
         sp.edit()
             .putBoolean(KEY_SHOW_PREDICTED_APPS, enabled)
+            .apply()
+
+    fun getAutoEnableSelectedAppsEnabled(): Boolean =
+        sp.getBoolean(SidebarMonitorService.KEY_AUTO_ENABLE_SELECTED_APPS, false)
+
+    fun setAutoEnableSelectedAppsEnabled(enabled: Boolean) =
+        sp.edit()
+            .putBoolean(SidebarMonitorService.KEY_AUTO_ENABLE_SELECTED_APPS, enabled)
             .apply()
 
     private fun initAllAppList() {
