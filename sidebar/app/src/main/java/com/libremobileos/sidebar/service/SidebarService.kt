@@ -83,6 +83,13 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
 
         const val SLIDER_TRANSPARENCY = "slider_transparency"
         const val SLIDER_LENGTH = "slider_length"
+        const val SIDEBAR_COLUMNS = "sidebar_columns"
+        const val SIDEBAR_ICON_SIZE = "sidebar_icon_size"
+        const val SIDEBAR_ICON_PADDING = "sidebar_icon_padding"
+        const val SIDEBAR_COLUMN_SPACING = "sidebar_column_spacing"
+        const val SIDEBAR_CORNER_RADIUS = "sidebar_corner_radius"
+        const val SIDEBAR_BACKGROUND_TRANSPARENCY = "sidebar_background_transparency"
+        const val SIDEBAR_SHOW_SHADOW = "sidebar_show_shadow"
 
         //是否展示侧边条
         const val SIDELINE = "sideline"
@@ -208,6 +215,9 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
                     updateSidelinePosition()
                     updateViewLayout()
                 }
+            }
+            SIDEBAR_COLUMNS, SIDEBAR_ICON_SIZE, SIDEBAR_ICON_PADDING, SIDEBAR_COLUMN_SPACING, SIDEBAR_CORNER_RADIUS, SIDEBAR_BACKGROUND_TRANSPARENCY, SIDEBAR_SHOW_SHADOW -> {
+                logger.d("Sidebar appearance setting changed: $key")
             }
         }
     }
