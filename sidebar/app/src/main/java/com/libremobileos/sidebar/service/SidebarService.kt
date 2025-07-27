@@ -53,7 +53,7 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
                 true
             }
             setOnApplyWindowInsetsListener { view, insets ->
-                view.alpha = if(!insets.isVisible(WindowInsets.Type.navigationBars())){
+                view.alpha = if(!insets.isVisible(WindowInsets.Type.statusBars())){
                     0.1f
                 } else {
                     1.0f

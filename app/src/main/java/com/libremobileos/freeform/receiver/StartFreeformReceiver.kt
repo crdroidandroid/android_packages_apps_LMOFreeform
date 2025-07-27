@@ -41,7 +41,7 @@ class StartFreeformReceiver : BroadcastReceiver() {
                 context.contentResolver,
                 "freeform_launch_mode",
                 0
-            ) == 0
+            ) != 0
             if (!ActivityManager.isHighEndGfx() || isNativeFreeformEnabled) {
                 launchAppInNativeFreeform(context, intent)
             } else {
