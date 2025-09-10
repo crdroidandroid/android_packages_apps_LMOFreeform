@@ -37,7 +37,7 @@ class AllAppActivity: ComponentActivity() {
             contentResolver,
             "freeform_launch_mode",
             0
-        ) == 0
+        ) != 0
 
         setContent {
             SidebarTheme {
