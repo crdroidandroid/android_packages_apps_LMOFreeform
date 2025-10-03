@@ -79,7 +79,7 @@ class FreeformTaskStackListener(
     override fun onTaskRemoved(taskId: Int) {
         if (this.taskId == taskId) {
             dlog(TAG, "onTaskRemoved $taskId")
-            window.destroy("onTaskRemoved")
+            window.destroy("onTaskRemoved", true)
         }
     }
 
@@ -133,7 +133,7 @@ class FreeformTaskStackListener(
 
     override fun onTaskDisplayChanged(taskId: Int, newDisplayId: Int) {
         if (taskId == this.taskId && newDisplayId == Display.DEFAULT_DISPLAY) {
-            window.destroy("onTaskDisplayChanged")
+            window.destroy("onTaskDisplayChanged: $taskId to main display")
         } else if (newDisplayId == displayId) {
             this.taskId = taskId
             dlog(TAG, "onTaskDisplayChanged: $taskId to freeform display")
