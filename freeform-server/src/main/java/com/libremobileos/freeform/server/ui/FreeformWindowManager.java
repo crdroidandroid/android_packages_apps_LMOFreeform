@@ -27,7 +27,7 @@ public class FreeformWindowManager {
         FreeformWindow oldWindow = freeformWindows.get(window.getFreeformId());
         if (oldWindow != null) {
             oldWindow.close();
-            oldWindow.destroy("addWindow");
+            oldWindow.destroy("addWindow", false);
         }
         freeformWindows.put(window.getFreeformId(), window);
     }
