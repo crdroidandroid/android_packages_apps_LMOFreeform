@@ -7,6 +7,7 @@
 package com.libremobileos.sidebar.ui.sidebar
 
 import android.content.SharedPreferences
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
@@ -21,6 +22,8 @@ fun SidebarCustomizationSettingsPage(
     onBack: () -> Unit = {},
     onSettingChanged: () -> Unit = {}
 ) {
+    BackHandler { onBack() }
+
     var transparency by remember { mutableStateOf(sharedPrefs.getFloat("slider_transparency", 1.0f)) }
     var sliderLength by remember { mutableStateOf(sharedPrefs.getInt("slider_length", 200)) }
     var position by remember { mutableStateOf(sharedPrefs.getInt("sideline_position_x", 1)) }
