@@ -19,13 +19,15 @@ class MoveTouchListener(
     private var startY = 0.0f
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouch(v: View, event: MotionEvent): Boolean {
+        val layout = window.freeformLayout ?: return true
+        
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 startX = event.rawX
                 startY = event.rawY
             }
             MotionEvent.ACTION_MOVE -> {
-                window.windowManager.updateViewLayout(window.freeformLayout, window.windowParams.apply {
+                window.windowManager.updateViewLayout(layout, window.windowParams.apply {
                     x = (x + event.rawX - startX).roundToInt()
                     y = (y + event.rawY - startY).roundToInt()
                 })
@@ -88,19 +90,23 @@ class ScaleTouchListener(private val window: FreeformWindow, private val isRight
     private var startY = 0.0f
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouch(v: View, event: MotionEvent): Boolean {
+        val rootView = window.freeformRootView ?: return true
+        val veilView = window.veilView ?: return true
+        val freeformView = window.freeformView ?: return true
+        
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 startX = event.rawX
                 startY = event.rawY
-                window.freeformRootView.visibility = View.INVISIBLE
-                window.veilView.visibility = View.VISIBLE
+                rootView.visibility = View.INVISIBLE
+                veilView.visibility = View.VISIBLE
             }
             MotionEvent.ACTION_MOVE -> {
-                window.freeformRootView.layoutParams = window.freeformRootView.layoutParams.apply {
+                rootView.layoutParams = rootView.layoutParams.apply {
                     val xDelta = if (isRight) (event.rawX - startX) else (startX - event.rawX)
                     val yDelta = event.rawY - startY
-                    width = max(25, (window.freeformRootView.width + xDelta).roundToInt())
-                    height = max(25, (window.freeformRootView.height + yDelta).roundToInt())
+                    width = max(25, (rootView.width + xDelta).roundToInt())
+                    height = max(25, (rootView.height + yDelta).roundToInt())
                     if (width > height) {
                         if (xDelta < 0) width = height
                         else height = width
@@ -110,9 +116,9 @@ class ScaleTouchListener(private val window: FreeformWindow, private val isRight
                 startY = event.rawY
             }
             MotionEvent.ACTION_UP -> {
-                if (window.freeformView.surfaceTexture != null) {
-                    window.freeformConfig.width = window.freeformRootView.layoutParams.width
-                    window.freeformConfig.height = window.freeformRootView.layoutParams.height
+                freeformView.surfaceTexture?.let { surfaceTexture ->
+                    window.freeformConfig.width = rootView.layoutParams.width
+                    window.freeformConfig.height = rootView.layoutParams.height
                     window.handler.post { window.makeSureFreeformInScreen() }
                     window.measureScale()
                     LMOFreeformServiceHolder.resizeFreeform(
@@ -121,11 +127,11 @@ class ScaleTouchListener(private val window: FreeformWindow, private val isRight
                         window.freeformConfig.freeformHeight,
                         window.freeformConfig.densityDpi
                     )
-                    window.freeformView.surfaceTexture!!.setDefaultBufferSize(window.freeformConfig.freeformWidth, window.freeformConfig.freeformHeight)
+                    surfaceTexture.setDefaultBufferSize(window.freeformConfig.freeformWidth, window.freeformConfig.freeformHeight)
                     // Delay the unveiling until after the scaling is complete
                     window.handler.postDelayed({
-                        window.freeformRootView.visibility = View.VISIBLE
-                        window.veilView.visibility = View.GONE
+                        rootView.visibility = View.VISIBLE
+                        veilView.visibility = View.GONE
                     }, 250)
                 }
             }
@@ -171,7 +177,8 @@ class HangUpGestureListener(private val window: FreeformWindow) : SimpleOnGestur
 
         try {
             window.handler.post {
-                window.windowManager.updateViewLayout(window.freeformLayout, window.windowParams.apply {
+                val layout = window.freeformLayout ?: return@post
+                window.windowManager.updateViewLayout(layout, window.windowParams.apply {
                     x = newX
                     y = newY
                 })
