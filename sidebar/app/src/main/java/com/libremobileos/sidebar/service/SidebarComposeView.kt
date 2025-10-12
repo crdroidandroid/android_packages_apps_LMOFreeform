@@ -132,10 +132,8 @@ private fun SidebarItemView(
     ) {
         when (item) {
             is SidebarItem.AllApps -> {
-                Icon(
-                    painter = rememberDrawablePainter(
-                        drawable = item.appInfo.icon
-                    ),
+                Image(
+                    painter = rememberDrawablePainter(item.appInfo.icon),
                     contentDescription = item.appInfo.label,
                     modifier = Modifier
                         .size(iconSize.dp)
@@ -159,6 +157,7 @@ private fun SidebarItemView(
                 Icon(
                     painter = painterResource(R.drawable.edit_24px),
                     contentDescription = stringResource(R.string.sidebar_settings_description),
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier
                         .size((iconSize - 4).dp)
                         .clickable {
