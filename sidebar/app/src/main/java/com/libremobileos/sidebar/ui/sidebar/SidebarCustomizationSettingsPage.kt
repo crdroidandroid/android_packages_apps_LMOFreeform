@@ -1,5 +1,6 @@
 /*
  * SPDX-FileCopyrightText: DerpFest AOSP
+ * SPDX-FileCopyrightText: crDroid Android Project
  * SPDX-License-Identifier: Apache-2.0
  */
  
@@ -14,7 +15,11 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+
+import com.libremobileos.sidebar.R
 
 @Composable
 fun SidebarCustomizationSettingsPage(
@@ -43,7 +48,7 @@ fun SidebarCustomizationSettingsPage(
     ) {
         item {
             Text(
-                text = "Sidebar Customization",
+                text = stringResource(R.string.sidebar_customization_title),
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.padding(bottom = 24.dp)
             )
@@ -60,13 +65,13 @@ fun SidebarCustomizationSettingsPage(
                     modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
-                        text = "Slider Settings",
+                        text = stringResource(R.string.sidebar_section_slider),
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.padding(bottom = 16.dp)
                     )
                     
                     // Transparency
-                    Text(text = "Transparency: ${"%.2f".format(transparency)}")
+                    Text(text = stringResource(R.string.sidebar_transparency_value, transparency))
                     Slider(
                         value = transparency,
                         onValueChange = { 
@@ -82,7 +87,7 @@ fun SidebarCustomizationSettingsPage(
                     Spacer(modifier = Modifier.height(16.dp))
                     
                     // Slider Length
-                    Text(text = "Slider Length: $sliderLength px")
+                    Text(text = stringResource(R.string.sidebar_length_value, sliderLength))
                     Slider(
                         value = sliderLength.toFloat(),
                         onValueChange = { 
@@ -98,7 +103,10 @@ fun SidebarCustomizationSettingsPage(
                     Spacer(modifier = Modifier.height(16.dp))
                     
                     // Position
-                    Text(text = "Position", modifier = Modifier.padding(bottom = 8.dp))
+                    Text(
+                        text = stringResource(R.string.sidebar_position_label),
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceEvenly
@@ -109,7 +117,7 @@ fun SidebarCustomizationSettingsPage(
                                 sharedPrefs.edit().putInt("sideline_position_x", position).apply()
                                 onSettingChanged()
                             },
-                            label = { Text("Left") },
+                            label = { Text(stringResource(R.string.sidebar_left)) },
                             selected = position == -1
                         )
                         FilterChip(
@@ -118,7 +126,7 @@ fun SidebarCustomizationSettingsPage(
                                 sharedPrefs.edit().putInt("sideline_position_x", position).apply()
                                 onSettingChanged()
                             },
-                            label = { Text("Right") },
+                            label = { Text(stringResource(R.string.sidebar_right)) },
                             selected = position == 1
                         )
                     }
@@ -137,13 +145,19 @@ fun SidebarCustomizationSettingsPage(
                     modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
-                        text = "Layout Settings",
+                        text = stringResource(R.string.sidebar_section_layout),
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.padding(bottom = 16.dp)
                     )
                     
                     // Column Count
-                    Text(text = "Number of Columns: $columnCount", modifier = Modifier.padding(bottom = 8.dp))
+                    Text(
+                        text = pluralStringResource(
+                            R.plurals.sidebar_columns_value, columnCount, columnCount
+                        ),
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceEvenly
@@ -155,7 +169,13 @@ fun SidebarCustomizationSettingsPage(
                                     sharedPrefs.edit().putInt("sidebar_columns", columnCount).apply()
                                     onSettingChanged()
                                 },
-                                label = { Text("$i Column${if (i > 1) "s" else ""}") },
+                                label = {
+                                    Text(
+                                        pluralStringResource(
+                                            R.plurals.sidebar_columns_value, i, i
+                                        )
+                                    )
+                                },
                                 selected = columnCount == i
                             )
                         }
@@ -164,7 +184,7 @@ fun SidebarCustomizationSettingsPage(
                     Spacer(modifier = Modifier.height(16.dp))
                     
                     // Icon Size
-                    Text(text = "Icon Size: $iconSize dp")
+                    Text(text = stringResource(R.string.sidebar_icon_size_value, iconSize))
                     Slider(
                         value = iconSize.toFloat(),
                         onValueChange = { 
@@ -180,9 +200,9 @@ fun SidebarCustomizationSettingsPage(
                     Spacer(modifier = Modifier.height(16.dp))
                     
                     // Icon Padding
-                    Text(text = "Icon Padding: $iconPadding dp")
+                    Text(text = stringResource(R.string.sidebar_icon_padding_value, iconPadding))
                     Text(
-                        text = "Space around each icon",
+                        text = stringResource(R.string.sidebar_icon_padding_summary),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.padding(bottom = 4.dp)
@@ -203,9 +223,9 @@ fun SidebarCustomizationSettingsPage(
                     
                     // Column Spacing
                     if (columnCount > 1) {
-                        Text(text = "Column Spacing: $columnSpacing dp")
+                        Text(text = stringResource(R.string.sidebar_column_spacing_value, columnSpacing))
                         Text(
-                            text = "Space between columns",
+                            text = stringResource(R.string.sidebar_column_spacing_summary),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             modifier = Modifier.padding(bottom = 4.dp)
@@ -226,7 +246,7 @@ fun SidebarCustomizationSettingsPage(
                     Spacer(modifier = Modifier.height(16.dp))
                     
                     // Corner Radius
-                    Text(text = "Corner Radius: ${cornerRadius.toInt()} dp")
+                    Text(text = stringResource(R.string.sidebar_corner_radius_value, cornerRadius.toInt()))
                     Slider(
                         value = cornerRadius,
                         onValueChange = { 
@@ -242,7 +262,7 @@ fun SidebarCustomizationSettingsPage(
                     Spacer(modifier = Modifier.height(16.dp))
                     
                     // Background Transparency
-                    Text(text = "Background Transparency: ${"%.2f".format(backgroundTransparency)}")
+                    Text(text = stringResource(R.string.sidebar_bg_transparency_value, backgroundTransparency))
                     Slider(
                         value = backgroundTransparency,
                         onValueChange = { 
@@ -269,7 +289,7 @@ fun SidebarCustomizationSettingsPage(
                     modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
-                        text = "Visual Effects",
+                        text = stringResource(R.string.sidebar_section_visual),
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.padding(bottom = 16.dp)
                     )
@@ -289,9 +309,9 @@ fun SidebarCustomizationSettingsPage(
                         )
                         Spacer(modifier = Modifier.width(12.dp))
                         Column {
-                            Text(text = "Drop Shadow")
+                            Text(text = stringResource(R.string.sidebar_drop_shadow_title))
                             Text(
-                                text = "Add shadow effect to sidebar",
+                                text = stringResource(R.string.sidebar_drop_shadow_summary),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
@@ -335,7 +355,7 @@ fun SidebarCustomizationSettingsPage(
                     .fillMaxWidth()
                     .padding(top = 16.dp)
             ) {
-                Text("Reset to Defaults")
+                Text(stringResource(R.string.sidebar_reset_defaults))
             }
         }
     }
