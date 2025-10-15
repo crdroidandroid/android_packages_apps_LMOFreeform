@@ -124,7 +124,7 @@ fun SidebarSettingsPage(
                         onClick = { showCustomization = true },
                         modifier = Modifier.padding(16.dp)
                     ) {
-                        Text("Sidebar Customization")
+                        Text(text = stringResource(R.string.sidebar_customization_title))
                     }
                     
                     if (mainChecked.value) {
