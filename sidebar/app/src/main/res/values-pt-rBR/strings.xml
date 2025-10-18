@@ -2,22 +2,22 @@
 <resources>
     <string name="app_name">Barra Lateral</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Usar Barra Lateral</string>
+    <string name="enable_sideline">Ativar Barra Lateral</string>
     <string name="sidebar_label">Barra Lateral</string>
     <string name="sidebar_summary">Rapidamente inicia aplicativos em janela flutuante</string>
     <string name="sidebar_app_setting_label">Aplicativos fixados</string>
     <string name="sidebar_settings_description">Abrir configurações da barra lateral</string>
     <string name="sidebar_predicted_apps">Sugestão de aplicativos</string>
-    <string name="sidebar_predicted_apps_summary">Mostrar até 6 aplicativos sugeridos abaixo dos aplicativos fixados</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto ativar barra lateral para os aplicativos escolhidos</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Mostrar barra lateral automaticamente quando aplicativos escolhidos forem iniciados</string>
+    <string name="sidebar_predicted_apps_summary">Exibir até 6 aplicativos sugeridos abaixo dos aplicativos fixados</string>
+    <string name="sidebar_auto_enable_selected_apps">Ativar automaticamente a barra lateral para os aplicativos escolhidos</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Exibir a barra lateral automaticamente quando os aplicativos selecionados forem iniciados</string>
     <string name="sidebar_per_app_config">Configurar aplicativos</string>
     <string name="sidebar_per_app_config_summary">Escolher aplicativos que deverão habilitar a barra lateral automaticamente</string>
     <!-- Sidebar customization -->
     <string name="sidebar_customization_title">Customizar Barra Lateral</string>
     <!-- Sections -->
     <string name="sidebar_section_slider">Configurações do controle deslizante</string>
-    <string name="sidebar_section_layout">Configurações de Leiaute</string>
+    <string name="sidebar_section_layout">Configurações de Layout</string>
     <string name="sidebar_section_visual">Efeitos visuais</string>
     <!-- Slider settings -->
     <string name="sidebar_transparency_value">Transparência: %1$.2f</string>
@@ -32,12 +32,12 @@
     </plurals>
     <string name="sidebar_icon_size_value">Tamanho dos ícones: %1$d dp</string>
     <string name="sidebar_icon_padding_value">Preenchimento do Ícone: %1$d dp</string>
-    <string name="sidebar_icon_padding_summary">Espaço em volta de cada ícone</string>
+    <string name="sidebar_icon_padding_summary">Espaçamento entre ícones</string>
     <string name="sidebar_column_spacing_value">Espaçamento entre colunas: %1$d dp</string>
     <string name="sidebar_column_spacing_summary">Espaço entre colunas</string>
     <string name="sidebar_corner_radius_value">Raio dos cantos: %1$d dp</string>
     <string name="sidebar_bg_transparency_value">Transparência do fundo: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Redefinir padrões</string>
+    <string name="sidebar_reset_defaults">Restaurar padrões</string>
     <!-- Visual effects -->
     <string name="sidebar_drop_shadow_title">Sombra projetada</string>
     <string name="sidebar_drop_shadow_summary">Adicione efeito de sombra à barra lateral</string>
