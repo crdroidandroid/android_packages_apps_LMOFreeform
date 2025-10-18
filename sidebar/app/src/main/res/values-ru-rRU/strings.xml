@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">Боковая панель</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Pinned apps</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
-    <string name="sidebar_per_app_config">Configure apps</string>
-    <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
+    <string name="enable_sideline">Использовать панель</string>
+    <string name="sidebar_label">Боковая панель</string>
+    <string name="sidebar_summary">Быстрый запуск приложений из всплывающей панели</string>
+    <string name="sidebar_app_setting_label">Закреплённые приложения</string>
+    <string name="sidebar_settings_description">Открыть настройки боковой панели</string>
+    <string name="sidebar_predicted_apps">Показывать предложения</string>
+    <string name="sidebar_predicted_apps_summary">Показывать до 6 рекомендуемых приложений под закреплёнными приложениями</string>
+    <string name="sidebar_auto_enable_selected_apps">Автовключение боковой панели для выбранных приложений</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Автоматическое отображение боковой панели при запуске выбранного приложения</string>
+    <string name="sidebar_per_app_config">Настройка приложений</string>
+    <string name="sidebar_per_app_config_summary">Выберите приложения, которые должны автоматически включать боковую панель</string>
     <!-- Sidebar customization -->
-    <string name="sidebar_customization_title">Sidebar customization</string>
+    <string name="sidebar_customization_title">Настройки панели</string>
     <!-- Sections -->
-    <string name="sidebar_section_slider">Slider settings</string>
-    <string name="sidebar_section_layout">Layout settings</string>
-    <string name="sidebar_section_visual">Visual effects</string>
+    <string name="sidebar_section_slider">Настройка полосы вызова</string>
+    <string name="sidebar_section_layout">Настройки расположения</string>
+    <string name="sidebar_section_visual">Визуальные настройки</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d px</string>
-    <string name="sidebar_position_label">Position</string>
-    <string name="sidebar_left">Left</string>
-    <string name="sidebar_right">Right</string>
+    <string name="sidebar_transparency_value">Прозрачность: %1$.2f</string>
+    <string name="sidebar_length_value">Длина полосы: %1$d px</string>
+    <string name="sidebar_position_label">Позиция</string>
+    <string name="sidebar_left">Справа</string>
+    <string name="sidebar_right">Слева</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="one">%1$d column</item>
-        <item quantity="few">%1$d columns</item>
-        <item quantity="many">%1$d columns</item>
-        <item quantity="other">%1$d columns</item>
+        <item quantity="one">%1$d столбец</item>
+        <item quantity="few">%1$d столбца</item>
+        <item quantity="many">%1$d столбца</item>
+        <item quantity="other">%1$d столбца</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Icon size: %1$d dp</string>
-    <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
-    <string name="sidebar_icon_padding_summary">Space around each icon</string>
-    <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
-    <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
-    <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_icon_size_value">Размер значка: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">Отступ значка: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">Пространство вокруг каждого значка</string>
+    <string name="sidebar_column_spacing_value">Расстояние между столбцами: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">Расстояние между столбцами</string>
+    <string name="sidebar_corner_radius_value">Закругление угла: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">Прозрачность фона: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Сбросить по умолчанию</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_title">Отбрасывать тень</string>
+    <string name="sidebar_drop_shadow_summary">Добавить тень боковой панели</string>
 </resources>
