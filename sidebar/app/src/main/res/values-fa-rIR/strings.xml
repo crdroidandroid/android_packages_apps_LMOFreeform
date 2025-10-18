@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">ساید بار</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Pinned apps</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
-    <string name="sidebar_per_app_config">Configure apps</string>
+    <string name="enable_sideline">استفاده از ساید بار</string>
+    <string name="sidebar_label">ساید بار</string>
+    <string name="sidebar_summary">بازکردن سریع برنامه ها در پنجره شناور</string>
+    <string name="sidebar_app_setting_label">برنامه های پین شده</string>
+    <string name="sidebar_settings_description">بازکردن تنظیمات ساید بار</string>
+    <string name="sidebar_predicted_apps">نمایش برنامه های پیشنهادی</string>
+    <string name="sidebar_predicted_apps_summary">نمایش حداکثر ۶ برنامه پیشنهادی زیر برنامه های پین شده</string>
+    <string name="sidebar_auto_enable_selected_apps">فعال شدن خودکار سایدبار برای برنامه های انتخاب شده</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">نمایش خودکار ساید بار هنگام اجرای برنامه های پیکربندی شده</string>
+    <string name="sidebar_per_app_config">پیکربندی برنامه ها</string>
     <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
     <!-- Sidebar customization -->
     <string name="sidebar_customization_title">Sidebar customization</string>
