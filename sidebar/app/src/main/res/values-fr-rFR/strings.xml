@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">Barre latérale</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Appli epinglée</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
-    <string name="sidebar_per_app_config">Configure apps</string>
-    <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
+    <string name="enable_sideline">Utiliser la barre latérale</string>
+    <string name="sidebar_label">Barre latérale</string>
+    <string name="sidebar_summary">Ouvrir rapidement des applications dans une fenêtre flottante</string>
+    <string name="sidebar_app_setting_label">Applis épinglées</string>
+    <string name="sidebar_settings_description">Ouvrir les paramètres de la barre latérale</string>
+    <string name="sidebar_predicted_apps">Afficher les suggestions d\'applications</string>
+    <string name="sidebar_predicted_apps_summary">Afficher jusqu\'à 6 applications suggérées sous les applications épinglées</string>
+    <string name="sidebar_auto_enable_selected_apps">Activation automatique de la barre latérale pour les applications sélectionnées</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Afficher automatiquement la barre latérale lorsque les applications configurées sont lancées</string>
+    <string name="sidebar_per_app_config">Configurer les applications</string>
+    <string name="sidebar_per_app_config_summary">Sélectionnez les applications qui doivent activer automatiquement la barre latérale</string>
     <!-- Sidebar customization -->
-    <string name="sidebar_customization_title">Sidebar customization</string>
+    <string name="sidebar_customization_title">Personnalisation de la barre latérale</string>
     <!-- Sections -->
     <string name="sidebar_section_slider">Réglage du curseur</string>
     <string name="sidebar_section_layout">Paramètres de mise en page</string>
@@ -27,18 +27,18 @@
     <string name="sidebar_right">Droit</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="one">Colonne</item>
-        <item quantity="other">Colonne</item>
+        <item quantity="one">%1$dColonne</item>
+        <item quantity="other">%1$dColonne</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Taille d\'icone</string>
+    <string name="sidebar_icon_size_value">Taille d\'icône%1$d</string>
     <string name="sidebar_icon_padding_value">Remplissage des icônes%1$d</string>
     <string name="sidebar_icon_padding_summary">Espace autour de chaque icône</string>
-    <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
-    <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
-    <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_column_spacing_value">Espacement des colonnes%1$d</string>
+    <string name="sidebar_column_spacing_summary">Espace entre les colonnes</string>
+    <string name="sidebar_corner_radius_value">Rayon d\'angle :%1$d</string>
+    <string name="sidebar_bg_transparency_value">Transparence de l\'arrière-plan%1$.2f</string>
+    <string name="sidebar_reset_defaults">Réinitialiser les paramètres par défaut</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_title">Ombre portée</string>
+    <string name="sidebar_drop_shadow_summary">Ajouter un effet d\'ombre à la barre latérale</string>
 </resources>
