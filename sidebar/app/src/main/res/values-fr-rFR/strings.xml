@@ -5,7 +5,7 @@
     <string name="enable_sideline">Use Sidebar</string>
     <string name="sidebar_label">Sidebar</string>
     <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Pinned apps</string>
+    <string name="sidebar_app_setting_label">Appli epinglée</string>
     <string name="sidebar_settings_description">Open sidebar settings</string>
     <string name="sidebar_predicted_apps">Show app suggestions</string>
     <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
@@ -16,23 +16,23 @@
     <!-- Sidebar customization -->
     <string name="sidebar_customization_title">Sidebar customization</string>
     <!-- Sections -->
-    <string name="sidebar_section_slider">Slider settings</string>
-    <string name="sidebar_section_layout">Layout settings</string>
-    <string name="sidebar_section_visual">Visual effects</string>
+    <string name="sidebar_section_slider">Réglage du curseur</string>
+    <string name="sidebar_section_layout">Paramètres de mise en page</string>
+    <string name="sidebar_section_visual">Effets visuels</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d px</string>
+    <string name="sidebar_transparency_value">Transparence%1$.2f</string>
+    <string name="sidebar_length_value">Longueur du curseur%1$d</string>
     <string name="sidebar_position_label">Position</string>
-    <string name="sidebar_left">Left</string>
-    <string name="sidebar_right">Right</string>
+    <string name="sidebar_left">Gauche</string>
+    <string name="sidebar_right">Droit</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="one">%1$d column</item>
-        <item quantity="other">%1$d columns</item>
+        <item quantity="one">Colonne</item>
+        <item quantity="other">Colonne</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Icon size: %1$d dp</string>
-    <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
-    <string name="sidebar_icon_padding_summary">Space around each icon</string>
+    <string name="sidebar_icon_size_value">Taille d\'icone</string>
+    <string name="sidebar_icon_padding_value">Remplissage des icônes%1$d</string>
+    <string name="sidebar_icon_padding_summary">Espace autour de chaque icône</string>
     <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
     <string name="sidebar_column_spacing_summary">Space between columns</string>
     <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
