@@ -39,6 +39,6 @@
     <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
     <string name="sidebar_reset_defaults">Reset to defaults</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_title">ছায়া ফেলুন</string>
+    <string name="sidebar_drop_shadow_summary">সাইডবারে ছায়া প্রভাব যোগ করুন</string>
 </resources>
