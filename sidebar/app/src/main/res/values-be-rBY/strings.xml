@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Бакавая панэль</string>
+    <!--SettingsFragment-->
+    <string name="enable_sideline">Выкарыстоўваць бакавую панэль</string>
+    <string name="sidebar_label">Бакавая панэль</string>
+    <string name="sidebar_summary">Хутка адкрывайце праграмы ў плаваючым акне</string>
+    <string name="sidebar_app_setting_label">Замацаваныя праграмы</string>
+    <string name="sidebar_settings_description">Адкрыць налады бакавой панэлі</string>
+    <string name="sidebar_predicted_apps">Паказваць прапановы праграм</string>
+    <string name="sidebar_predicted_apps_summary">Паказваць да 6 прапанаваных праграм пад замацаванымі</string>
+    <string name="sidebar_auto_enable_selected_apps">Аўтаматычна ўключаць бакавую панэль для выбраных праграм</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Аўтаматычна паказваць бакавую панэль пры запуску наладжаных праграм</string>
+    <string name="sidebar_per_app_config">Наладзіць праграмы</string>
+    <string name="sidebar_per_app_config_summary">Выберыце праграмы, якія павінны аўтаматычна ўключаць бакавую панэль</string>
+    <!-- Sidebar customization -->
+    <string name="sidebar_customization_title">Наладка бакавой панэлі</string>
+    <!-- Sections -->
+    <string name="sidebar_section_slider">Налады паўзунка</string>
+    <string name="sidebar_section_layout">Налады макета</string>
+    <string name="sidebar_section_visual">Візуальныя эфекты</string>
+    <!-- Slider settings -->
+    <string name="sidebar_transparency_value">Празрыстасць: %1$.2f</string>
+    <string name="sidebar_length_value">Даўжыня паўзунка: %1$d  px</string>
+    <string name="sidebar_position_label">Пазіцыя</string>
+    <string name="sidebar_left">Злева</string>
+    <string name="sidebar_right">Справа</string>
+    <!-- Layout settings -->
+    <plurals name="sidebar_columns_value">
+        <item quantity="one">Адна</item>
+        <item quantity="few">Нямногія</item>
+        <item quantity="many">Многія</item>
+        <item quantity="other">%1$d Іншы</item>
+    </plurals>
+    <string name="sidebar_icon_size_value">Памер значка: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">Запаўненне значка: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">Вылучыце прастору вакол кожнага значка</string>
+    <string name="sidebar_column_spacing_value">Адлегласць паміж слупкамі: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">Адлегласць паміж калонамі</string>
+    <string name="sidebar_corner_radius_value">Радыус павароту: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">Празрыстасць фону: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Скід да значэнняў па змаўчанні</string>
+    <!-- Visual effects -->
+    <string name="sidebar_drop_shadow_title">Адкідаць цень</string>
+    <string name="sidebar_drop_shadow_summary">Дадаць эфект цені на бакавую панэль</string>
+</resources>
