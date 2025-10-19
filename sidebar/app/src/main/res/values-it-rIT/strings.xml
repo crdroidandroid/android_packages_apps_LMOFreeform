@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sidebar</string>
+    <!--SettingsFragment-->
+    <string name="enable_sideline">Usa Sidebar</string>
+    <string name="sidebar_label">Sidebar</string>
+    <string name="sidebar_summary">Apri rapidamente le app in una finestra fluttuante</string>
+    <string name="sidebar_app_setting_label">App fissate</string>
+    <string name="sidebar_settings_description">Apri impostazioni sidebar</string>
+    <string name="sidebar_predicted_apps">Mostra suggerimenti app</string>
+    <string name="sidebar_predicted_apps_summary">Mostra fino a 6 applicazioni suggerite sotto le app fissate</string>
+    <string name="sidebar_auto_enable_selected_apps">Abilita automaticamente la sidebar per le applicazioni selezionate</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Mostra automaticamente la sidebar quando le app configurate vengono lanciate</string>
+    <string name="sidebar_per_app_config">Configura applicazioni</string>
+    <string name="sidebar_per_app_config_summary">Seleziona app che dovrebbero abilitare automaticamente la sidebar</string>
+    <!-- Sidebar customization -->
+    <string name="sidebar_customization_title">Personalizzazioni sidebar</string>
+    <!-- Sections -->
+    <string name="sidebar_section_slider">Impostazioni slider</string>
+    <string name="sidebar_section_layout">Impostazioni layout</string>
+    <string name="sidebar_section_visual">Effetti visivi</string>
+    <!-- Slider settings -->
+    <string name="sidebar_transparency_value">Trasparenza: %1$.2f</string>
+    <string name="sidebar_length_value">Lunghezza slider: %1$d px</string>
+    <string name="sidebar_position_label">Posizione</string>
+    <string name="sidebar_left">Sinistra</string>
+    <string name="sidebar_right">Destra</string>
+    <!-- Layout settings -->
+    <plurals name="sidebar_columns_value">
+        <item quantity="one">%1$d colonna</item>
+        <item quantity="other">%1$d colonne</item>
+    </plurals>
+    <string name="sidebar_icon_size_value">Dimensione icona: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">Riempimento delle icone: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">Spazio attorno ad ogni icona</string>
+    <string name="sidebar_column_spacing_value">Spaziatura colonna: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">Spazio tra le colonne</string>
+    <string name="sidebar_corner_radius_value">Raggio angolo: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">Trasparenza dello sfondo: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Ripristina impostazioni predefinite</string>
+    <!-- Visual effects -->
+    <string name="sidebar_drop_shadow_title">Ombreggiatura</string>
+    <string name="sidebar_drop_shadow_summary">Aggiungi effetto ombra alla barra laterale</string>
+</resources>
