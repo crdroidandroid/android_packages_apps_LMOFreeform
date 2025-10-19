@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">Bilah sisi</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
+    <string name="enable_sideline">Gunakan Bilah Sisi</string>
     <string name="sidebar_label">Bilah Sisi</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Pinned apps</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
-    <string name="sidebar_per_app_config">Configure apps</string>
-    <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
+    <string name="sidebar_summary">Buka aplikasi dengan cepat di jendela mengambang</string>
+    <string name="sidebar_app_setting_label">Aplikasi yang disematkan</string>
+    <string name="sidebar_settings_description">Buka pengaturan bilah sisi</string>
+    <string name="sidebar_predicted_apps">Tampilkan saran aplikasi</string>
+    <string name="sidebar_predicted_apps_summary">Tampilkan hingga 6 saran aplikasi di bawah aplikasi yang disematkan</string>
+    <string name="sidebar_auto_enable_selected_apps">Aktifkan otomatis bilah sisi untuk aplikasi yang dipilih</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Tampilkan bilah sisi secara otomatis saat aplikasi yang di konfigurasi diluncurkan</string>
+    <string name="sidebar_per_app_config">Konfigurasi aplikasi</string>
+    <string name="sidebar_per_app_config_summary">Pilih aplikasi yang seharusnya mengaktifkan bilah sisi secara otomatis</string>
     <!-- Sidebar customization -->
-    <string name="sidebar_customization_title">Sidebar customization</string>
+    <string name="sidebar_customization_title">Kustom bilah sisi</string>
     <!-- Sections -->
-    <string name="sidebar_section_slider">Slider settings</string>
-    <string name="sidebar_section_layout">Layout settings</string>
-    <string name="sidebar_section_visual">Visual effects</string>
+    <string name="sidebar_section_slider">Pengaturan penggeser</string>
+    <string name="sidebar_section_layout">Pengaturan tata letak</string>
+    <string name="sidebar_section_visual">Efek visual</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Transparency: %1$.2f</string>
+    <string name="sidebar_transparency_value">Transparan: %1$.2f</string>
     <string name="sidebar_length_value">Slider length: %1$d px</string>
-    <string name="sidebar_position_label">Position</string>
-    <string name="sidebar_left">Left</string>
-    <string name="sidebar_right">Right</string>
+    <string name="sidebar_position_label">Posisi</string>
+    <string name="sidebar_left">Kiri</string>
+    <string name="sidebar_right">Kanan</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
         <item quantity="other">%1$d columns</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Icon size: %1$d dp</string>
-    <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
+    <string name="sidebar_icon_size_value">Ukuran: %1$d</string>
+    <string name="sidebar_icon_padding_value">Pengisi ikon: %1$d</string>
     <string name="sidebar_icon_padding_summary">Space around each icon</string>
     <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
     <string name="sidebar_column_spacing_summary">Space between columns</string>
