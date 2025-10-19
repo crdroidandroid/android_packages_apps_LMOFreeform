@@ -14,9 +14,9 @@
     <string name="sidebar_per_app_config">Konfigurasi aplikasi</string>
     <string name="sidebar_per_app_config_summary">Pilih aplikasi yang seharusnya mengaktifkan bilah sisi secara otomatis</string>
     <!-- Sidebar customization -->
-    <string name="sidebar_customization_title">Kustom bilah sisi</string>
+    <string name="sidebar_customization_title">Atur bilah sisi</string>
     <!-- Sections -->
-    <string name="sidebar_section_slider">Pengaturan penggeser</string>
+    <string name="sidebar_section_slider"></string>
     <string name="sidebar_section_layout">Pengaturan tata letak</string>
     <string name="sidebar_section_visual">Efek visual</string>
     <!-- Slider settings -->
@@ -30,14 +30,14 @@
         <item quantity="other">%1$d columns</item>
     </plurals>
     <string name="sidebar_icon_size_value">Ukuran: %1$d</string>
-    <string name="sidebar_icon_padding_value">Pengisi ikon: %1$d</string>
-    <string name="sidebar_icon_padding_summary">Space around each icon</string>
-    <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
-    <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
-    <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_icon_padding_value">Pengisi: %1$d</string>
+    <string name="sidebar_icon_padding_summary"></string>
+    <string name="sidebar_column_spacing_value">Jarak kolom: %1$d</string>
+    <string name="sidebar_column_spacing_summary">Ruang antar kolom</string>
+    <string name="sidebar_corner_radius_value">Radius sudut:%1$d</string>
+    <string name="sidebar_bg_transparency_value">Latar belakang transparan: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Atur ulang ke awal</string>
     <!-- Visual effects -->
     <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_summary">Tambahkan efek bayangan ke bilah sisi</string>
 </resources>
