@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Боковая панель</string>
-
     <!--SettingsFragment-->
     <string name="enable_sideline">Использовать панель</string>
     <string name="sidebar_label">Боковая панель</string>
@@ -13,25 +13,23 @@
     <string name="sidebar_auto_enable_selected_apps_summary">Автоматическое отображение боковой панели при запуске выбранного приложения</string>
     <string name="sidebar_per_app_config">Настройка приложений</string>
     <string name="sidebar_per_app_config_summary">Выберите приложения, которые должны автоматически включать боковую панель</string>
-
     <!-- Sidebar customization -->
     <string name="sidebar_customization_title">Настройки панели</string>
-
     <!-- Sections -->
     <string name="sidebar_section_slider">Настройка полосы вызова</string>
     <string name="sidebar_section_layout">Настройки расположения</string>
     <string name="sidebar_section_visual">Визуальные настройки</string>
-
     <!-- Slider settings -->
     <string name="sidebar_transparency_value">Прозрачность: %1$.2f</string>
     <string name="sidebar_length_value">Длина полосы: %1$d px</string>
     <string name="sidebar_position_label">Позиция</string>
     <string name="sidebar_left">Справа</string>
     <string name="sidebar_right">Слева</string>
-
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
         <item quantity="one">%1$d столбец</item>
+        <item quantity="few">%1$d столбца</item>
+        <item quantity="many">%1$d столбца</item>
         <item quantity="other">%1$d столбца</item>
     </plurals>
     <string name="sidebar_icon_size_value">Размер значка: %1$d dp</string>
@@ -42,7 +40,6 @@
     <string name="sidebar_corner_radius_value">Закругление угла: %1$d dp</string>
     <string name="sidebar_bg_transparency_value">Прозрачность фона: %1$.2f</string>
     <string name="sidebar_reset_defaults">Сбросить по умолчанию</string>
-
     <!-- Visual effects -->
     <string name="sidebar_drop_shadow_title">Отбрасывать тень</string>
     <string name="sidebar_drop_shadow_summary">Добавить тень боковой панели</string>
