@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Thanh bên</string>
+    <!--SettingsFragment-->
+    <string name="enable_sideline">Sử dụng thanh bên</string>
+    <string name="sidebar_label">Thanh bên</string>
+    <string name="sidebar_summary">Mở nhanh ứng dụng trong cửa sổ nổi</string>
+    <string name="sidebar_app_setting_label">Ứng dụng được ghim</string>
+    <string name="sidebar_settings_description">Mở cài đặt thanh bên</string>
+    <string name="sidebar_predicted_apps">Hiển thị đề xuất ứng dụng</string>
+    <string name="sidebar_predicted_apps_summary">Hiển thị tối đa 6 ứng dụng được đề xuất bên dưới các ứng dụng được ghim</string>
+    <string name="sidebar_auto_enable_selected_apps">Tự động bật thanh bên cho các ứng dụng đã chọn</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Tự động hiển thị thanh bên khi các ứng dụng đã cấu hình được khởi chạy</string>
+    <string name="sidebar_per_app_config">Định cấu hình ứng dụng</string>
+    <string name="sidebar_per_app_config_summary">Chọn các ứng dụng sẽ tự động bật thanh bên</string>
+    <!-- Sidebar customization -->
+    <string name="sidebar_customization_title">Tùy chỉnh thanh bên</string>
+    <!-- Sections -->
+    <string name="sidebar_section_slider">Cài đặt thanh trượt</string>
+    <string name="sidebar_section_layout">Cài đặt bố cục</string>
+    <string name="sidebar_section_visual">Hiệu ứng hình ảnh</string>
+    <!-- Slider settings -->
+    <string name="sidebar_transparency_value">Độ trong suốt: %1$.2f</string>
+    <string name="sidebar_length_value">Độ dài thanh trượt: %1$d điểm ảnh</string>
+    <string name="sidebar_position_label">Vị trí</string>
+    <string name="sidebar_left">Bên trái</string>
+    <string name="sidebar_right">Bên phải</string>
+    <!-- Layout settings -->
+    <plurals name="sidebar_columns_value">
+        <item quantity="other">%1$d cột</item>
+    </plurals>
+    <string name="sidebar_icon_size_value">Kích thước biểu tượng: %1$d mật độ điểm ảnh</string>
+    <string name="sidebar_icon_padding_value">Phần đệm biểu tượng: %1$d mật độ điểm ảnh</string>
+    <string name="sidebar_icon_padding_summary">Khoảng cách xung quanh mỗi biểu tượng</string>
+    <string name="sidebar_column_spacing_value">Khoảng cách cột: %1$d mật độ điểm ảnh</string>
+    <string name="sidebar_column_spacing_summary">Khoảng cách giữa các cột</string>
+    <string name="sidebar_corner_radius_value">Bán kính góc: %1$d mật độ điểm ảnh</string>
+    <string name="sidebar_bg_transparency_value">Độ trong suốt của nền: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Đặt lại về mặc định</string>
+    <!-- Visual effects -->
+    <string name="sidebar_drop_shadow_title">Bóng đổ</string>
+    <string name="sidebar_drop_shadow_summary">Thêm hiệu ứng bóng đổ vào thanh bên</string>
+</resources>

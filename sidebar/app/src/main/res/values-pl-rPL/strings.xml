@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Panel boczny</string>
+    <!--SettingsFragment-->
+    <string name="enable_sideline">Użyj paska bocznego</string>
+    <string name="sidebar_label">Pasek boczny</string>
+    <string name="sidebar_summary">Szybko otwórz aplikacje w pływającym oknie</string>
+    <string name="sidebar_app_setting_label">Przypięte aplikacje</string>
+    <string name="sidebar_settings_description">Otwórz ustawienia paska bocznego</string>
+    <string name="sidebar_predicted_apps">Pokaż sugerowane aplikacje</string>
+    <string name="sidebar_predicted_apps_summary">Pokaż do 6 sugerowanych aplikacji poniżej przypiętych aplikacji</string>
+    <string name="sidebar_auto_enable_selected_apps">Automatycznie włącz pasek boczny dla wybranych aplikacji</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Automatycznie pokazuj pasek boczny po uruchomieniu skonfigurowanych aplikacji</string>
+    <string name="sidebar_per_app_config">Skonfiguruj aplikacje</string>
+    <string name="sidebar_per_app_config_summary">Wybierz aplikacje, które powinny automatycznie włączyć pasek boczny</string>
+    <!-- Sidebar customization -->
+    <string name="sidebar_customization_title">Dostosowanie paska bocznego</string>
+    <!-- Sections -->
+    <string name="sidebar_section_slider">Ustawienia suwaka</string>
+    <string name="sidebar_section_layout">Ustawienia układu</string>
+    <string name="sidebar_section_visual">Efekty wizualne</string>
+    <!-- Slider settings -->
+    <string name="sidebar_transparency_value">Przeźroczystość: %1$.2f</string>
+    <string name="sidebar_length_value">Długość suwaka: %1$d pikseli</string>
+    <string name="sidebar_position_label">Pozycja</string>
+    <string name="sidebar_left">Lewo</string>
+    <string name="sidebar_right">Prawo</string>
+    <!-- Layout settings -->
+    <plurals name="sidebar_columns_value">
+        <item quantity="one">%1$d Kolumny</item>
+        <item quantity="few">%1$d Kolumn</item>
+        <item quantity="many">%1$d Kolumn</item>
+        <item quantity="other">%1$d Kolumn</item>
+    </plurals>
+    <string name="sidebar_icon_size_value">Rozmiar ikony: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">Wypełnienie ikon: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">Miejsce wokół każdej ikony</string>
+    <string name="sidebar_column_spacing_value">Odstęp kolumn: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">Odstęp między kolumnami</string>
+    <string name="sidebar_corner_radius_value">Promień narożnika: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">Przezroczystość tła: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Przywróć ustawienia domyślne</string>
+    <!-- Visual effects -->
+    <string name="sidebar_drop_shadow_title">Pokaż cień</string>
+    <string name="sidebar_drop_shadow_summary">Dodaj efekt cienia do paska bocznego</string>
+</resources>

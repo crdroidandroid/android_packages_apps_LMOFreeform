@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Бічна панель</string>
+    <!--SettingsFragment-->
+    <string name="enable_sideline">Використовувати бічну панель</string>
+    <string name="sidebar_label">Бічна панель</string>
+    <string name="sidebar_summary">Швидко відкривати застосунки у пливучому вікні</string>
+    <string name="sidebar_app_setting_label">Закріплені додатки</string>
+    <string name="sidebar_settings_description">Відкрити налаштування бічної панелі</string>
+    <string name="sidebar_predicted_apps">Показувати рекомендовані програми</string>
+    <string name="sidebar_predicted_apps_summary">Показати запропоновані нижче 6 додатків</string>
+    <string name="sidebar_auto_enable_selected_apps">Автоматичне увімкнення бічної панелі для вибраних додатків</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Автоматично показувати бічну панель під час запуску налаштованих додатків</string>
+    <string name="sidebar_per_app_config">Налаштування додатків</string>
+    <string name="sidebar_per_app_config_summary">Виберіть програми, що повинні автоматично вмикати бічну панель</string>
+    <!-- Sidebar customization -->
+    <string name="sidebar_customization_title">Налаштування бічної панелі</string>
+    <!-- Sections -->
+    <string name="sidebar_section_slider">Налаштування слайдера</string>
+    <string name="sidebar_section_layout">Налаштування вигляду</string>
+    <string name="sidebar_section_visual">Візуальні ефекти</string>
+    <!-- Slider settings -->
+    <string name="sidebar_transparency_value">Прозорість: %1$.2f</string>
+    <string name="sidebar_length_value">Довжина слайдера: %1$d</string>
+    <string name="sidebar_position_label">Позиція</string>
+    <string name="sidebar_left">Зліва</string>
+    <string name="sidebar_right">Праворуч</string>
+    <!-- Layout settings -->
+    <plurals name="sidebar_columns_value">
+        <item quantity="one">%1$d стовпця</item>
+        <item quantity="few">%1$d стовпця</item>
+        <item quantity="many">%1$d стовпця</item>
+        <item quantity="other">%1$d стовпця</item>
+    </plurals>
+    <string name="sidebar_icon_size_value">Розмір значка: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">Розмір значка: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">Пробіл навколо кожного значка</string>
+    <string name="sidebar_column_spacing_value">Інтервал: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">Відстань між стовпчиками</string>
+    <string name="sidebar_corner_radius_value">Радіус кута: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">Прозорість фону: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Відновити параметри за замовчуванням</string>
+    <!-- Visual effects -->
+    <string name="sidebar_drop_shadow_title">З тінню</string>
+    <string name="sidebar_drop_shadow_summary">Додати тіньовий ефект до бічної панелі</string>
+</resources>
