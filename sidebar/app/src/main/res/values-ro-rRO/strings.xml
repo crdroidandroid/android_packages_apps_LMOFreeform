@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bara laterală</string>
+    <!--SettingsFragment-->
+    <string name="enable_sideline">Folosește bara laterală</string>
+    <string name="sidebar_label">Bara laterală</string>
+    <string name="sidebar_summary">Deschideți rapid aplicațiile într-o fereastră plutitoare</string>
+    <string name="sidebar_app_setting_label">Aplicații fixate</string>
+    <string name="sidebar_settings_description">Deschideți setările barei laterale</string>
+    <string name="sidebar_predicted_apps">Arată sugestiile aplicației</string>
+    <string name="sidebar_predicted_apps_summary">Arată până la 6 aplicații sugerate sub aplicații fixate</string>
+    <string name="sidebar_auto_enable_selected_apps">Activează automat bara laterală pentru aplicațiile selectate</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Arată automat bara laterală când sunt lansate aplicații configurate</string>
+    <string name="sidebar_per_app_config">Configurați aplicațiile</string>
+    <string name="sidebar_per_app_config_summary">Selectați aplicații care ar trebui să activeze automat bara laterală</string>
+    <!-- Sidebar customization -->
+    <string name="sidebar_customization_title">Personalizare bară laterală</string>
+    <!-- Sections -->
+    <string name="sidebar_section_slider">Setări glisare</string>
+    <string name="sidebar_section_layout">Setări aspect</string>
+    <string name="sidebar_section_visual">Efecte vizuale</string>
+    <!-- Slider settings -->
+    <string name="sidebar_transparency_value">Transparență: %1$.2f</string>
+    <string name="sidebar_length_value">Lungime glisare: %1$d px</string>
+    <string name="sidebar_position_label">Poziție</string>
+    <string name="sidebar_left">Stânga</string>
+    <string name="sidebar_right">Dreapta</string>
+    <!-- Layout settings -->
+    <plurals name="sidebar_columns_value">
+        <item quantity="one">Coloană %1$d</item>
+        <item quantity="few">Coloană %1$d</item>
+        <item quantity="other">Coloane %1$d</item>
+    </plurals>
+    <string name="sidebar_icon_size_value">Dimensiune pictogramă: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">Suport pictograme: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">Spaţiu în jurul fiecărei pictograme</string>
+    <string name="sidebar_column_spacing_value">Spațiere coloană: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">Spaţiu între coloane</string>
+    <string name="sidebar_corner_radius_value">Raza colțului: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">Transparență fundal: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Resetare la valorile implicite</string>
+    <!-- Visual effects -->
+    <string name="sidebar_drop_shadow_title">Lasă umbra</string>
+    <string name="sidebar_drop_shadow_summary">Adaugă efect umbră în bara laterală</string>
+</resources>
