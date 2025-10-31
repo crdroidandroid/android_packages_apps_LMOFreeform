@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">Oldalsáv</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
+    <string name="enable_sideline">Oldalsáv használata</string>
+    <string name="sidebar_label">Oldalsáv</string>
+    <string name="sidebar_summary">Alkalmazások gyors megnyitása lebegő ablakban</string>
     <string name="sidebar_app_setting_label">Pinned apps</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
+    <string name="sidebar_settings_description">Oldalsáv beállításainak megnyitása</string>
     <string name="sidebar_predicted_apps">Show app suggestions</string>
     <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
+    <string name="sidebar_auto_enable_selected_apps">Oldalsáv automatikus engedélyezése a kiválasztott alkalmazásokhoz</string>
     <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
     <string name="sidebar_per_app_config">Configure apps</string>
     <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
