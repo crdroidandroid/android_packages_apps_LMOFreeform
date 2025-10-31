@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">Seitenleiste</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Pinned apps</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
+    <string name="enable_sideline">Seitenleiste verwenden</string>
+    <string name="sidebar_label">Seitenleiste</string>
+    <string name="sidebar_summary">Schnellstart von Apps in einem schwebenden Fenster</string>
+    <string name="sidebar_app_setting_label">Angeheftete Apps</string>
+    <string name="sidebar_settings_description">Seitenleisten-Einstellungen öffnen</string>
+    <string name="sidebar_predicted_apps">App-Vorschläge anzeigen</string>
     <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
     <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
     <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
