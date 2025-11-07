@@ -6,9 +6,9 @@
     <string name="sidebar_label">側邊欄 </string>
     <string name="sidebar_summary">快速開啟小窗化應用程式</string>
     <string name="sidebar_app_setting_label">固定的應用</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
+    <string name="sidebar_settings_description">打開側邊欄設定</string>
+    <string name="sidebar_predicted_apps">顯示應用程式建議</string>
+    <string name="sidebar_predicted_apps_summary">在固定的應用下方顯示至多6個建議應用</string>
     <string name="sidebar_auto_enable_selected_apps">對選擇的應用程式自動啟用側邊欄</string>
     <string name="sidebar_auto_enable_selected_apps_summary">配置的應用程式啟動時自動顯示側邊欄</string>
     <string name="sidebar_per_app_config">設定應用程式</string>
@@ -16,28 +16,28 @@
     <!-- Sidebar customization -->
     <string name="sidebar_customization_title">側邊欄自訂</string>
     <!-- Sections -->
-    <string name="sidebar_section_slider">Slider settings</string>
-    <string name="sidebar_section_layout">Layout settings</string>
-    <string name="sidebar_section_visual">Visual effects</string>
+    <string name="sidebar_section_slider">滑桿設定</string>
+    <string name="sidebar_section_layout">佈局設定</string>
+    <string name="sidebar_section_visual">視覺效果</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d px</string>
-    <string name="sidebar_position_label">Position</string>
-    <string name="sidebar_left">Left</string>
-    <string name="sidebar_right">Right</string>
+    <string name="sidebar_transparency_value">不透明度: %1$.2f</string>
+    <string name="sidebar_length_value">滑桿長度: %1$d 像素</string>
+    <string name="sidebar_position_label">位置</string>
+    <string name="sidebar_left">螢幕左側</string>
+    <string name="sidebar_right">螢幕右側</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="other">%1$d columns</item>
+        <item quantity="other">%1$d列</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Icon size: %1$d dp</string>
-    <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
-    <string name="sidebar_icon_padding_summary">Space around each icon</string>
-    <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
-    <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
-    <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_icon_size_value">圖示大小: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">圖示內邊距: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">圖示間空格</string>
+    <string name="sidebar_column_spacing_value">列間距: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">每列之間的空格大小</string>
+    <string name="sidebar_corner_radius_value">轉角弧度: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">背景不透明度: %1$.2f</string>
+    <string name="sidebar_reset_defaults">重設為預設設定</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_title">陰影</string>
+    <string name="sidebar_drop_shadow_summary">為側邊欄添加陰影效果</string>
 </resources>
