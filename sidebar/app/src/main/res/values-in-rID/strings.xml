@@ -21,7 +21,7 @@
     <string name="sidebar_section_visual">Efek visual</string>
     <!-- Slider settings -->
     <string name="sidebar_transparency_value">Transparan: %1$.2f</string>
-    <string name="sidebar_length_value">Panjang Slider: %1$d px</string>
+    <string name="sidebar_length_value">Panjang penggeser</string>
     <string name="sidebar_position_label">Posisi</string>
     <string name="sidebar_left">Kiri</string>
     <string name="sidebar_right">Kanan</string>
