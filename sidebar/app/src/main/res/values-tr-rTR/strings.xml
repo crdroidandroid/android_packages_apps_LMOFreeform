@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">Kenar Çubuğu</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
+    <string name="enable_sideline">Kenar çubuğu kullan</string>
+    <string name="sidebar_label">Kenar Çubuğu</string>
     <string name="sidebar_summary">Quickly open apps in a floating window</string>
     <string name="sidebar_app_setting_label">Pinned apps</string>
     <string name="sidebar_settings_description">Open sidebar settings</string>
@@ -22,9 +22,9 @@
     <!-- Slider settings -->
     <string name="sidebar_transparency_value">Transparency: %1$.2f</string>
     <string name="sidebar_length_value">Slider length: %1$d px</string>
-    <string name="sidebar_position_label">Position</string>
-    <string name="sidebar_left">Left</string>
-    <string name="sidebar_right">Right</string>
+    <string name="sidebar_position_label">Konum</string>
+    <string name="sidebar_left">Sol</string>
+    <string name="sidebar_right">Sağ</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
         <item quantity="one">%1$d column</item>
