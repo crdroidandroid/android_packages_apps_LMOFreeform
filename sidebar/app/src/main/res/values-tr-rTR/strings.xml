@@ -6,15 +6,15 @@
     <string name="sidebar_label">Kenar Çubuğu</string>
     <string name="sidebar_summary">Uygulamaları hızlıca yüzen pencerede açın</string>
     <string name="sidebar_app_setting_label">Sabitlenmiş uygulamalar</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
+    <string name="sidebar_settings_description">Kenar çubuğu ayarlarını aç</string>
     <string name="sidebar_predicted_apps">Uygulama önerileri</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
+    <string name="sidebar_predicted_apps_summary">Sabitlenmiş uygulamaların altında en fazla 6 önerilen uygulamayı göster</string>
+    <string name="sidebar_auto_enable_selected_apps">Seçilen uygulamalar için kenar çubuğunu otomatik olarak etkinleştirin</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Yapılandırılmış uygulamalar başlatıldığında kenar çubuğunu otomatik olarak göster</string>
     <string name="sidebar_per_app_config">Uygulamaları yapılandır</string>
-    <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
+    <string name="sidebar_per_app_config_summary">Kenar çubuğunun otomatik olarak etkinleştirmesi gereken uygulamaları seçin</string>
     <!-- Sidebar customization -->
-    <string name="sidebar_customization_title">Sidebar customization</string>
+    <string name="sidebar_customization_title">Kenar çubuğu özelleştirmesi</string>
     <!-- Sections -->
     <string name="sidebar_section_slider">Slider settings</string>
     <string name="sidebar_section_layout">Layout settings</string>
