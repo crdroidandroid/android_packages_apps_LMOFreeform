@@ -4,41 +4,41 @@
     <!--SettingsFragment-->
     <string name="enable_sideline">Kenar çubuğu kullan</string>
     <string name="sidebar_label">Kenar Çubuğu</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Pinned apps</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
-    <string name="sidebar_per_app_config">Configure apps</string>
-    <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
+    <string name="sidebar_summary">Uygulamaları hızlıca yüzen pencerede açın</string>
+    <string name="sidebar_app_setting_label">Sabitlenmiş uygulamalar</string>
+    <string name="sidebar_settings_description">Kenar çubuğu ayarlarını aç</string>
+    <string name="sidebar_predicted_apps">Uygulama önerileri</string>
+    <string name="sidebar_predicted_apps_summary">Sabitlenmiş uygulamaların altında en fazla 6 önerilen uygulamayı göster</string>
+    <string name="sidebar_auto_enable_selected_apps">Seçilen uygulamalar için kenar çubuğunu otomatik olarak etkinleştirin</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Yapılandırılmış uygulamalar başlatıldığında kenar çubuğunu otomatik olarak göster</string>
+    <string name="sidebar_per_app_config">Uygulamaları yapılandır</string>
+    <string name="sidebar_per_app_config_summary">Kenar çubuğunun otomatik olarak etkinleştirmesi gereken uygulamaları seçin</string>
     <!-- Sidebar customization -->
-    <string name="sidebar_customization_title">Sidebar customization</string>
+    <string name="sidebar_customization_title">Kenar çubuğu özelleştirmesi</string>
     <!-- Sections -->
-    <string name="sidebar_section_slider">Slider settings</string>
-    <string name="sidebar_section_layout">Layout settings</string>
-    <string name="sidebar_section_visual">Visual effects</string>
+    <string name="sidebar_section_slider">Kaydırıcı ayarları</string>
+    <string name="sidebar_section_layout">Yerleşim ayarları</string>
+    <string name="sidebar_section_visual">Görsel Efektler</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d px</string>
+    <string name="sidebar_transparency_value">Şeffaflık: %1$.2f</string>
+    <string name="sidebar_length_value">Kaydırıcı uzunluğu: %1$d piksel</string>
     <string name="sidebar_position_label">Konum</string>
     <string name="sidebar_left">Sol</string>
     <string name="sidebar_right">Sağ</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="one">%1$d column</item>
-        <item quantity="other">%1$d columns</item>
+        <item quantity="one">%1$d Sütun</item>
+        <item quantity="other">%1$d Sütunlar</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Icon size: %1$d dp</string>
-    <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
-    <string name="sidebar_icon_padding_summary">Space around each icon</string>
-    <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
-    <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
-    <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_icon_size_value">Simge boyutu: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">Simge dolgusu: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">Simge etrafındaki boşluk</string>
+    <string name="sidebar_column_spacing_value">Sütun aralığı: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">Sütunlar arasındaki boşluk</string>
+    <string name="sidebar_corner_radius_value">Köşe yarıçapı: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">Arka plan şeffaflığı: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Varsayılanlara dön</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_title">Gölge efekti</string>
+    <string name="sidebar_drop_shadow_summary">Kenar çubuğuna gölge efekti ekle</string>
 </resources>
