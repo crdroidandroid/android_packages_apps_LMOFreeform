@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">الشريط الجانبي</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Pinned apps</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
-    <string name="sidebar_per_app_config">Configure apps</string>
-    <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
+    <string name="enable_sideline">استخدام الشريط الجانبي</string>
+    <string name="sidebar_label">الشريط الجانبي</string>
+    <string name="sidebar_summary">فتح التطبيقات بسرعة في نافذة عائمة</string>
+    <string name="sidebar_app_setting_label">التطبيقات المثبتة</string>
+    <string name="sidebar_settings_description">فتح إعدادات الشريط الجانبي</string>
+    <string name="sidebar_predicted_apps">إظهار اقتراحات التطبيق</string>
+    <string name="sidebar_predicted_apps_summary">إظهار حتى 6 تطبيقات مقترحة أسفل التطبيقات المثبتة</string>
+    <string name="sidebar_auto_enable_selected_apps">تمكين الشريط الجانبي تلقائياً للتطبيقات المحددة</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">إظهار الشريط الجانبي تلقائياً عند تشغيل التطبيقات المكونة</string>
+    <string name="sidebar_per_app_config">إعداد التطبيقات</string>
+    <string name="sidebar_per_app_config_summary">حدد التطبيقات التي يجب أن تعمل تلقائياً الشريط الجانبي</string>
     <!-- Sidebar customization -->
-    <string name="sidebar_customization_title">Sidebar customization</string>
+    <string name="sidebar_customization_title">تخصيص الشريط الجانبي</string>
     <!-- Sections -->
-    <string name="sidebar_section_slider">Slider settings</string>
-    <string name="sidebar_section_layout">Layout settings</string>
-    <string name="sidebar_section_visual">Visual effects</string>
+    <string name="sidebar_section_slider">إعدادات شريط التمرير</string>
+    <string name="sidebar_section_layout">إعدادات التخطيط</string>
+    <string name="sidebar_section_visual">المؤثرات البصرية</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d px</string>
-    <string name="sidebar_position_label">Position</string>
-    <string name="sidebar_left">Left</string>
-    <string name="sidebar_right">Right</string>
+    <string name="sidebar_transparency_value">الشفافية: %1$.2f</string>
+    <string name="sidebar_length_value">طول شريط التمرير: %1$d px</string>
+    <string name="sidebar_position_label">الموضع</string>
+    <string name="sidebar_left">اليسار</string>
+    <string name="sidebar_right">اليمين</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="zero">%1$d columns</item>
+        <item quantity="zero">أعمدة الشبكة %1$d</item>
         <item quantity="one">%1$d column</item>
         <item quantity="two">%1$d columns</item>
         <item quantity="few">%1$d columns</item>
         <item quantity="many">%1$d columns</item>
         <item quantity="other">%1$d columns</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Icon size: %1$d dp</string>
-    <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
-    <string name="sidebar_icon_padding_summary">Space around each icon</string>
-    <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
-    <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
-    <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_icon_size_value">حجم الأيقونة: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">الأيقونة المحضنة: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">مساحة حول كل أيقونة</string>
+    <string name="sidebar_column_spacing_value">مسافة العمود: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">المسافة بين الأعمدة</string>
+    <string name="sidebar_corner_radius_value">نصف قطر الزاوية: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">شفافية الخلفية: %1$.2f</string>
+    <string name="sidebar_reset_defaults">إعادة التعيين إلى الافتراضي</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_title">الظل الخلفي</string>
+    <string name="sidebar_drop_shadow_summary">إضافة تأثير الظل إلى الشريط الجانبي</string>
 </resources>
