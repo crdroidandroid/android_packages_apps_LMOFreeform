@@ -15,11 +15,13 @@ import android.view.Surface;
 import android.view.SurfaceControl;
 
 import java.io.PrintWriter;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import com.android.server.display.feature.DisplayManagerFlags;
 import com.libremobileos.freeform.ILMOFreeformDisplayCallback;
 
 public class LMOFreeformDisplayAdapter extends DisplayAdapter {
+    private static final AtomicInteger sNextModeId = new AtomicInteger(1_000_000);
     private static final String TAG = "LMOFreeform/LMOFreeformDisplayAdapter";
     // Unique id prefix for freeform displays.
     public static final String UNIQUE_ID_PREFIX = "lmo-freeform:";
@@ -158,8 +160,7 @@ public class LMOFreeformDisplayAdapter extends DisplayAdapter {
                               FreeformFlags flags,
                               Surface surface, Callback callback, IBinder appToken) {
 
-	super(LMOFreeformDisplayAdapter.this, displayToken, uniqueId,
-        	getContext(), false /* isOwnContentOnly */);
+       super(LMOFreeformDisplayAdapter.this, displayToken, uniqueId, getContext());
             mName = uniqueId;
             mRefreshRate = refreshRate;
             mDisplayPresentationDeadlineNanos = presentationDeadlineNanos;
@@ -184,6 +185,11 @@ public class LMOFreeformDisplayAdapter extends DisplayAdapter {
                 mDensityDpi = densityDpi;
                 mInfo = null;
             }
+        }
+
+        private Display.Mode createMode(int width, int height, float refreshRate) {
+            final int modeId = sNextModeId.getAndIncrement();
+            return new Display.Mode(modeId, width, height, refreshRate);
         }
 
         public void destroyLocked(boolean binderAlive) {
