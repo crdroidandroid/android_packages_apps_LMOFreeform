@@ -29,15 +29,15 @@ fun SidebarCustomizationSettingsPage(
 ) {
     BackHandler { onBack() }
 
-    var transparency by remember { mutableStateOf(sharedPrefs.getFloat("slider_transparency", 1.0f)) }
+    var transparency by remember { mutableStateOf(sharedPrefs.getFloat("slider_transparency", 0.80f)) }
     var sliderLength by remember { mutableStateOf(sharedPrefs.getInt("slider_length", 200)) }
     var position by remember { mutableStateOf(sharedPrefs.getInt("sideline_position_x", 1)) }
     var columnCount by remember { mutableStateOf(sharedPrefs.getInt("sidebar_columns", 1)) }
-    var iconSize by remember { mutableStateOf(sharedPrefs.getInt("sidebar_icon_size", 50)) }
-    var iconPadding by remember { mutableStateOf(sharedPrefs.getInt("sidebar_icon_padding", 8)) }
+    var iconSize by remember { mutableStateOf(sharedPrefs.getInt("sidebar_icon_size", 40)) }
+    var iconPadding by remember { mutableStateOf(sharedPrefs.getInt("sidebar_icon_padding", 7)) }
     var columnSpacing by remember { mutableStateOf(sharedPrefs.getInt("sidebar_column_spacing", 4)) }
-    var cornerRadius by remember { mutableStateOf(sharedPrefs.getFloat("sidebar_corner_radius", 16f)) }
-    var backgroundTransparency by remember { mutableStateOf(sharedPrefs.getFloat("sidebar_background_transparency", 1.0f)) }
+    var cornerRadius by remember { mutableStateOf(sharedPrefs.getFloat("sidebar_corner_radius", 24f)) }
+    var backgroundTransparency by remember { mutableStateOf(sharedPrefs.getFloat("sidebar_background_transparency", 0.80f)) }
     var showShadow by remember { mutableStateOf(sharedPrefs.getBoolean("sidebar_show_shadow", true)) }
 
     LazyColumn(
@@ -326,15 +326,15 @@ fun SidebarCustomizationSettingsPage(
             OutlinedButton(
                 onClick = {
                     // Reset to defaults
-                    transparency = 1.0f
+                    transparency = 0.80f
                     sliderLength = 200
                     position = 1
                     columnCount = 1
-                    iconSize = 50
-                    iconPadding = 8
+                    iconSize = 40
+                    iconPadding = 7
                     columnSpacing = 4
-                    cornerRadius = 16f
-                    backgroundTransparency = 1.0f
+                    cornerRadius = 24f
+                    backgroundTransparency = 0.80f
                     showShadow = true
                     
                     sharedPrefs.edit()

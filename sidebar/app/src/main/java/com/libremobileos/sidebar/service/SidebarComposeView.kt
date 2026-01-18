@@ -39,11 +39,11 @@ fun SidebarComposeView(
     
     // Get customization settings
     val columnCount = sharedPrefs.getInt("sidebar_columns", 1)
-    val iconSize = sharedPrefs.getInt("sidebar_icon_size", 50)
-    val iconPadding = sharedPrefs.getInt("sidebar_icon_padding", 8)
+    val iconSize = sharedPrefs.getInt("sidebar_icon_size", 40)
+    val iconPadding = sharedPrefs.getInt("sidebar_icon_padding", 7)
     val columnSpacing = sharedPrefs.getInt("sidebar_column_spacing", 4)
-    val cornerRadius = sharedPrefs.getFloat("sidebar_corner_radius", 16f)
-    val backgroundTransparency = sharedPrefs.getFloat("sidebar_background_transparency", 1.0f)
+    val cornerRadius = sharedPrefs.getFloat("sidebar_corner_radius", 24f)
+    val backgroundTransparency = sharedPrefs.getFloat("sidebar_background_transparency", 0.80f)
     val showShadow = sharedPrefs.getBoolean("sidebar_show_shadow", true)
     
     val sidebarAppList by viewModel.sidebarAppListFlow.collectAsState()
