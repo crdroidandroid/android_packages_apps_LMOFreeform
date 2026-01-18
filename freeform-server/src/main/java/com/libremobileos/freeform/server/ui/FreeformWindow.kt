@@ -10,6 +10,8 @@ import android.os.Handler
 import android.util.Slog
 import android.view.Display
 import android.view.DisplayInfo
+import android.graphics.Matrix
+import android.view.InputDevice
 import android.view.GestureDetector
 import android.view.IRotationWatcher
 import android.view.MotionEvent
@@ -217,37 +219,12 @@ class FreeformWindow(
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouch(view: View, event: MotionEvent): Boolean {
-        val pointerCoords: Array<MotionEvent.PointerCoords?> = arrayOfNulls(event.pointerCount)
-        val pointerProperties: Array<MotionEvent.PointerProperties?> = arrayOfNulls(event.pointerCount)
-        for (i in 0 until event.pointerCount) {
-            val oldCoords = MotionEvent.PointerCoords()
-            val pointerProperty = MotionEvent.PointerProperties()
-            event.getPointerCoords(i, oldCoords)
-            event.getPointerProperties(i, pointerProperty)
-            pointerCoords[i] = oldCoords
-            pointerCoords[i]!!.apply {
-                x = oldCoords.x * freeformConfig.scale
-                y = oldCoords.y * freeformConfig.scale
-            }
-            pointerProperties[i] = pointerProperty
+        val newEvent = MotionEvent.obtain(event)
+        val scaleMatrix = Matrix().apply {
+            setScale(freeformConfig.scale, freeformConfig.scale)
         }
-
-        val newEvent = MotionEvent.obtain(
-            event.downTime,
-            event.eventTime,
-            event.action,
-            event.pointerCount,
-            pointerProperties,
-            pointerCoords,
-            event.metaState,
-            event.buttonState,
-            event.xPrecision,
-            event.yPrecision,
-            event.deviceId,
-            event.edgeFlags,
-            event.source,
-            event.flags
-        )
+        newEvent.transform(scaleMatrix)
+        newEvent.setSource(InputDevice.SOURCE_TOUCHSCREEN)
         LMOFreeformServiceHolder.touch(newEvent, displayId)
         newEvent.recycle()
         return true
