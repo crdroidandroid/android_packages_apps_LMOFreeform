@@ -27,18 +27,18 @@
     <string name="sidebar_right">Отдясно</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="one">%1$d column</item>
-        <item quantity="other">%1$d columns</item>
+        <item quantity="one">%1$d Колона</item>
+        <item quantity="other">%1$d Колони</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Icon size: %1$d dp</string>
-    <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
-    <string name="sidebar_icon_padding_summary">Space around each icon</string>
-    <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
-    <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
-    <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_icon_size_value">Размер на иконите: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">Запълване на иконите: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">Разстояние между всяка икона</string>
+    <string name="sidebar_column_spacing_value">Разстояние между колоните: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">Разстояние между колони</string>
+    <string name="sidebar_corner_radius_value">Окръжност на ъгъл: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">Прозрачност на фона: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Завърни към по подразбиране</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_title">Падаща сянка</string>
+    <string name="sidebar_drop_shadow_summary">Добави ефект на сянка до страничен панел</string>
 </resources>
