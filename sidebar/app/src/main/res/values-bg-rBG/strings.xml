@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">Страничен панел</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Pinned apps</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
-    <string name="sidebar_per_app_config">Configure apps</string>
-    <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
+    <string name="enable_sideline">Използвай \"Страничен панел\"</string>
+    <string name="sidebar_label">Страничен панел</string>
+    <string name="sidebar_summary">Бързо отваряне на приложения в летящ прозорец</string>
+    <string name="sidebar_app_setting_label">Закачени приложения</string>
+    <string name="sidebar_settings_description">Отвори настройки на страничният панел</string>
+    <string name="sidebar_predicted_apps">Покажи предложения за приложения</string>
+    <string name="sidebar_predicted_apps_summary">Покажи до 6 предложени приложения под закачените</string>
+    <string name="sidebar_auto_enable_selected_apps">Автоматично включи страничен панел за избрани приложения</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Автоматично покажи страничният панел когато конфигурирани приложения са пуснати</string>
+    <string name="sidebar_per_app_config">Конфигурирай приложения</string>
+    <string name="sidebar_per_app_config_summary">Избери приложения които би трябва автоматично да активират страничният панел</string>
     <!-- Sidebar customization -->
-    <string name="sidebar_customization_title">Sidebar customization</string>
+    <string name="sidebar_customization_title">Конфигуриране на страничен панел</string>
     <!-- Sections -->
-    <string name="sidebar_section_slider">Slider settings</string>
-    <string name="sidebar_section_layout">Layout settings</string>
-    <string name="sidebar_section_visual">Visual effects</string>
+    <string name="sidebar_section_slider">Настройки за плъзгач</string>
+    <string name="sidebar_section_layout">Настройки за оформление</string>
+    <string name="sidebar_section_visual">Визуални ефекти</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d px</string>
-    <string name="sidebar_position_label">Position</string>
-    <string name="sidebar_left">Left</string>
-    <string name="sidebar_right">Right</string>
+    <string name="sidebar_transparency_value">Прозрачност: %1$.2f</string>
+    <string name="sidebar_length_value">Дължина на плъзгач: %1$d пк</string>
+    <string name="sidebar_position_label">Позиция</string>
+    <string name="sidebar_left">Отляво</string>
+    <string name="sidebar_right">Отдясно</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="one">%1$d column</item>
-        <item quantity="other">%1$d columns</item>
+        <item quantity="one">%1$d Колона</item>
+        <item quantity="other">%1$d Колони</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Icon size: %1$d dp</string>
-    <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
-    <string name="sidebar_icon_padding_summary">Space around each icon</string>
-    <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
-    <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
-    <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_icon_size_value">Размер на иконите: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">Запълване на иконите: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">Разстояние между всяка икона</string>
+    <string name="sidebar_column_spacing_value">Разстояние между колоните: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">Разстояние между колони</string>
+    <string name="sidebar_corner_radius_value">Окръжност на ъгъл: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">Прозрачност на фона: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Завърни към по подразбиране</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_title">Падаща сянка</string>
+    <string name="sidebar_drop_shadow_summary">Добави ефект на сянка до страничен панел</string>
 </resources>
