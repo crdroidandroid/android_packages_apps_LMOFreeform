@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">Postranní panel</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Pinned apps</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
-    <string name="sidebar_per_app_config">Configure apps</string>
-    <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
+    <string name="enable_sideline">Použít postranní panel</string>
+    <string name="sidebar_label">Postranní panel</string>
+    <string name="sidebar_summary">Rychle otevřete aplikace z plovoucího okna</string>
+    <string name="sidebar_app_setting_label">Připnuté aplikace</string>
+    <string name="sidebar_settings_description">Otevřít nastavení postranního panelu</string>
+    <string name="sidebar_predicted_apps">Zobrazovat návrhy aplikací</string>
+    <string name="sidebar_predicted_apps_summary">Zobrazit nejvýše 6 navrhovaných aplikací pod připnutými aplikacemi</string>
+    <string name="sidebar_auto_enable_selected_apps">Automaticky povolit postranní panel pro vybrané aplikace</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Automaticky zobrazit postranní panel, když jsou spuštěny konfigurované aplikace</string>
+    <string name="sidebar_per_app_config">Konfigurace aplikací</string>
+    <string name="sidebar_per_app_config_summary">Vyberte aplikace, které by měly automaticky povolit postranní panel</string>
     <!-- Sidebar customization -->
-    <string name="sidebar_customization_title">Sidebar customization</string>
+    <string name="sidebar_customization_title">Přizpůsobení postranního panelu</string>
     <!-- Sections -->
-    <string name="sidebar_section_slider">Slider settings</string>
-    <string name="sidebar_section_layout">Layout settings</string>
-    <string name="sidebar_section_visual">Visual effects</string>
+    <string name="sidebar_section_slider">Nastavení posuvníku</string>
+    <string name="sidebar_section_layout">Nastavení rozvržení</string>
+    <string name="sidebar_section_visual">Vizuální efekty</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d px</string>
-    <string name="sidebar_position_label">Position</string>
-    <string name="sidebar_left">Left</string>
-    <string name="sidebar_right">Right</string>
+    <string name="sidebar_transparency_value">Transparentnost: %1$.2f</string>
+    <string name="sidebar_length_value">Délka posuvníku: %1$d px</string>
+    <string name="sidebar_position_label">Umístění</string>
+    <string name="sidebar_left">Vlevo</string>
+    <string name="sidebar_right">Vpravo</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="one">%1$d column</item>
+        <item quantity="one">%1$d sloupec</item>
         <item quantity="few">%1$d columns</item>
         <item quantity="many">%1$d columns</item>
         <item quantity="other">%1$d columns</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Icon size: %1$d dp</string>
-    <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
-    <string name="sidebar_icon_padding_summary">Space around each icon</string>
-    <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
-    <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
-    <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_icon_size_value">Velikost ikony: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">Vyplnění ikony: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">Prostor kolem každé ikony</string>
+    <string name="sidebar_column_spacing_value">Mezera sloupců: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">Prostor mezi sloupci</string>
+    <string name="sidebar_corner_radius_value">Poloměr rohu: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">Průhlednost pozadí: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Obnovit výchozí</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_title">Povolit stíny</string>
+    <string name="sidebar_drop_shadow_summary">Přidat stínový efekt do postranního panelu</string>
 </resources>
