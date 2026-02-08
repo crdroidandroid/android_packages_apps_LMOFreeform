@@ -33,14 +33,14 @@
         <item quantity="other">%1$d columns</item>
     </plurals>
     <string name="sidebar_icon_size_value">Velikost ikony: %1$d dp</string>
-    <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
-    <string name="sidebar_icon_padding_summary">Space around each icon</string>
-    <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
-    <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
-    <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_icon_padding_value">Vyplnění ikony: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">Prostor kolem každé ikony</string>
+    <string name="sidebar_column_spacing_value">Mezera sloupců: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">Prostor mezi sloupci</string>
+    <string name="sidebar_corner_radius_value">Poloměr rohu: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">Průhlednost pozadí: %1$.2f</string>
+    <string name="sidebar_reset_defaults">Obnovit výchozí</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_title">Povolit stíny</string>
+    <string name="sidebar_drop_shadow_summary">Přidat stínový efekt do postranního panelu</string>
 </resources>
