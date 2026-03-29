@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">Zijbalk</string>
     <!--SettingsFragment-->
     <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
+    <string name="sidebar_label">Zijbalk</string>
     <string name="sidebar_summary">Quickly open apps in a floating window</string>
     <string name="sidebar_app_setting_label">Pinned apps</string>
     <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
+    <string name="sidebar_predicted_apps">App suggesties weergeven</string>
     <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
     <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
     <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
@@ -24,7 +24,7 @@
     <string name="sidebar_length_value">Slider length: %1$d px</string>
     <string name="sidebar_position_label">Position</string>
     <string name="sidebar_left">Left</string>
-    <string name="sidebar_right">Right</string>
+    <string name="sidebar_right">Rechts</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
         <item quantity="one">%1$d column</item>
@@ -34,10 +34,10 @@
     <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
     <string name="sidebar_icon_padding_summary">Space around each icon</string>
     <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
+    <string name="sidebar_column_spacing_summary">Ruimte tussen kolommen</string>
     <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
     <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_reset_defaults">Standaardinstellingen herstellen</string>
     <!-- Visual effects -->
     <string name="sidebar_drop_shadow_title">Drop shadow</string>
     <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
