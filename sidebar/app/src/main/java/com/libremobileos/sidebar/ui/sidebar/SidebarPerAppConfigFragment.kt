@@ -41,6 +41,9 @@ import com.android.settingslib.spa.widget.ui.Category
 import com.libremobileos.sidebar.R
 import com.libremobileos.sidebar.app.SidebarApplication
 import com.libremobileos.sidebar.ui.theme.SidebarTheme
+import com.android.settingslib.spa.framework.compose.LocalNavController
+import com.android.settingslib.spa.framework.compose.NavControllerWrapper
+import androidx.compose.runtime.CompositionLocalProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -58,7 +61,8 @@ class SidebarPerAppConfigFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 SidebarTheme {
-                    SidebarPerAppConfigScreen()
+                    val activity = LocalContext.current as? Activity
+                    SidebarPerAppConfigScreen(onBack = { activity?.finish() })
                 }
             }
         }
@@ -66,12 +70,12 @@ class SidebarPerAppConfigFragment : Fragment() {
 }
 
 @Composable
-fun SidebarPerAppConfigContent() {
-    SidebarPerAppConfigScreen()
+fun SidebarPerAppConfigContent(onBack: () -> Unit = {}) {
+    SidebarPerAppConfigScreen(onBack = onBack)
 }
 
 @Composable
-fun SidebarPerAppConfigScreen() {
+fun SidebarPerAppConfigScreen(onBack: () -> Unit = {}) {
     val context = LocalContext.current
     val sharedPrefs = context.getSharedPreferences(SidebarApplication.CONFIG, Context.MODE_PRIVATE)
     
@@ -96,70 +100,79 @@ fun SidebarPerAppConfigScreen() {
         }
     }
 
-    SettingsScaffold(
-        title = stringResource(R.string.sidebar_per_app_config)
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-        ) {
-            Text(
-                text = stringResource(R.string.sidebar_auto_enable_selected_apps_summary),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(
-                    start = 16.dp,
-                    end = 16.dp,
-                    top = 16.dp,
-                    bottom = 16.dp
-                )
-            )
-            
-            OutlinedTextField(
-                value = searchQuery,
-                onValueChange = { searchQuery = it },
-                label = { Text("Search apps") },
-                leadingIcon = {
-                    Icon(
-                        Icons.Default.Search,
-                        contentDescription = "Search"
+    CompositionLocalProvider(LocalNavController provides remember {
+        object : NavControllerWrapper {
+            override fun navigate(route: String, popUpCurrent: Boolean) {}
+            override fun navigateBack() { onBack() }
+        }
+    }) {
+        SettingsScaffold(
+            title = stringResource(R.string.sidebar_per_app_config)
+        ) { paddingValues ->
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+            ) {
+                Category(title = stringResource(R.string.sidebar_per_app_config)) {
+                    Text(
+                        text = stringResource(R.string.sidebar_auto_enable_selected_apps_summary),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(
+                            start = 16.dp,
+                            end = 16.dp,
+                            top = 16.dp,
+                            bottom = 16.dp
+                        )
                     )
-                },
-                trailingIcon = if (searchQuery.isNotEmpty()) {
-                    {
-                        IconButton(onClick = { searchQuery = "" }) {
+                    
+                    OutlinedTextField(
+                        value = searchQuery,
+                        onValueChange = { searchQuery = it },
+                        label = { Text("Search apps") },
+                        leadingIcon = {
                             Icon(
-                                Icons.Default.Clear,
-                                contentDescription = "Clear search"
-                              )
+                                Icons.Default.Search,
+                                contentDescription = "Search"
+                            )
+                        },
+                        trailingIcon = if (searchQuery.isNotEmpty()) {
+                            {
+                                IconButton(onClick = { searchQuery = "" }) {
+                                    Icon(
+                                        Icons.Default.Clear,
+                                        contentDescription = "Clear search"
+                                      )
+                                }
+                            }
+                        } else null,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(
+                                start = 16.dp,
+                                end = 16.dp,
+                                bottom = 8.dp
+                            ),
+                        singleLine = true
+                    )
+                    
+                    LazyColumn(
+                        modifier = Modifier.fillMaxSize(),
+                        contentPadding = PaddingValues(
+                            start = 16.dp,
+                            end = 16.dp,
+                            top = 8.dp,
+                            bottom = 16.dp
+                        )
+                    ) {
+                        items(filteredApps) { appInfo ->
+                            SidebarPerAppListItem(
+                                appInfo = appInfo,
+                                sharedPrefs = sharedPrefs
+                            )
                         }
                     }
-                } else null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(
-                        start = 16.dp,
-                        end = 16.dp,
-                        bottom = 8.dp
-                    ),
-                singleLine = true
-            )
-            
-            LazyColumn(
-                modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(
-                    start = 16.dp,
-                    end = 16.dp,
-                    top = 8.dp,
-                    bottom = 16.dp
-                )
-            ) {
-                items(filteredApps) { appInfo ->
-                    SidebarPerAppListItem(
-                        appInfo = appInfo,
-                        sharedPrefs = sharedPrefs
-                    )
                 }
             }
         }

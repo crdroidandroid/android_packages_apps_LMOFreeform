@@ -4,24 +4,27 @@
  * SPDX-FileCopyrightText: 2026 kenway214
  * SPDX-License-Identifier: Apache-2.0
  */
- 
 
 package com.libremobileos.sidebar.ui.sidebar
 
 import android.content.SharedPreferences
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
-import com.android.settingslib.spa.widget.scaffold.SettingsScaffold
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-
+import com.android.settingslib.spa.framework.compose.LocalNavController
+import com.android.settingslib.spa.framework.compose.NavControllerWrapper
+import com.android.settingslib.spa.widget.scaffold.SettingsScaffold
 import com.libremobileos.sidebar.R
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SidebarCustomizationSettingsPage(
     sharedPrefs: SharedPreferences,
@@ -40,336 +43,342 @@ fun SidebarCustomizationSettingsPage(
     var backgroundTransparency by remember { mutableStateOf(sharedPrefs.getFloat("sidebar_background_transparency", 0.80f)) }
     var showShadow by remember { mutableStateOf(sharedPrefs.getBoolean("sidebar_show_shadow", true)) }
 
-    SettingsScaffold(
-        title = stringResource(R.string.sidebar_customization_title)
-    ) { paddingValues ->
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(horizontal = 16.dp)
-        ) {
-            // Slider Settings Section
-            item {
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 16.dp, bottom = 16.dp)
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp)
+    CompositionLocalProvider(LocalNavController provides remember {
+        object : NavControllerWrapper {
+            override fun navigate(route: String, popUpCurrent: Boolean) {}
+            override fun navigateBack() { onBack() }
+        }
+    }) {
+        SettingsScaffold(
+            title = stringResource(R.string.sidebar_customization_title)
+        ) { paddingValues ->
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+                    .padding(horizontal = 16.dp)
+            ) {
+                // Slider Settings Section
+                item {
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 16.dp, bottom = 16.dp)
                     ) {
-                        Text(
-                            text = stringResource(R.string.sidebar_section_slider),
-                            style = MaterialTheme.typography.titleMedium,
-                            modifier = Modifier.padding(bottom = 16.dp)
-                        )
-                        
-                        // Transparency
-                        Text(text = stringResource(R.string.sidebar_transparency_value, transparency))
-                        Slider(
-                            value = transparency,
-                            onValueChange = { 
-                                transparency = it
-                                sharedPrefs.edit().putFloat("slider_transparency", transparency).apply()
-                                onSettingChanged()
-                            },
-                            valueRange = 0.1f..1.0f,
-                            steps = 8,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-                        
-                        Spacer(modifier = Modifier.height(16.dp))
-                        
-                        // Slider Length
-                        Text(text = stringResource(R.string.sidebar_length_value, sliderLength))
-                        
-                        Slider(
-                            value = sliderLength.toFloat(),
-                            onValueChange = { 
-                                sliderLength = it.toInt()
-                                sharedPrefs.edit().putInt("slider_length", sliderLength).apply()
-                                onSettingChanged()
-                            },
-                            valueRange = 100f..500f,
-                            steps = 19,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-                        
-                        Spacer(modifier = Modifier.height(16.dp))
-                        
-                        // Slider Width
-                        Text(text = stringResource(R.string.sidebar_width_value, sliderWidth))
-                        Slider(
-                            value = sliderWidth.toFloat(),
-                            onValueChange = { 
-                                sliderWidth = it.toInt()
-                                sharedPrefs.edit().putInt("slider_width", sliderWidth).apply()
-                                onSettingChanged()
-                            },
-                            valueRange = 20f..200f,
-                            steps = 17,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-                        
-                        Spacer(modifier = Modifier.height(16.dp))
-                        
-                        // Position
-                        Text(
-                            text = stringResource(R.string.sidebar_position_label),
-                            modifier = Modifier.padding(bottom = 8.dp)
-                        )
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceEvenly
+                        Column(
+                            modifier = Modifier.padding(16.dp)
                         ) {
-                            FilterChip(
-                                onClick = {
-                                    position = -1
-                                    sharedPrefs.edit().putInt("sideline_position_x", position).apply()
+                            Text(
+                                text = stringResource(R.string.sidebar_section_slider),
+                                style = MaterialTheme.typography.titleMedium,
+                                modifier = Modifier.padding(bottom = 16.dp)
+                            )
+                            
+                            // Transparency
+                            Text(text = stringResource(R.string.sidebar_transparency_value, transparency))
+                            Slider(
+                                value = transparency,
+                                onValueChange = { 
+                                    transparency = it
+                                    sharedPrefs.edit().putFloat("slider_transparency", transparency).apply()
                                     onSettingChanged()
                                 },
-                                label = { Text(stringResource(R.string.sidebar_left)) },
-                                selected = position == -1
+                                valueRange = 0.1f..1.0f,
+                                steps = 8,
+                                modifier = Modifier.fillMaxWidth()
                             )
-                            FilterChip(
-                                onClick = {
-                                    position = 1
-                                    sharedPrefs.edit().putInt("sideline_position_x", position).apply()
+                            
+                            Spacer(modifier = Modifier.height(16.dp))
+                            
+                            // Slider Length
+                            Text(text = stringResource(R.string.sidebar_length_value, sliderLength))
+                            Slider(
+                                value = sliderLength.toFloat(),
+                                onValueChange = { 
+                                    sliderLength = it.toInt()
+                                    sharedPrefs.edit().putInt("slider_length", sliderLength).apply()
                                     onSettingChanged()
                                 },
-                                label = { Text(stringResource(R.string.sidebar_right)) },
-                                selected = position == 1
+                                valueRange = 100f..500f,
+                                steps = 19,
+                                modifier = Modifier.fillMaxWidth()
                             )
-                        }
-                    }
-                }
-            }
-
-            // Layout Settings Section
-            item {
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 16.dp)
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp)
-                    ) {
-                        Text(
-                            text = stringResource(R.string.sidebar_section_layout),
-                            style = MaterialTheme.typography.titleMedium,
-                            modifier = Modifier.padding(bottom = 16.dp)
-                        )
-                        
-                        // Column Count
-                        Text(
-                            text = pluralStringResource(
-                                R.plurals.sidebar_columns_value, columnCount, columnCount
-                            ),
-                            modifier = Modifier.padding(bottom = 8.dp)
-                        )
-
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceEvenly
-                        ) {
-                            for (i in 1..3) {
+                            
+                            Spacer(modifier = Modifier.height(16.dp))
+                            
+                            // Slider Width
+                            Text(text = stringResource(R.string.sidebar_width_value, sliderWidth))
+                            Slider(
+                                value = sliderWidth.toFloat(),
+                                onValueChange = { 
+                                    sliderWidth = it.toInt()
+                                    sharedPrefs.edit().putInt("slider_width", sliderWidth).apply()
+                                    onSettingChanged()
+                                },
+                                valueRange = 20f..200f,
+                                steps = 17,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            
+                            Spacer(modifier = Modifier.height(16.dp))
+                            
+                            // Position
+                            Text(
+                                text = stringResource(R.string.sidebar_position_label),
+                                modifier = Modifier.padding(bottom = 8.dp)
+                            )
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceEvenly
+                            ) {
                                 FilterChip(
                                     onClick = {
-                                        columnCount = i
-                                        sharedPrefs.edit().putInt("sidebar_columns", columnCount).apply()
+                                        position = -1
+                                        sharedPrefs.edit().putInt("sideline_position_x", position).apply()
                                         onSettingChanged()
                                     },
-                                    label = {
-                                        Text(
-                                            pluralStringResource(
-                                                R.plurals.sidebar_columns_value, i, i
-                                            )
-                                        )
+                                    label = { Text(stringResource(R.string.sidebar_left)) },
+                                    selected = position == -1
+                                )
+                                FilterChip(
+                                    onClick = {
+                                        position = 1
+                                        sharedPrefs.edit().putInt("sideline_position_x", position).apply()
+                                        onSettingChanged()
                                     },
-                                    selected = columnCount == i
+                                    label = { Text(stringResource(R.string.sidebar_right)) },
+                                    selected = position == 1
                                 )
                             }
                         }
-                        
-                        Spacer(modifier = Modifier.height(16.dp))
-                        
-                        // Icon Size
-                        Text(text = stringResource(R.string.sidebar_icon_size_value, iconSize))
-                        Slider(
-                            value = iconSize.toFloat(),
-                            onValueChange = { 
-                                iconSize = it.toInt()
-                                sharedPrefs.edit().putInt("sidebar_icon_size", iconSize).apply()
-                                onSettingChanged()
-                            },
-                            valueRange = 30f..80f,
-                            steps = 9,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-                        
-                        Spacer(modifier = Modifier.height(16.dp))
-                        
-                        // Icon Padding
-                        Text(text = stringResource(R.string.sidebar_icon_padding_value, iconPadding))
-                        Text(
-                            text = stringResource(R.string.sidebar_icon_padding_summary),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.padding(bottom = 4.dp)
-                        )
-                        Slider(
-                            value = iconPadding.toFloat(),
-                            onValueChange = { 
-                                iconPadding = it.toInt()
-                                sharedPrefs.edit().putInt("sidebar_icon_padding", iconPadding).apply()
-                                onSettingChanged()
-                            },
-                            valueRange = 4f..20f,
-                            steps = 15,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-                        
-                        Spacer(modifier = Modifier.height(16.dp))
-                        
-                        // Column Spacing
-                        if (columnCount > 1) {
-                            Text(text = stringResource(R.string.sidebar_column_spacing_value, columnSpacing))
+                    }
+                }
+
+                // Layout Settings Section
+                item {
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 16.dp)
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(16.dp)
+                        ) {
                             Text(
-                                text = stringResource(R.string.sidebar_column_spacing_summary),
+                                text = stringResource(R.string.sidebar_section_layout),
+                                style = MaterialTheme.typography.titleMedium,
+                                modifier = Modifier.padding(bottom = 16.dp)
+                            )
+                            
+                            // Column Count
+                            Text(
+                                text = pluralStringResource(
+                                    R.plurals.sidebar_columns_value, columnCount, columnCount
+                                ),
+                                modifier = Modifier.padding(bottom = 8.dp)
+                            )
+
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceEvenly
+                            ) {
+                                for (i in 1..3) {
+                                    FilterChip(
+                                        onClick = {
+                                            columnCount = i
+                                            sharedPrefs.edit().putInt("sidebar_columns", columnCount).apply()
+                                            onSettingChanged()
+                                        },
+                                        label = {
+                                            Text(
+                                                pluralStringResource(
+                                                    R.plurals.sidebar_columns_value, i, i
+                                                )
+                                            )
+                                        },
+                                        selected = columnCount == i
+                                    )
+                                }
+                            }
+                            
+                            Spacer(modifier = Modifier.height(16.dp))
+                            
+                            // Icon Size
+                            Text(text = stringResource(R.string.sidebar_icon_size_value, iconSize))
+                            Slider(
+                                value = iconSize.toFloat(),
+                                onValueChange = { 
+                                    iconSize = it.toInt()
+                                    sharedPrefs.edit().putInt("sidebar_icon_size", iconSize).apply()
+                                    onSettingChanged()
+                                },
+                                valueRange = 30f..80f,
+                                steps = 9,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            
+                            Spacer(modifier = Modifier.height(16.dp))
+                            
+                            // Icon Padding
+                            Text(text = stringResource(R.string.sidebar_icon_padding_value, iconPadding))
+                            Text(
+                                text = stringResource(R.string.sidebar_icon_padding_summary),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 modifier = Modifier.padding(bottom = 4.dp)
                             )
                             Slider(
-                                value = columnSpacing.toFloat(),
+                                value = iconPadding.toFloat(),
                                 onValueChange = { 
-                                    columnSpacing = it.toInt()
-                                    sharedPrefs.edit().putInt("sidebar_column_spacing", columnSpacing).apply()
+                                    iconPadding = it.toInt()
+                                    sharedPrefs.edit().putInt("sidebar_icon_padding", iconPadding).apply()
                                     onSettingChanged()
                                 },
-                                valueRange = 1f..12f,
-                                steps = 10,
+                                valueRange = 4f..20f,
+                                steps = 15,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            
+                            Spacer(modifier = Modifier.height(16.dp))
+                            
+                            // Column Spacing
+                            if (columnCount > 1) {
+                                Text(text = stringResource(R.string.sidebar_column_spacing_value, columnSpacing))
+                                Text(
+                                    text = stringResource(R.string.sidebar_column_spacing_summary),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier.padding(bottom = 4.dp)
+                                )
+                                Slider(
+                                    value = columnSpacing.toFloat(),
+                                    onValueChange = { 
+                                        columnSpacing = it.toInt()
+                                        sharedPrefs.edit().putInt("sidebar_column_spacing", columnSpacing).apply()
+                                        onSettingChanged()
+                                    },
+                                    valueRange = 1f..12f,
+                                    steps = 10,
+                                    modifier = Modifier.fillMaxWidth()
+                                )
+                            }
+                            
+                            Spacer(modifier = Modifier.height(16.dp))
+                            
+                            // Corner Radius
+                            Text(text = stringResource(R.string.sidebar_corner_radius_value, cornerRadius.toInt()))
+                            Slider(
+                                value = cornerRadius,
+                                onValueChange = { 
+                                    cornerRadius = it
+                                    sharedPrefs.edit().putFloat("sidebar_corner_radius", cornerRadius).apply()
+                                    onSettingChanged()
+                                },
+                                valueRange = 0f..32f,
+                                steps = 15,
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            
+                            Spacer(modifier = Modifier.height(16.dp))
+                            
+                            // Background Transparency
+                            Text(text = stringResource(R.string.sidebar_bg_transparency_value, backgroundTransparency))
+                            Slider(
+                                value = backgroundTransparency,
+                                onValueChange = { 
+                                    backgroundTransparency = it
+                                    sharedPrefs.edit().putFloat("sidebar_background_transparency", backgroundTransparency).apply()
+                                    onSettingChanged()
+                                },
+                                valueRange = 0.1f..1.0f,
+                                steps = 8,
                                 modifier = Modifier.fillMaxWidth()
                             )
                         }
-                        
-                        Spacer(modifier = Modifier.height(16.dp))
-                        
-                        // Corner Radius
-                        Text(text = stringResource(R.string.sidebar_corner_radius_value, cornerRadius.toInt()))
-                        Slider(
-                            value = cornerRadius,
-                            onValueChange = { 
-                                cornerRadius = it
-                                sharedPrefs.edit().putFloat("sidebar_corner_radius", cornerRadius).apply()
-                                onSettingChanged()
-                            },
-                            valueRange = 0f..32f,
-                            steps = 15,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-                        
-                        Spacer(modifier = Modifier.height(16.dp))
-                        
-                        // Background Transparency
-                        Text(text = stringResource(R.string.sidebar_bg_transparency_value, backgroundTransparency))
-                        Slider(
-                            value = backgroundTransparency,
-                            onValueChange = { 
-                                backgroundTransparency = it
-                                sharedPrefs.edit().putFloat("sidebar_background_transparency", backgroundTransparency).apply()
-                                onSettingChanged()
-                            },
-                            valueRange = 0.1f..1.0f,
-                            steps = 8,
-                            modifier = Modifier.fillMaxWidth()
-                        )
                     }
                 }
-            }
 
-            // Visual Effects Section
-            item {
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 16.dp)
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp)
+                // Visual Effects Section
+                item {
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 16.dp)
                     ) {
-                        Text(
-                            text = stringResource(R.string.sidebar_section_visual),
-                            style = MaterialTheme.typography.titleMedium,
-                            modifier = Modifier.padding(bottom = 16.dp)
-                        )
-                        
-                        // Shadow Toggle
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically
+                        Column(
+                            modifier = Modifier.padding(16.dp)
                         ) {
-                            Switch(
-                                checked = showShadow,
-                                onCheckedChange = { 
-                                    showShadow = it
-                                    sharedPrefs.edit().putBoolean("sidebar_show_shadow", showShadow).apply()
-                                    onSettingChanged()
-                                }
+                            Text(
+                                text = stringResource(R.string.sidebar_section_visual),
+                                style = MaterialTheme.typography.titleMedium,
+                                modifier = Modifier.padding(bottom = 16.dp)
                             )
-                            Spacer(modifier = Modifier.width(12.dp))
-                            Column {
-                                Text(text = stringResource(R.string.sidebar_drop_shadow_title))
-                                Text(
-                                    text = stringResource(R.string.sidebar_drop_shadow_summary),
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                            
+                            // Shadow Toggle
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Switch(
+                                    checked = showShadow,
+                                    onCheckedChange = { 
+                                        showShadow = it
+                                        sharedPrefs.edit().putBoolean("sidebar_show_shadow", showShadow).apply()
+                                        onSettingChanged()
+                                    }
                                 )
+                                Spacer(modifier = Modifier.width(12.dp))
+                                Column {
+                                    Text(text = stringResource(R.string.sidebar_drop_shadow_title))
+                                    Text(
+                                        text = stringResource(R.string.sidebar_drop_shadow_summary),
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
                             }
                         }
                     }
                 }
-            }
 
-            // Reset Button
-            item {
-                OutlinedButton(
-                    onClick = {
-                        // Reset to defaults
-                        transparency = 0.80f
-                        sliderLength = 200
-                        sliderWidth = 100
-                        position = 1
-                        columnCount = 1
-                        iconSize = 40
-                        iconPadding = 7
-                        columnSpacing = 4
-                        cornerRadius = 24f
-                        backgroundTransparency = 0.80f
-                        showShadow = true
-                        
-                        sharedPrefs.edit()
-                            .putFloat("slider_transparency", transparency)
-                            .putInt("slider_length", sliderLength)
-                            .putInt("slider_width", sliderWidth)
-                            .putInt("sideline_position_x", position)
-                            .putInt("sidebar_columns", columnCount)
-                            .putInt("sidebar_icon_size", iconSize)
-                            .putInt("sidebar_icon_padding", iconPadding)
-                            .putInt("sidebar_column_spacing", columnSpacing)
-                            .putFloat("sidebar_corner_radius", cornerRadius)
-                            .putFloat("sidebar_background_transparency", backgroundTransparency)
-                            .putBoolean("sidebar_show_shadow", showShadow)
-                            .apply()
-                        onSettingChanged()
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 16.dp, bottom = 32.dp)
-                ) {
-                    Text(stringResource(R.string.sidebar_reset_defaults))
+                // Reset Button
+                item {
+                    OutlinedButton(
+                        onClick = {
+                            // Reset to defaults
+                            transparency = 0.80f
+                            sliderLength = 200
+                            sliderWidth = 100
+                            position = 1
+                            columnCount = 1
+                            iconSize = 40
+                            iconPadding = 7
+                            columnSpacing = 4
+                            cornerRadius = 24f
+                            backgroundTransparency = 0.80f
+                            showShadow = true
+                            
+                            sharedPrefs.edit()
+                                .putFloat("slider_transparency", transparency)
+                                .putInt("slider_length", sliderLength)
+                                .putInt("slider_width", sliderWidth)
+                                .putInt("sideline_position_x", position)
+                                .putInt("sidebar_columns", columnCount)
+                                .putInt("sidebar_icon_size", iconSize)
+                                .putInt("sidebar_icon_padding", iconPadding)
+                                .putInt("sidebar_column_spacing", columnSpacing)
+                                .putFloat("sidebar_corner_radius", cornerRadius)
+                                .putFloat("sidebar_background_transparency", backgroundTransparency)
+                                .putBoolean("sidebar_show_shadow", showShadow)
+                                .apply()
+                            onSettingChanged()
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 16.dp, bottom = 32.dp)
+                    ) {
+                        Text(stringResource(R.string.sidebar_reset_defaults))
+                    }
                 }
             }
         }
