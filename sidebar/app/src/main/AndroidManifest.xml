@@ -51,6 +51,11 @@
             android:exported="false"
             android:theme="@style/Theme.SidebarPerAppConfig"/>
 
+        <activity
+            android:name=".ui.sidebar.SidebarCustomizationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SpaLib"/>
+
         <service android:name=".service.SidebarService"/>
         <service android:name=".service.SidebarMonitorService"/>
 

@@ -1,10 +1,12 @@
 /*
  * SPDX-FileCopyrightText: DerpFest AOSP
+ * SPDX-FileCopyrightText: 2026 kenway214
  * SPDX-License-Identifier: Apache-2.0
  */
  
 package com.libremobileos.sidebar.ui.sidebar
 
+import android.app.Activity
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -30,8 +32,6 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
-import androidx.navigation.compose.rememberNavController
-import com.android.settingslib.spa.framework.compose.localNavController
 import com.android.settingslib.spa.framework.compose.rememberDrawablePainter
 import com.android.settingslib.spa.framework.theme.SettingsDimension
 import com.android.settingslib.spa.widget.preference.SwitchPreference
@@ -58,10 +58,7 @@ class SidebarPerAppConfigFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 SidebarTheme {
-                    val navController = rememberNavController()
-                    CompositionLocalProvider(navController.localNavController()) {
-                        SidebarPerAppConfigScreen()
-                    }
+                    SidebarPerAppConfigScreen()
                 }
             }
         }
@@ -70,10 +67,7 @@ class SidebarPerAppConfigFragment : Fragment() {
 
 @Composable
 fun SidebarPerAppConfigContent() {
-    val navController = rememberNavController()
-    CompositionLocalProvider(navController.localNavController()) {
-        SidebarPerAppConfigScreen()
-    }
+    SidebarPerAppConfigScreen()
 }
 
 @Composable
@@ -138,7 +132,7 @@ fun SidebarPerAppConfigScreen() {
                             Icon(
                                 Icons.Default.Clear,
                                 contentDescription = "Clear search"
-                            )
+                              )
                         }
                     }
                 } else null,
