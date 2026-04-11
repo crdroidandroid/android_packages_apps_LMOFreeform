@@ -30,6 +30,7 @@ fun SidebarCustomizationSettingsPage(
 ) {
     var transparency by remember { mutableStateOf(sharedPrefs.getFloat("slider_transparency", 0.80f)) }
     var sliderLength by remember { mutableStateOf(sharedPrefs.getInt("slider_length", 200)) }
+    var sliderWidth by remember { mutableStateOf(sharedPrefs.getInt("slider_width", 100)) }
     var position by remember { mutableStateOf(sharedPrefs.getInt("sideline_position_x", 1)) }
     var columnCount by remember { mutableStateOf(sharedPrefs.getInt("sidebar_columns", 1)) }
     var iconSize by remember { mutableStateOf(sharedPrefs.getInt("sidebar_icon_size", 40)) }
@@ -82,6 +83,7 @@ fun SidebarCustomizationSettingsPage(
                         
                         // Slider Length
                         Text(text = stringResource(R.string.sidebar_length_value, sliderLength))
+                        
                         Slider(
                             value = sliderLength.toFloat(),
                             onValueChange = { 
@@ -91,6 +93,22 @@ fun SidebarCustomizationSettingsPage(
                             },
                             valueRange = 100f..500f,
                             steps = 19,
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        
+                        Spacer(modifier = Modifier.height(16.dp))
+                        
+                        // Slider Width
+                        Text(text = stringResource(R.string.sidebar_width_value, sliderWidth))
+                        Slider(
+                            value = sliderWidth.toFloat(),
+                            onValueChange = { 
+                                sliderWidth = it.toInt()
+                                sharedPrefs.edit().putInt("slider_width", sliderWidth).apply()
+                                onSettingChanged()
+                            },
+                            valueRange = 20f..200f,
+                            steps = 17,
                             modifier = Modifier.fillMaxWidth()
                         )
                         
@@ -322,6 +340,7 @@ fun SidebarCustomizationSettingsPage(
                         // Reset to defaults
                         transparency = 0.80f
                         sliderLength = 200
+                        sliderWidth = 100
                         position = 1
                         columnCount = 1
                         iconSize = 40
@@ -334,6 +353,7 @@ fun SidebarCustomizationSettingsPage(
                         sharedPrefs.edit()
                             .putFloat("slider_transparency", transparency)
                             .putInt("slider_length", sliderLength)
+                            .putInt("slider_width", sliderWidth)
                             .putInt("sideline_position_x", position)
                             .putInt("sidebar_columns", columnCount)
                             .putInt("sidebar_icon_size", iconSize)

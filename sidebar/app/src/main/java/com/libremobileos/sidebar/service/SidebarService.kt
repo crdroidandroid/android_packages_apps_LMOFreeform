@@ -83,6 +83,7 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
 
         const val SLIDER_TRANSPARENCY = "slider_transparency"
         const val SLIDER_LENGTH = "slider_length"
+        const val SLIDER_WIDTH = "slider_width"
         const val SIDEBAR_COLUMNS = "sidebar_columns"
         const val SIDEBAR_ICON_SIZE = "sidebar_icon_size"
         const val SIDEBAR_ICON_PADDING = "sidebar_icon_padding"
@@ -209,8 +210,9 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
                     sideLineView.alpha = transparency
                 }
             }
-            SLIDER_LENGTH, SIDELINE_POSITION_X -> {
+            SLIDER_LENGTH, SLIDER_WIDTH, SIDELINE_POSITION_X -> {
                 if (isShowingSideline) {
+                    layoutParams.width = getSliderWidth()
                     layoutParams.height = getSliderLength()
                     updateSidelinePosition()
                     updateViewLayout()
@@ -256,7 +258,7 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
     override fun endMoveSideline() {
         logger.d("endMoveSideline")
         layoutParams.apply {
-            width = SIDELINE_WIDTH
+            width = getSliderWidth()
             y = constrainY(y)
         }
         updateViewLayout()
@@ -287,6 +289,10 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
         return sharedPrefs.getInt(SLIDER_LENGTH, DEFAULT_SIDELINE_HEIGHT)
     }
 
+    private fun getSliderWidth(): Int {
+        return sharedPrefs.getInt(SLIDER_WIDTH, SIDELINE_WIDTH)
+    }
+
     /**
      * 启动侧边条
      */
@@ -298,7 +304,7 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
 
         layoutParams.apply {
             type = LayoutParams.TYPE_APPLICATION_OVERLAY
-            width = SIDELINE_WIDTH
+            width = getSliderWidth()
             height = getSliderLength()
             flags = LayoutParams.FLAG_NOT_FOCUSABLE or
                     LayoutParams.FLAG_NOT_TOUCH_MODAL or
@@ -313,8 +319,9 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
         val transparency = sharedPrefs.getFloat(SLIDER_TRANSPARENCY, 1.0f)
         sideLineView.alpha = transparency
 
+        val currentWidth = getSliderWidth()
         sideLineView.setSystemGestureExclusionRects(
-            listOf(Rect(0, 0, SIDELINE_WIDTH, getSliderLength()))
+            listOf(Rect(0, 0, currentWidth, getSliderLength()))
         )
 
         updateSidelinePosition()
@@ -390,7 +397,7 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
 
     private fun animateHideSideline() {
         logger.d("animateHideSideline")
-        sideLineView.animate().translationX(sidelinePositionX * 1.0f * SIDELINE_WIDTH).setDuration(300).start()
+        sideLineView.animate().translationX(sidelinePositionX * 1.0f * getSliderWidth()).setDuration(300).start()
     }
 
     private fun animateShowSideline() {
