@@ -14,6 +14,9 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material.icons.outlined.Widgets
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -132,11 +135,12 @@ private fun SidebarItemView(
     ) {
         when (item) {
             is SidebarItem.AllApps -> {
-                Image(
-                    painter = rememberDrawablePainter(item.appInfo.icon),
+                Icon(
+                    imageVector = Icons.Outlined.Widgets,
                     contentDescription = item.appInfo.label,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier
-                        .size(iconSize.dp)
+                        .size((iconSize - 4).dp)
                         .clickable {
                             launchApp(item.appInfo)
                         }
@@ -155,7 +159,7 @@ private fun SidebarItemView(
             }
             is SidebarItem.Settings -> {
                 Icon(
-                    painter = painterResource(R.drawable.edit_24px),
+                    imageVector = Icons.Outlined.Settings,
                     contentDescription = stringResource(R.string.sidebar_settings_description),
                     tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier
