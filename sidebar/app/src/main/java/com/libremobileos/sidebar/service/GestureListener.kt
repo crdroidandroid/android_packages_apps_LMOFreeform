@@ -32,7 +32,7 @@ class GestureListener(private val callback: Callback) : MGestureManager.MGesture
     ): Boolean {
         if (null != gestureEvent) {
             if (gestureEvent == MGestureManager.GestureEvent.SINGLE_GINGER_LEFT_SLIP || gestureEvent == MGestureManager.GestureEvent.SINGLE_GINGER_RIGHT_SLIP) {
-                callback.showSidebar()
+                callback.onSwipeToOpen()
             }
             return true
         }
@@ -70,6 +70,7 @@ class GestureListener(private val callback: Callback) : MGestureManager.MGesture
     }
 
     interface Callback {
+        fun onSwipeToOpen()
         fun showSidebar()
         fun beginMoveSideline()
         fun moveSideline(xChanged: Int, yChanged: Int, touchX: Int, touchY: Int)

@@ -52,6 +52,8 @@
     <!-- Miscellaneous -->
     <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
     <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
+    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
+    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
     <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
     <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
 </resources>

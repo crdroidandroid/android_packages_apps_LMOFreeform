@@ -96,6 +96,7 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
         const val SIDEBAR_BACKGROUND_TRANSPARENCY = "sidebar_background_transparency"
         const val SIDEBAR_SHOW_SHADOW = "sidebar_show_shadow"
         const val SIDEBAR_TAP_TO_OPEN = "sidebar_tap_to_open"
+        const val SIDEBAR_SWIPE_TO_OPEN = "sidebar_swipe_to_open"
         const val SIDEBAR_HIDE_ON_GAMESPACE = "sidebar_hide_on_gamespace"
         const val ACTION_GAME_START = "io.chaldeaprjkt.gamespace.action.GAME_START"
         const val ACTION_GAME_STOP = "io.chaldeaprjkt.gamespace.action.GAME_STOP"
@@ -257,6 +258,13 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
         sidebarView.showView()
         isShowingSidebar = true
         animateHideSideline()
+    }
+
+    override fun onSwipeToOpen() {
+        if (sharedPrefs.getBoolean(SIDEBAR_SWIPE_TO_OPEN, true)) {
+            logger.d("onSwipeToOpen: showing sidebar")
+            showSidebar()
+        }
     }
 
     override fun beginMoveSideline() {
