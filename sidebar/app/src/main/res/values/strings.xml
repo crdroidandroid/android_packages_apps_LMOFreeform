@@ -21,7 +21,7 @@
     <string name="sidebar_section_slider">Slider settings</string>
     <string name="sidebar_section_layout">Layout settings</string>
     <string name="sidebar_section_visual">Visual effects</string>
-    <string name="sidebar_section_gestures">Gesture settings</string>
+    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
 
     <!-- Slider settings -->
     <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
@@ -48,6 +48,10 @@
     <!-- Visual effects -->
     <string name="sidebar_drop_shadow_title">Drop shadow</string>
     <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    
+    <!-- Miscellaneous -->
     <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
     <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
+    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
+    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
 </resources>

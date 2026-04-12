@@ -43,6 +43,7 @@ fun SidebarCustomizationSettingsPage(
     var backgroundTransparency by remember { mutableStateOf(sharedPrefs.getFloat("sidebar_background_transparency", 0.80f)) }
     var showShadow by remember { mutableStateOf(sharedPrefs.getBoolean("sidebar_show_shadow", true)) }
     var tapToOpen by remember { mutableStateOf(sharedPrefs.getBoolean("sidebar_tap_to_open", false)) }
+    var hideOnGameSpace by remember { mutableStateOf(sharedPrefs.getBoolean("sidebar_hide_on_gamespace", false)) }
 
     CompositionLocalProvider(LocalNavController provides remember {
         object : NavControllerWrapper {
@@ -342,7 +343,7 @@ fun SidebarCustomizationSettingsPage(
                     }
                 }
 
-                // Gesture Settings Section
+                // Miscellaneous Section
                 item {
                     Card(
                         modifier = Modifier
@@ -353,7 +354,7 @@ fun SidebarCustomizationSettingsPage(
                             modifier = Modifier.padding(16.dp)
                         ) {
                             Text(
-                                text = stringResource(R.string.sidebar_section_gestures),
+                                text = stringResource(R.string.sidebar_section_miscellaneous),
                                 style = MaterialTheme.typography.titleMedium,
                                 modifier = Modifier.padding(bottom = 16.dp)
                             )
@@ -381,6 +382,32 @@ fun SidebarCustomizationSettingsPage(
                                     )
                                 }
                             }
+
+                            Spacer(modifier = Modifier.height(16.dp))
+
+                            // Hide on GameSpace Toggle
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Switch(
+                                    checked = hideOnGameSpace,
+                                    onCheckedChange = { 
+                                        hideOnGameSpace = it
+                                        sharedPrefs.edit().putBoolean("sidebar_hide_on_gamespace", hideOnGameSpace).apply()
+                                        onSettingChanged()
+                                    }
+                                )
+                                Spacer(modifier = Modifier.width(12.dp))
+                                Column {
+                                    Text(text = stringResource(R.string.sidebar_hide_on_gamespace_title))
+                                    Text(
+                                        text = stringResource(R.string.sidebar_hide_on_gamespace_summary),
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+                            }
                         }
                     }
                 }
@@ -402,6 +429,7 @@ fun SidebarCustomizationSettingsPage(
                             backgroundTransparency = 0.80f
                             showShadow = true
                             tapToOpen = false
+                            hideOnGameSpace = false
                             
                             sharedPrefs.edit()
                                 .putFloat("slider_transparency", transparency)
@@ -416,6 +444,7 @@ fun SidebarCustomizationSettingsPage(
                                 .putFloat("sidebar_background_transparency", backgroundTransparency)
                                 .putBoolean("sidebar_show_shadow", showShadow)
                                 .putBoolean("sidebar_tap_to_open", tapToOpen)
+                                .putBoolean("sidebar_hide_on_gamespace", hideOnGameSpace)
                                 .apply()
                             onSettingChanged()
                         },
