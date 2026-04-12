@@ -64,10 +64,16 @@ class GestureListener(private val callback: Callback) : MGestureManager.MGesture
         }
     }
 
+    override fun onSingleTapUp(e: MotionEvent): Boolean {
+        callback.onSingleTapUp()
+        return true
+    }
+
     interface Callback {
         fun showSidebar()
         fun beginMoveSideline()
         fun moveSideline(xChanged: Int, yChanged: Int, touchX: Int, touchY: Int)
         fun endMoveSideline()
+        fun onSingleTapUp()
     }
 }

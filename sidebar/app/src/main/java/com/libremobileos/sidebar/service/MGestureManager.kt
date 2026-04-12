@@ -23,6 +23,7 @@ class MGestureManager(context: Context, private val mListener: MGestureListener)
         ): Boolean
 
         fun onTouchEvent(event: MotionEvent)
+        fun onSingleTapUp(e: MotionEvent): Boolean
     }
 
     enum class GestureEvent {
@@ -77,6 +78,10 @@ class MGestureManager(context: Context, private val mListener: MGestureListener)
                     abs(velocityY)
                 )
             } else return true
+        }
+
+        override fun onSingleTapUp(e: MotionEvent): Boolean {
+            return mListener.onSingleTapUp(e)
         }
     }
 

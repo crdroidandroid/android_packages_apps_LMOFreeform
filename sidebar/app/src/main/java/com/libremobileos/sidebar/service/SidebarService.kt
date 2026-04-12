@@ -91,6 +91,7 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
         const val SIDEBAR_CORNER_RADIUS = "sidebar_corner_radius"
         const val SIDEBAR_BACKGROUND_TRANSPARENCY = "sidebar_background_transparency"
         const val SIDEBAR_SHOW_SHADOW = "sidebar_show_shadow"
+        const val SIDEBAR_TAP_TO_OPEN = "sidebar_tap_to_open"
 
         //是否展示侧边条
         const val SIDELINE = "sideline"
@@ -267,6 +268,13 @@ class SidebarService : Service(), SharedPreferences.OnSharedPreferenceChangeList
             setIntSp(SIDELINE_POSITION_Y_PORTRAIT, layoutParams.y)
         } else {
             setIntSp(SIDELINE_POSITION_Y_LANDSCAPE, layoutParams.y)
+        }
+    }
+
+    override fun onSingleTapUp() {
+        if (sharedPrefs.getBoolean(SIDEBAR_TAP_TO_OPEN, false)) {
+            logger.d("onSingleTapUp: showing sidebar")
+            showSidebar()
         }
     }
 
