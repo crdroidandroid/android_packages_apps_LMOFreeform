@@ -47,6 +47,6 @@
     <string name="sidebar_tap_to_open_summary">点击滑块即可打开侧边栏抽屉</string>
     <string name="sidebar_swipe_to_open_title">滑动打开抽屉</string>
     <string name="sidebar_swipe_to_open_summary">滑动滑块即可打开侧边栏抽屉</string>
-    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
-    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
+    <string name="sidebar_hide_on_gamespace_title">当游戏空间启用时隐藏</string>
+    <string name="sidebar_hide_on_gamespace_summary">使用游戏空间并在游戏运行时自动隐藏侧边栏滑块</string>
 </resources>
