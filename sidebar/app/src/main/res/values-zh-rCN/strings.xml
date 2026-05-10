@@ -19,12 +19,12 @@
     <string name="sidebar_section_slider">滑块设置</string>
     <string name="sidebar_section_layout">布局设置</string>
     <string name="sidebar_section_visual">视觉效果</string>
-    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
+    <string name="sidebar_section_miscellaneous">其它</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d</string>
-    <string name="sidebar_width_value">Slider width: %1$d</string>
-    <string name="sidebar_position_label">Slider position</string>
+    <string name="sidebar_transparency_value">滑块透明度: %1$.2f</string>
+    <string name="sidebar_length_value">滑块长度: %1$d</string>
+    <string name="sidebar_width_value">滑块宽度: %1$d</string>
+    <string name="sidebar_position_label">滑块位置</string>
     <string name="sidebar_left">屏幕左侧</string>
     <string name="sidebar_right">屏幕右侧</string>
     <!-- Layout settings -->
@@ -43,10 +43,10 @@
     <string name="sidebar_drop_shadow_title">阴影</string>
     <string name="sidebar_drop_shadow_summary">为侧边栏添加阴影效果</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
-    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
-    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
-    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
+    <string name="sidebar_tap_to_open_title">点击打开抽屉</string>
+    <string name="sidebar_tap_to_open_summary">点击滑块即可打开侧边栏抽屉</string>
+    <string name="sidebar_swipe_to_open_title">滑动打开抽屉</string>
+    <string name="sidebar_swipe_to_open_summary">滑动滑块即可打开侧边栏抽屉</string>
     <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
     <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
 </resources>
