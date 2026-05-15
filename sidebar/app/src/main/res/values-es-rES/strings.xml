@@ -19,10 +19,10 @@
     <string name="sidebar_section_slider">Ajustes del control deslizante</string>
     <string name="sidebar_section_layout">Ajustes de disposición</string>
     <string name="sidebar_section_visual">Efectos visuales</string>
-    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
+    <string name="sidebar_section_miscellaneous">Ajustes varios</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d</string>
+    <string name="sidebar_transparency_value">Transparencia del control deslizante: %1$.2f</string>
+    <string name="sidebar_length_value">Longitud del control deslizante: %1$d</string>
     <string name="sidebar_width_value">Slider width: %1$d</string>
     <string name="sidebar_position_label">Slider position</string>
     <string name="sidebar_left">Izquierda</string>
