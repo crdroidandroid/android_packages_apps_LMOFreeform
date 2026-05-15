@@ -23,8 +23,8 @@
     <!-- Slider settings -->
     <string name="sidebar_transparency_value">Transparencia del control deslizante: %1$.2f</string>
     <string name="sidebar_length_value">Longitud del control deslizante: %1$d</string>
-    <string name="sidebar_width_value">Slider width: %1$d</string>
-    <string name="sidebar_position_label">Slider position</string>
+    <string name="sidebar_width_value">Ancho del control deslizante: %1$d</string>
+    <string name="sidebar_position_label">Posición del control deslizante</string>
     <string name="sidebar_left">Izquierda</string>
     <string name="sidebar_right">Derecha</string>
     <!-- Layout settings -->
@@ -44,10 +44,10 @@
     <string name="sidebar_drop_shadow_title">Sombra paralela</string>
     <string name="sidebar_drop_shadow_summary">Agregar efecto de sombra a la barra lateral</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
-    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
-    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
-    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
-    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
-    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
+    <string name="sidebar_tap_to_open_title">Abrir cajón al tocar</string>
+    <string name="sidebar_tap_to_open_summary">Abrir el cajón de la barra lateral cuando se toca el control deslizante</string>
+    <string name="sidebar_swipe_to_open_title">Abrir cajón al deslizar</string>
+    <string name="sidebar_swipe_to_open_summary">Abrir el cajón de la barra lateral cuando se toca el control deslizante</string>
+    <string name="sidebar_hide_on_gamespace_title">Ocultar cuando GameSpace está activo</string>
+    <string name="sidebar_hide_on_gamespace_summary">Ocultar automáticamente el control deslizante de la barra lateral cuando se esté ejecutando un juego con GameSpace</string>
 </resources>
