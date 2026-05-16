@@ -19,10 +19,12 @@
     <string name="sidebar_section_slider">Ustawienia suwaka</string>
     <string name="sidebar_section_layout">Ustawienia układu</string>
     <string name="sidebar_section_visual">Efekty wizualne</string>
+    <string name="sidebar_section_miscellaneous">Pozostałe</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Przeźroczystość: %1$.2f</string>
-    <string name="sidebar_length_value">Długość suwaka: %1$d pikseli</string>
-    <string name="sidebar_position_label">Pozycja</string>
+    <string name="sidebar_transparency_value">Przezroczystość suwaka: %1$.2f</string>
+    <string name="sidebar_length_value">Długość suwaka: %1$d</string>
+    <string name="sidebar_width_value">Szerokość suwaka: %1$d</string>
+    <string name="sidebar_position_label">Pozycja suwaka</string>
     <string name="sidebar_left">Lewo</string>
     <string name="sidebar_right">Prawo</string>
     <!-- Layout settings -->
@@ -43,4 +45,11 @@
     <!-- Visual effects -->
     <string name="sidebar_drop_shadow_title">Pokaż cień</string>
     <string name="sidebar_drop_shadow_summary">Dodaj efekt cienia do paska bocznego</string>
+    <!-- Miscellaneous -->
+    <string name="sidebar_tap_to_open_title">Otwórz szufladę po dotknięciu</string>
+    <string name="sidebar_tap_to_open_summary">Otwórz panel boczny po dotknięciu suwaka</string>
+    <string name="sidebar_swipe_to_open_title">Otwórz szufladę po przesunięciu palcem</string>
+    <string name="sidebar_swipe_to_open_summary">Otwórz panel boczny po poziomym przesunięciu suwaka</string>
+    <string name="sidebar_hide_on_gamespace_title">Ukrywaj kiedy przestrzeń gier jest aktywna</string>
+    <string name="sidebar_hide_on_gamespace_summary">Automatycznie ukrywaj suwak paska bocznego, gdy gra jest uruchomiona z poziomu przestrzeni gier</string>
 </resources>

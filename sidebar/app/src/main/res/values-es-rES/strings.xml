@@ -19,10 +19,12 @@
     <string name="sidebar_section_slider">Ajustes del control deslizante</string>
     <string name="sidebar_section_layout">Ajustes de disposición</string>
     <string name="sidebar_section_visual">Efectos visuales</string>
+    <string name="sidebar_section_miscellaneous">Ajustes varios</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Transparencia: %1$.2f</string>
-    <string name="sidebar_length_value">Longitud del control deslizante: %1$d px</string>
-    <string name="sidebar_position_label">Posición</string>
+    <string name="sidebar_transparency_value">Transparencia del control deslizante: %1$.2f</string>
+    <string name="sidebar_length_value">Longitud del control deslizante: %1$d</string>
+    <string name="sidebar_width_value">Ancho del control deslizante: %1$d</string>
+    <string name="sidebar_position_label">Posición del control deslizante</string>
     <string name="sidebar_left">Izquierda</string>
     <string name="sidebar_right">Derecha</string>
     <!-- Layout settings -->
@@ -41,4 +43,11 @@
     <!-- Visual effects -->
     <string name="sidebar_drop_shadow_title">Sombra paralela</string>
     <string name="sidebar_drop_shadow_summary">Agregar efecto de sombra a la barra lateral</string>
+    <!-- Miscellaneous -->
+    <string name="sidebar_tap_to_open_title">Abrir cajón al tocar</string>
+    <string name="sidebar_tap_to_open_summary">Abrir el cajón de la barra lateral cuando se toca el control deslizante</string>
+    <string name="sidebar_swipe_to_open_title">Abrir cajón al deslizar</string>
+    <string name="sidebar_swipe_to_open_summary">Abrir el cajón de la barra lateral cuando se toca el control deslizante</string>
+    <string name="sidebar_hide_on_gamespace_title">Ocultar cuando GameSpace está activo</string>
+    <string name="sidebar_hide_on_gamespace_summary">Ocultar automáticamente el control deslizante de la barra lateral cuando se esté ejecutando un juego con GameSpace</string>
 </resources>

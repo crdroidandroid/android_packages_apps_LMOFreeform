@@ -19,10 +19,12 @@
     <string name="sidebar_section_slider">إعدادات شريط التمرير</string>
     <string name="sidebar_section_layout">إعدادات التخطيط</string>
     <string name="sidebar_section_visual">المؤثرات البصرية</string>
+    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">الشفافية: %1$.2f</string>
-    <string name="sidebar_length_value">طول شريط التمرير: %1$d px</string>
-    <string name="sidebar_position_label">الموضع</string>
+    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
+    <string name="sidebar_length_value">Slider length: %1$d</string>
+    <string name="sidebar_width_value">Slider width: %1$d</string>
+    <string name="sidebar_position_label">Slider position</string>
     <string name="sidebar_left">اليسار</string>
     <string name="sidebar_right">اليمين</string>
     <!-- Layout settings -->
@@ -45,4 +47,11 @@
     <!-- Visual effects -->
     <string name="sidebar_drop_shadow_title">الظل الخلفي</string>
     <string name="sidebar_drop_shadow_summary">إضافة تأثير الظل إلى الشريط الجانبي</string>
+    <!-- Miscellaneous -->
+    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
+    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
+    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
+    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
+    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
+    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
 </resources>
