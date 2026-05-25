@@ -23,7 +23,7 @@
     <!-- Slider settings -->
     <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
     <string name="sidebar_length_value">Slider length: %1$d</string>
-    <string name="sidebar_width_value">Slider width: %1$d</string>
+    <string name="sidebar_width_value">Ширина ползунка: %1$d</string>
     <string name="sidebar_position_label">Slider position</string>
     <string name="sidebar_left">Справа</string>
     <string name="sidebar_right">Слева</string>
