@@ -19,12 +19,12 @@
     <string name="sidebar_section_slider">Настройки за плъзгач</string>
     <string name="sidebar_section_layout">Настройки за оформление</string>
     <string name="sidebar_section_visual">Визуални ефекти</string>
-    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
+    <string name="sidebar_section_miscellaneous">Допълнителни</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d</string>
-    <string name="sidebar_width_value">Slider width: %1$d</string>
-    <string name="sidebar_position_label">Slider position</string>
+    <string name="sidebar_transparency_value">Видимостта на плъзгача: %1$.2f</string>
+    <string name="sidebar_length_value">Дължина на плъзгача: %1$d</string>
+    <string name="sidebar_width_value">Широчина на плъзгача: %1$d</string>
+    <string name="sidebar_position_label">Местоположение на плъзгача</string>
     <string name="sidebar_left">Отляво</string>
     <string name="sidebar_right">Отдясно</string>
     <!-- Layout settings -->
@@ -44,10 +44,10 @@
     <string name="sidebar_drop_shadow_title">Падаща сянка</string>
     <string name="sidebar_drop_shadow_summary">Добави ефект на сянка до страничен панел</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
-    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
-    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
-    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
-    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
-    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
+    <string name="sidebar_tap_to_open_title">Отвори шкафчето при натиск</string>
+    <string name="sidebar_tap_to_open_summary">Отвори шкафчето на страничния панел когато е натиснат плъзгача</string>
+    <string name="sidebar_swipe_to_open_title">Отвори шкафчето при плъзгане</string>
+    <string name="sidebar_swipe_to_open_summary">Отвори страничния панел когато плъзгачът е плъзнат хоризонтално</string>
+    <string name="sidebar_hide_on_gamespace_title">Скрий когато GameSpace е активно</string>
+    <string name="sidebar_hide_on_gamespace_summary">Автоматично скрий страничния панел, докато игра се произвежда с GameSpace</string>
 </resources>
