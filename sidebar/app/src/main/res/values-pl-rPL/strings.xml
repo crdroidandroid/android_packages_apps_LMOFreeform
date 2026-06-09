@@ -50,6 +50,6 @@
     <string name="sidebar_tap_to_open_summary">Otwórz panel boczny po dotknięciu suwaka</string>
     <string name="sidebar_swipe_to_open_title">Otwórz szufladę po przesunięciu palcem</string>
     <string name="sidebar_swipe_to_open_summary">Otwórz panel boczny po poziomym przesunięciu suwaka</string>
-    <string name="sidebar_hide_on_gamespace_title">Ukrywaj kiedy przestrzeń gier jest aktywna</string>
+    <string name="sidebar_hide_on_gamespace_title">Ukrywaj, kiedy przestrzeń gier jest aktywna</string>
     <string name="sidebar_hide_on_gamespace_summary">Automatycznie ukrywaj suwak paska bocznego, gdy gra jest uruchomiona z poziomu przestrzeni gier</string>
 </resources>
