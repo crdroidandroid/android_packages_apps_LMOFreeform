@@ -19,12 +19,12 @@
     <string name="sidebar_section_slider">Настройка полосы вызова</string>
     <string name="sidebar_section_layout">Настройки расположения</string>
     <string name="sidebar_section_visual">Визуальные настройки</string>
-    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
+    <string name="sidebar_section_miscellaneous">Прочее</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d</string>
+    <string name="sidebar_transparency_value">Прозрачность ползунка: %1$.2f</string>
+    <string name="sidebar_length_value">Ширина ползунка: %1$d</string>
     <string name="sidebar_width_value">Ширина ползунка: %1$d</string>
-    <string name="sidebar_position_label">Slider position</string>
+    <string name="sidebar_position_label">Расположение ползунка</string>
     <string name="sidebar_left">Справа</string>
     <string name="sidebar_right">Слева</string>
     <!-- Layout settings -->
@@ -46,10 +46,10 @@
     <string name="sidebar_drop_shadow_title">Отбрасывать тень</string>
     <string name="sidebar_drop_shadow_summary">Добавить тень боковой панели</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
-    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
-    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
-    <string name="sidebar_swipe_to_open_summary">Открывать боковую панель если ползунок переместился по горизонтали</string>
-    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
-    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
+    <string name="sidebar_tap_to_open_title">Открыть панель при нажатии</string>
+    <string name="sidebar_tap_to_open_summary">Открывать боковую панель при нажатии на ползунок</string>
+    <string name="sidebar_swipe_to_open_title">Открывать панель свайпом</string>
+    <string name="sidebar_swipe_to_open_summary">Открывать боковую панель при горизонтальном свайпе по ползунку</string>
+    <string name="sidebar_hide_on_gamespace_title">Скрывать, когда GameSpace активен</string>
+    <string name="sidebar_hide_on_gamespace_summary">Автоматически скрывать боковой ползунок, когда игра запущена с GameSpace</string>
 </resources>
