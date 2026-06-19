@@ -19,22 +19,22 @@
     <string name="sidebar_section_slider">إعدادات شريط التمرير</string>
     <string name="sidebar_section_layout">إعدادات التخطيط</string>
     <string name="sidebar_section_visual">المؤثرات البصرية</string>
-    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
+    <string name="sidebar_section_miscellaneous">إعدادات إضافية</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d</string>
-    <string name="sidebar_width_value">Slider width: %1$d</string>
-    <string name="sidebar_position_label">Slider position</string>
+    <string name="sidebar_transparency_value">شفافية الشريط: %1$.2f</string>
+    <string name="sidebar_length_value">طول شريط التمرير: %1$d</string>
+    <string name="sidebar_width_value">عرض شريط التمرير: %1$d</string>
+    <string name="sidebar_position_label">موضع شريط التمرير</string>
     <string name="sidebar_left">اليسار</string>
     <string name="sidebar_right">اليمين</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="zero">أعمدة الشبكة %1$d</item>
-        <item quantity="one">%1$d column</item>
-        <item quantity="two">%1$d columns</item>
-        <item quantity="few">%1$d columns</item>
-        <item quantity="many">%1$d columns</item>
-        <item quantity="other">%1$d columns</item>
+        <item quantity="zero">أعمدة الشبكة  %1$d</item>
+        <item quantity="one">أعمدة الشبكة %1$d</item>
+        <item quantity="two">أعمدة الشبكة %1$d</item>
+        <item quantity="few">أعمدة الشبكة %1$d</item>
+        <item quantity="many">أعمدة الشبكة %1$d</item>
+        <item quantity="other">أعمدة الشبكة %1$d</item>
     </plurals>
     <string name="sidebar_icon_size_value">حجم الأيقونة: %1$d dp</string>
     <string name="sidebar_icon_padding_value">الأيقونة المحضنة: %1$d dp</string>
@@ -48,10 +48,10 @@
     <string name="sidebar_drop_shadow_title">الظل الخلفي</string>
     <string name="sidebar_drop_shadow_summary">إضافة تأثير الظل إلى الشريط الجانبي</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
-    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
-    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
-    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
-    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
-    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
+    <string name="sidebar_tap_to_open_title">فتح القائمة عند النقر</string>
+    <string name="sidebar_tap_to_open_summary">فتح درج الشريط الجانبي عند النقر على شريط التمرير</string>
+    <string name="sidebar_swipe_to_open_title">فتح القائمة عند السحب</string>
+    <string name="sidebar_swipe_to_open_summary">فتح درج الشريط الجانبي عند التمرير أفقيا</string>
+    <string name="sidebar_hide_on_gamespace_title">إخفاء عندما تكون GameSpace نشطة</string>
+    <string name="sidebar_hide_on_gamespace_summary">إخفاء شريط تمرير الشريط الجانبي تلقائياً عند تشغيل اللعبة مع GameSpace</string>
 </resources>
