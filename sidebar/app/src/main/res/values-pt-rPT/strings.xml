@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">Barra lateral</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Pinned apps</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
-    <string name="sidebar_per_app_config">Configure apps</string>
-    <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
+    <string name="enable_sideline">Usar Barra lateral</string>
+    <string name="sidebar_label">Barra lateral</string>
+    <string name="sidebar_summary">Abrir aplicações rapidamente numa janela flutuante</string>
+    <string name="sidebar_app_setting_label">Aplicações afixadas</string>
+    <string name="sidebar_settings_description">Abrir configurações da barra lateral</string>
+    <string name="sidebar_predicted_apps">Mostrar sugestões de aplicações</string>
+    <string name="sidebar_predicted_apps_summary">Mostrar até 6 aplicações sugeridas abaixo das afixadas</string>
+    <string name="sidebar_auto_enable_selected_apps">Ativar a barra lateral automaticamente para aplicações selecionadas</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Mostrar automaticamente a barra lateral quando aplicações configuradas são iniciadas</string>
+    <string name="sidebar_per_app_config">Configurar aplicações</string>
+    <string name="sidebar_per_app_config_summary">Selecionar aplicações que devem ativar a barra lateral automaticamente</string>
     <!-- Sidebar customization -->
-    <string name="sidebar_customization_title">Sidebar customization</string>
+    <string name="sidebar_customization_title">Personalização da barra lateral</string>
     <!-- Sections -->
-    <string name="sidebar_section_slider">Slider settings</string>
-    <string name="sidebar_section_layout">Layout settings</string>
+    <string name="sidebar_section_slider">Configurações do controle deslizante</string>
+    <string name="sidebar_section_layout">Configurações do Layout</string>
     <string name="sidebar_section_visual">Efeitos visuais</string>
-    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
+    <string name="sidebar_section_miscellaneous">Diversos</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d</string>
-    <string name="sidebar_width_value">Slider width: %1$d</string>
-    <string name="sidebar_position_label">Slider position</string>
+    <string name="sidebar_transparency_value">Transparência do controle deslizante: %1$.2f</string>
+    <string name="sidebar_length_value">Largura do controle deslizante: %1$d</string>
+    <string name="sidebar_width_value">Largura do controle deslizante: %1$d</string>
+    <string name="sidebar_position_label">Posição do controle deslizante</string>
     <string name="sidebar_left">Esquerda</string>
     <string name="sidebar_right">Direita</string>
     <!-- Layout settings -->
@@ -33,21 +33,21 @@
         <item quantity="other">%1$d colunas</item>
     </plurals>
     <string name="sidebar_icon_size_value">Tamanho do ícone: %1$d dp</string>
-    <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
-    <string name="sidebar_icon_padding_summary">Space around each icon</string>
+    <string name="sidebar_icon_padding_value">Preenchimento do Ícone: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">Espaçamento entre ícones</string>
     <string name="sidebar_column_spacing_value">Espaçamento da coluna: %1$d dp</string>
     <string name="sidebar_column_spacing_summary">Espaço entre colunas</string>
     <string name="sidebar_corner_radius_value">Raio dos cantos: %1$d dp</string>
     <string name="sidebar_bg_transparency_value">Transparência de fundo: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_reset_defaults">Restaurar padrões</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_title">Sombra projetada</string>
+    <string name="sidebar_drop_shadow_summary">Adiciona efeito de sombra à barra lateral</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
-    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
-    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
-    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
-    <string name="sidebar_hide_on_gamespace_title">Esconder quando o GameSpace estiver ativo</string>
-    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
+    <string name="sidebar_tap_to_open_title">Abrir gaveta ao tocar</string>
+    <string name="sidebar_tap_to_open_summary">Abrir a gaveta de barra lateral após tocar no controle deslizante</string>
+    <string name="sidebar_swipe_to_open_title">Abrir gaveta ao deslizar</string>
+    <string name="sidebar_swipe_to_open_summary">Abrir a gaveta de barra lateral quando o controle deslizante for deslizado horizontalmente</string>
+    <string name="sidebar_hide_on_gamespace_title">Esconder quando o Espaço de jogo estiver ativo</string>
+    <string name="sidebar_hide_on_gamespace_summary">Ocultar automaticamente o controle deslizante de barra lateral quando um jogo estiver em execução com o Espaço de jogo</string>
 </resources>
