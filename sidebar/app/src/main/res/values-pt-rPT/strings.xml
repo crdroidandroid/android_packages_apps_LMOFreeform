@@ -18,27 +18,27 @@
     <!-- Sections -->
     <string name="sidebar_section_slider">Slider settings</string>
     <string name="sidebar_section_layout">Layout settings</string>
-    <string name="sidebar_section_visual">Visual effects</string>
+    <string name="sidebar_section_visual">Efeitos visuais</string>
     <string name="sidebar_section_miscellaneous">Miscellaneous</string>
     <!-- Slider settings -->
     <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
     <string name="sidebar_length_value">Slider length: %1$d</string>
     <string name="sidebar_width_value">Slider width: %1$d</string>
     <string name="sidebar_position_label">Slider position</string>
-    <string name="sidebar_left">Left</string>
-    <string name="sidebar_right">Right</string>
+    <string name="sidebar_left">Esquerda</string>
+    <string name="sidebar_right">Direita</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="one">%1$d column</item>
-        <item quantity="other">%1$d columns</item>
+        <item quantity="one">%1$d coluna</item>
+        <item quantity="other">%1$d colunas</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Icon size: %1$d dp</string>
+    <string name="sidebar_icon_size_value">Tamanho do ícone: %1$d dp</string>
     <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
     <string name="sidebar_icon_padding_summary">Space around each icon</string>
-    <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
-    <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
-    <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
+    <string name="sidebar_column_spacing_value">Espaçamento da coluna: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">Espaço entre colunas</string>
+    <string name="sidebar_corner_radius_value">Raio dos cantos: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">Transparência de fundo: %1$.2f</string>
     <string name="sidebar_reset_defaults">Reset to defaults</string>
     <!-- Visual effects -->
     <string name="sidebar_drop_shadow_title">Drop shadow</string>
@@ -48,6 +48,6 @@
     <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
     <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
     <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
-    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
+    <string name="sidebar_hide_on_gamespace_title">Esconder quando o GameSpace estiver ativo</string>
     <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
 </resources>
