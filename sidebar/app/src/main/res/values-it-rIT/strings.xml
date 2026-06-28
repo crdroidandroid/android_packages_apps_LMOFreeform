@@ -19,12 +19,12 @@
     <string name="sidebar_section_slider">Impostazioni slider</string>
     <string name="sidebar_section_layout">Impostazioni layout</string>
     <string name="sidebar_section_visual">Effetti visivi</string>
-    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
+    <string name="sidebar_section_miscellaneous">Varie</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
+    <string name="sidebar_transparency_value">Trasparenza del cursore: %1$.2f</string>
     <string name="sidebar_length_value">Slider length: %1$d</string>
     <string name="sidebar_width_value">Slider width: %1$d</string>
-    <string name="sidebar_position_label">Slider position</string>
+    <string name="sidebar_position_label">Posizione del cursore</string>
     <string name="sidebar_left">Sinistra</string>
     <string name="sidebar_right">Destra</string>
     <!-- Layout settings -->
