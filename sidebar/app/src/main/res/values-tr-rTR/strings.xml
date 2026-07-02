@@ -44,10 +44,10 @@
     <string name="sidebar_drop_shadow_title">Gölge efekti</string>
     <string name="sidebar_drop_shadow_summary">Kenar çubuğuna gölge efekti ekle</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Dokunulduğunda çekmeceyi aç</string>
+    <string name="sidebar_tap_to_open_title">Çekmeceyi dokunarak aç</string>
     <string name="sidebar_tap_to_open_summary">Kaydırıcıya dokunulduğunda kenar çekmecesini aç</string>
-    <string name="sidebar_swipe_to_open_title">Kaydırarak çekmeceyi aç</string>
+    <string name="sidebar_swipe_to_open_title">Çekmeceyi kaydırarak aç</string>
     <string name="sidebar_swipe_to_open_summary">Kaydırıcı yatay olarak sürüklendiğinde kenar çekmecesini aç</string>
     <string name="sidebar_hide_on_gamespace_title">Oyun alanı etkinken gizle</string>
-    <string name="sidebar_hide_on_gamespace_summary">Oyun alanı ile bir oyun çalışırken kenar çubuğu kaydırıcısını otomatik olarak gizle</string>
+    <string name="sidebar_hide_on_gamespace_summary">Bir oyun, oyun alanıyla çalışırken kenar çubuğu kaydırıcısını otomatik olarak gizle</string>
 </resources>
