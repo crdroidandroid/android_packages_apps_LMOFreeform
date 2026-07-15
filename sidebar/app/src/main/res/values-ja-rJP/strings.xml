@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">サイドバー</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
+    <string name="enable_sideline">サイドバーを使用</string>
+    <string name="sidebar_label">サイドバー</string>
+    <string name="sidebar_summary">フローティングウィンドウでアプリをすばやく開く</string>
     <string name="sidebar_app_setting_label">Pinned apps</string>
     <string name="sidebar_settings_description">Open sidebar settings</string>
     <string name="sidebar_predicted_apps">Show app suggestions</string>
