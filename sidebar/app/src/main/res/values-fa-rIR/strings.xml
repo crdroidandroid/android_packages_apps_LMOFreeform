@@ -49,5 +49,5 @@
     <string name="sidebar_swipe_to_open_title">باز کردن کشو با کشیدن انگشت</string>
     <string name="sidebar_swipe_to_open_summary">باز کردن کشوی نوار کناری با کشیدن افقی اسلایدر</string>
     <string name="sidebar_hide_on_gamespace_title">مخفی کردن هنگام فعال بودن حالت بازی</string>
-    <string name="sidebar_hide_on_gamespace_summary">پنهان کردن خودکار اسلایدر نوار کناری هنگام اجرای بازی با منوی بازی</string>
+    <string name="sidebar_hide_on_gamespace_summary">پنهان کردن خودکار اسلایدر نوار کناری هنگام اجرای بازی با فضای بازی</string>
 </resources>
