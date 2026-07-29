@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sidebar</string>
+    <string name="app_name">サイドバー</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Pinned apps</string>
-    <string name="sidebar_settings_description">Open sidebar settings</string>
-    <string name="sidebar_predicted_apps">Show app suggestions</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
+    <string name="enable_sideline">サイドバーを使用</string>
+    <string name="sidebar_label">サイドバー</string>
+    <string name="sidebar_summary">フローティングウィンドウでアプリをすばやく開く</string>
+    <string name="sidebar_app_setting_label">ピン留めされたアプリ</string>
+    <string name="sidebar_settings_description">サイドバーの設定を開く</string>
+    <string name="sidebar_predicted_apps">アプリの候補を表示</string>
+    <string name="sidebar_predicted_apps_summary">ピン留めされたアプリの下に、推奨アプリを最大6つ表示します</string>
+    <string name="sidebar_auto_enable_selected_apps">選択したアプリでサイドバーを自動的に有効にする</string>
     <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
     <string name="sidebar_per_app_config">Configure apps</string>
     <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
     <!-- Sidebar customization -->
-    <string name="sidebar_customization_title">Sidebar customization</string>
+    <string name="sidebar_customization_title">サイドバーのカスタマイズ</string>
     <!-- Sections -->
-    <string name="sidebar_section_slider">Slider settings</string>
-    <string name="sidebar_section_layout">Layout settings</string>
-    <string name="sidebar_section_visual">Visual effects</string>
-    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
+    <string name="sidebar_section_slider">スライダー設定</string>
+    <string name="sidebar_section_layout">レイアウト設定</string>
+    <string name="sidebar_section_visual">視覚効果</string>
+    <string name="sidebar_section_miscellaneous">その他</string>
     <!-- Slider settings -->
     <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
     <string name="sidebar_length_value">Slider length: %1$d</string>
@@ -38,7 +38,7 @@
     <string name="sidebar_column_spacing_summary">Space between columns</string>
     <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
     <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
-    <string name="sidebar_reset_defaults">Reset to defaults</string>
+    <string name="sidebar_reset_defaults">標準設定にリセット</string>
     <!-- Visual effects -->
     <string name="sidebar_drop_shadow_title">Drop shadow</string>
     <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>

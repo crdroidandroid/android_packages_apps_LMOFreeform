@@ -19,12 +19,12 @@
     <string name="sidebar_section_slider">滑桿設定</string>
     <string name="sidebar_section_layout">佈局設定</string>
     <string name="sidebar_section_visual">視覺效果</string>
-    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
+    <string name="sidebar_section_miscellaneous">其他設定</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d</string>
-    <string name="sidebar_width_value">Slider width: %1$d</string>
-    <string name="sidebar_position_label">Slider position</string>
+    <string name="sidebar_transparency_value">滑塊透明度： %1$.2f</string>
+    <string name="sidebar_length_value">滑塊長度： %1$d</string>
+    <string name="sidebar_width_value">滑塊寬度： %1$d</string>
+    <string name="sidebar_position_label">滑塊位置</string>
     <string name="sidebar_left">螢幕左側</string>
     <string name="sidebar_right">螢幕右側</string>
     <!-- Layout settings -->
@@ -43,10 +43,10 @@
     <string name="sidebar_drop_shadow_title">陰影</string>
     <string name="sidebar_drop_shadow_summary">為側邊欄添加陰影效果</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
-    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
-    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
-    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
-    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
-    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
+    <string name="sidebar_tap_to_open_title">輕觸開啟側邊欄</string>
+    <string name="sidebar_tap_to_open_summary">輕觸滑塊時開啟側邊欄選單</string>
+    <string name="sidebar_swipe_to_open_title">滑動開啟側邊欄</string>
+    <string name="sidebar_swipe_to_open_summary">水平滑動滑塊時開啟側邊欄選單</string>
+    <string name="sidebar_hide_on_gamespace_title">遊戲空間啟動時隱藏</string>
+    <string name="sidebar_hide_on_gamespace_summary">當使用「遊戲空間」執行遊戲時，自動隱藏側邊欄滑塊</string>
 </resources>

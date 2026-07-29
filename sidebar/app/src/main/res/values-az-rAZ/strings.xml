@@ -3,15 +3,15 @@
     <string name="app_name">Sidebar</string>
     <!--SettingsFragment-->
     <string name="enable_sideline">Use Sidebar</string>
-    <string name="sidebar_label">Sidebar</string>
-    <string name="sidebar_summary">Quickly open apps in a floating window</string>
-    <string name="sidebar_app_setting_label">Pinned apps</string>
+    <string name="sidebar_label">Yan panel</string>
+    <string name="sidebar_summary">Proqramları sürüşən pəncərədə tez açın</string>
+    <string name="sidebar_app_setting_label">Sabitlənmiş tətbiqlər</string>
     <string name="sidebar_settings_description">Open sidebar settings</string>
     <string name="sidebar_predicted_apps">Show app suggestions</string>
-    <string name="sidebar_predicted_apps_summary">Show upto 6 suggested apps below pinned apps</string>
-    <string name="sidebar_auto_enable_selected_apps">Auto enable sidebar for selected apps</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
-    <string name="sidebar_per_app_config">Configure apps</string>
+    <string name="sidebar_predicted_apps_summary">Pinə əlavə olunmuş tətbiqlərin altında 6-dək təklif olunan tətbiqləri göstərin</string>
+    <string name="sidebar_auto_enable_selected_apps">Seçilmiş tətbiqlər üçün yan panel avtomatik aktivləşdirilsin</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">Konfiqurasiya edilmiş tətbiqlər işə salındıqda yan panel avtomatik göstərilsin</string>
+    <string name="sidebar_per_app_config">Tətbiqləri konfiqurasiya edin</string>
     <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
     <!-- Sidebar customization -->
     <string name="sidebar_customization_title">Sidebar customization</string>
