@@ -26,7 +26,7 @@
     <string name="sidebar_width_value">Slider width: %1$d</string>
     <string name="sidebar_position_label">Slider position</string>
     <string name="sidebar_left">Left</string>
-    <string name="sidebar_right">Right</string>
+    <string name="sidebar_right">Sağ</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
         <item quantity="one">%1$d column</item>
