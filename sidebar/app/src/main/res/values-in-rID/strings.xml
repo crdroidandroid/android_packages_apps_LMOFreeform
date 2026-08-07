@@ -19,12 +19,12 @@
     <string name="sidebar_section_slider"></string>
     <string name="sidebar_section_layout">Pengaturan tata letak</string>
     <string name="sidebar_section_visual">Efek visual</string>
-    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
+    <string name="sidebar_section_miscellaneous">Lain-lain</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d</string>
-    <string name="sidebar_width_value">Slider width: %1$d</string>
-    <string name="sidebar_position_label">Slider position</string>
+    <string name="sidebar_transparency_value">Bilah geser tembus pandang: %1$.2f</string>
+    <string name="sidebar_length_value">Panjang bilah geser: %1$d</string>
+    <string name="sidebar_width_value">Lebar bilah geser: %1$d</string>
+    <string name="sidebar_position_label">Posisi bilah geser</string>
     <string name="sidebar_left">Kiri</string>
     <string name="sidebar_right">Kanan</string>
     <!-- Layout settings -->
@@ -43,10 +43,10 @@
     <string name="sidebar_drop_shadow_title">Bayangan jatuh</string>
     <string name="sidebar_drop_shadow_summary">Tambahkan efek bayangan ke bilah sisi</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
-    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
-    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
-    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
-    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
-    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
+    <string name="sidebar_tap_to_open_title">Ketuk untuk membuka laci</string>
+    <string name="sidebar_tap_to_open_summary">Buka bilah sisi laci ketika bilah geser diketuk</string>
+    <string name="sidebar_swipe_to_open_title">Geser untuk membuka laci</string>
+    <string name="sidebar_swipe_to_open_summary">Buka panel samping dengan menggeser bilah geser secara horizontal</string>
+    <string name="sidebar_hide_on_gamespace_title">Sembunyikan ketika GameSpace aktif</string>
+    <string name="sidebar_hide_on_gamespace_summary">Sembunyikan bilah sisi otomatis ketika permainan berjalan dengan GameSpace</string>
 </resources>
