@@ -19,12 +19,12 @@
     <string name="sidebar_section_slider">Setări glisare</string>
     <string name="sidebar_section_layout">Setări aspect</string>
     <string name="sidebar_section_visual">Efecte vizuale</string>
-    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
+    <string name="sidebar_section_miscellaneous">Diverse</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d</string>
-    <string name="sidebar_width_value">Slider width: %1$d</string>
-    <string name="sidebar_position_label">Slider position</string>
+    <string name="sidebar_transparency_value">Transparență glisare: %1$.2f</string>
+    <string name="sidebar_length_value">Lungime glisare: %1$d</string>
+    <string name="sidebar_width_value">Lățime glisare: %1$d</string>
+    <string name="sidebar_position_label">Poziție glisor</string>
     <string name="sidebar_left">Stânga</string>
     <string name="sidebar_right">Dreapta</string>
     <!-- Layout settings -->
@@ -45,10 +45,10 @@
     <string name="sidebar_drop_shadow_title">Lasă umbra</string>
     <string name="sidebar_drop_shadow_summary">Adaugă efect umbră în bara laterală</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
-    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
-    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
-    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
-    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
-    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
+    <string name="sidebar_tap_to_open_title">Deschide sertarul la atingere</string>
+    <string name="sidebar_tap_to_open_summary">Deschideți sertarul cu bară laterală atunci când cursorul este apăsat</string>
+    <string name="sidebar_swipe_to_open_title">Deschide sertarul la glisare</string>
+    <string name="sidebar_swipe_to_open_summary">Deschideți sertarul cu bară laterală atunci când glisorul este glisat orizontal</string>
+    <string name="sidebar_hide_on_gamespace_title">Ascunde când GameSpace este activ</string>
+    <string name="sidebar_hide_on_gamespace_summary">Ascunde automat glisorul barei laterale atunci când un joc rulează cu GameSpace</string>
 </resources>
