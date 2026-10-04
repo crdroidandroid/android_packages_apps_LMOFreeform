@@ -44,10 +44,10 @@
     <string name="sidebar_drop_shadow_title">Schatteneffekt</string>
     <string name="sidebar_drop_shadow_summary">Schatteneffekt in Seitenleiste</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
-    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
-    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
-    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
+    <string name="sidebar_tap_to_open_title">Menü durch Antippen öffnen</string>
+    <string name="sidebar_tap_to_open_summary">Öffnet die Seitenleiste beim Antippen des Schiebereglers</string>
+    <string name="sidebar_swipe_to_open_title">Menü durch Wischen öffnen</string>
+    <string name="sidebar_swipe_to_open_summary">Öffnet die Seitenleiste beim horizontalen Wischen über den Schieberegler</string>
     <string name="sidebar_hide_on_gamespace_title">Verstecken, wenn GameSpace aktiv ist</string>
     <string name="sidebar_hide_on_gamespace_summary">Sidebar Slider automatisch ausblenden, wenn ein Spiel mit GameSpace läuft</string>
 </resources>
