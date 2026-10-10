@@ -10,9 +10,9 @@
     <string name="sidebar_predicted_apps">アプリの候補を表示</string>
     <string name="sidebar_predicted_apps_summary">ピン留めされたアプリの下に、推奨アプリを最大6つ表示します</string>
     <string name="sidebar_auto_enable_selected_apps">選択したアプリでサイドバーを自動的に有効にする</string>
-    <string name="sidebar_auto_enable_selected_apps_summary">Automatically show sidebar when configured apps are launched</string>
-    <string name="sidebar_per_app_config">Configure apps</string>
-    <string name="sidebar_per_app_config_summary">Select apps that should automatically enable sidebar</string>
+    <string name="sidebar_auto_enable_selected_apps_summary">アプリの起動時にサイドバーを自動的に表示する</string>
+    <string name="sidebar_per_app_config">アプリの設定</string>
+    <string name="sidebar_per_app_config_summary">サイドバーを自動的に有効にするアプリを選択</string>
     <!-- Sidebar customization -->
     <string name="sidebar_customization_title">サイドバーのカスタマイズ</string>
     <!-- Sections -->
@@ -21,32 +21,32 @@
     <string name="sidebar_section_visual">視覚効果</string>
     <string name="sidebar_section_miscellaneous">その他</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d</string>
-    <string name="sidebar_width_value">Slider width: %1$d</string>
-    <string name="sidebar_position_label">Slider position</string>
-    <string name="sidebar_left">Left</string>
-    <string name="sidebar_right">Right</string>
+    <string name="sidebar_transparency_value">スライダーの透明度: %1$.2f</string>
+    <string name="sidebar_length_value">スライダーの長さ: %1$d</string>
+    <string name="sidebar_width_value">スライダー幅: %1$d</string>
+    <string name="sidebar_position_label">スライダーの位置</string>
+    <string name="sidebar_left">左</string>
+    <string name="sidebar_right">右</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="other">%1$d columns</item>
+        <item quantity="other">%1$d 列</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Icon size: %1$d dp</string>
-    <string name="sidebar_icon_padding_value">Icon padding: %1$d dp</string>
-    <string name="sidebar_icon_padding_summary">Space around each icon</string>
-    <string name="sidebar_column_spacing_value">Column spacing: %1$d dp</string>
-    <string name="sidebar_column_spacing_summary">Space between columns</string>
-    <string name="sidebar_corner_radius_value">Corner radius: %1$d dp</string>
-    <string name="sidebar_bg_transparency_value">Background transparency: %1$.2f</string>
+    <string name="sidebar_icon_size_value">アイコンのサイズ: %1$d dp</string>
+    <string name="sidebar_icon_padding_value">アイコンのパディング: %1$d dp</string>
+    <string name="sidebar_icon_padding_summary">各アイコンの周りのスペース</string>
+    <string name="sidebar_column_spacing_value">列間隔: %1$d dp</string>
+    <string name="sidebar_column_spacing_summary">列間のスペース</string>
+    <string name="sidebar_corner_radius_value">角の半径: %1$d dp</string>
+    <string name="sidebar_bg_transparency_value">背景の透明度:%1$.2f</string>
     <string name="sidebar_reset_defaults">標準設定にリセット</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Drop shadow</string>
-    <string name="sidebar_drop_shadow_summary">Add shadow effect to sidebar</string>
+    <string name="sidebar_drop_shadow_title">影をつける</string>
+    <string name="sidebar_drop_shadow_summary">サイドバーに影効果を追加</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
-    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
-    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
-    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
-    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
-    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
+    <string name="sidebar_tap_to_open_title">タップでドロワーを開く</string>
+    <string name="sidebar_tap_to_open_summary">スライダーがタップされたときにサイドバーのドロワーを開く</string>
+    <string name="sidebar_swipe_to_open_title">スワイプでドロワーを開く</string>
+    <string name="sidebar_swipe_to_open_summary">スライダーを水平方向にスワイプしたときにサイドバーのドロワーを開く</string>
+    <string name="sidebar_hide_on_gamespace_title">ゲームスペースがアクティブなときに非表示</string>
+    <string name="sidebar_hide_on_gamespace_summary">ゲームスペースでゲームを実行しているときにサイドバーのスライダーを自動的に非表示にします</string>
 </resources>
