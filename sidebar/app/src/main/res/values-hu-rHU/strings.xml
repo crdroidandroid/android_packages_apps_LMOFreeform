@@ -19,12 +19,12 @@
     <string name="sidebar_section_slider">Csúszka beállításai</string>
     <string name="sidebar_section_layout">Elrendezési beállítások</string>
     <string name="sidebar_section_visual">Vizuális effektek</string>
-    <string name="sidebar_section_miscellaneous">Miscellaneous</string>
+    <string name="sidebar_section_miscellaneous">Egyebek</string>
     <!-- Slider settings -->
-    <string name="sidebar_transparency_value">Slider transparency: %1$.2f</string>
-    <string name="sidebar_length_value">Slider length: %1$d</string>
-    <string name="sidebar_width_value">Slider width: %1$d</string>
-    <string name="sidebar_position_label">Slider position</string>
+    <string name="sidebar_transparency_value">Háttér átlátszósága: %1$.2f</string>
+    <string name="sidebar_length_value">Csúszka hossza: %1$d</string>
+    <string name="sidebar_width_value">Csúszka szélessége: %1$d</string>
+    <string name="sidebar_position_label">Csúszka helyzete</string>
     <string name="sidebar_left">Bal</string>
     <string name="sidebar_right">Jobb</string>
     <!-- Layout settings -->
@@ -44,10 +44,10 @@
     <string name="sidebar_drop_shadow_title">Vetőárnyék</string>
     <string name="sidebar_drop_shadow_summary">Árnyékeffektus hozzáadása az oldalsávhoz</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Open drawer on tap</string>
-    <string name="sidebar_tap_to_open_summary">Open the sidebar drawer when the slider is tapped</string>
-    <string name="sidebar_swipe_to_open_title">Open drawer on swipe</string>
-    <string name="sidebar_swipe_to_open_summary">Open the sidebar drawer when the slider is swiped horizontally</string>
-    <string name="sidebar_hide_on_gamespace_title">Hide when GameSpace is active</string>
-    <string name="sidebar_hide_on_gamespace_summary">Automatically hide the sidebar slider when a game is running with GameSpace</string>
+    <string name="sidebar_tap_to_open_title">Fiók megnyitása érintéskor</string>
+    <string name="sidebar_tap_to_open_summary">Az oldalsáv fiókjának megnyitása a csúszka megérintésekor</string>
+    <string name="sidebar_swipe_to_open_title">Fiók megnyitása húzással</string>
+    <string name="sidebar_swipe_to_open_summary">Nyissa meg az oldalsáv fiókját, amikor a csúszkát vízszintesen elhúzza</string>
+    <string name="sidebar_hide_on_gamespace_title">Elrejtés, ha a GameSpace aktív</string>
+    <string name="sidebar_hide_on_gamespace_summary">Az oldalsáv csúszkájának automatikus elrejtése a játék GameSpace-el való futása közben</string>
 </resources>
