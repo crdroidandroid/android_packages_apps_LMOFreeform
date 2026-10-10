@@ -30,7 +30,7 @@
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
         <item quantity="one">%1$d列</item>
-        <item quantity="few"></item>
+        <item quantity="few">%1$d columns</item>
         <item quantity="other">%1$d列</item>
     </plurals>
     <string name="sidebar_icon_size_value">圖示大小: %1$d dp</string>

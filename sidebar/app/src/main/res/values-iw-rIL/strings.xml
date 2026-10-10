@@ -31,7 +31,6 @@
     <plurals name="sidebar_columns_value">
         <item quantity="one">%1$d column</item>
         <item quantity="two">%1$d columns</item>
-        <item quantity="many">%1$d columns</item>
         <item quantity="other">%1$d columns</item>
     </plurals>
     <string name="sidebar_icon_size_value">Icon size: %1$d dp</string>
