@@ -2,17 +2,17 @@
 <resources>
     <string name="app_name">Panel boczny</string>
     <!--SettingsFragment-->
-    <string name="enable_sideline">Użyj paska bocznego</string>
+    <string name="enable_sideline">Używaj paska bocznego</string>
     <string name="sidebar_label">Pasek boczny</string>
-    <string name="sidebar_summary">Szybko otwórz aplikacje w pływającym oknie</string>
+    <string name="sidebar_summary">Otwieraj szybko aplikacje w pływającym oknie</string>
     <string name="sidebar_app_setting_label">Przypięte aplikacje</string>
     <string name="sidebar_settings_description">Otwórz ustawienia paska bocznego</string>
-    <string name="sidebar_predicted_apps">Pokaż sugerowane aplikacje</string>
-    <string name="sidebar_predicted_apps_summary">Pokaż do 6 sugerowanych aplikacji poniżej przypiętych aplikacji</string>
-    <string name="sidebar_auto_enable_selected_apps">Automatycznie włącz pasek boczny dla wybranych aplikacji</string>
+    <string name="sidebar_predicted_apps">Pokazuj sugerowane aplikacje</string>
+    <string name="sidebar_predicted_apps_summary">Pokazuj do 6 sugerowanych aplikacji poniżej przypiętych aplikacji</string>
+    <string name="sidebar_auto_enable_selected_apps">Automatycznie włączaj pasek boczny dla wybranych aplikacji</string>
     <string name="sidebar_auto_enable_selected_apps_summary">Automatycznie pokazuj pasek boczny po uruchomieniu skonfigurowanych aplikacji</string>
     <string name="sidebar_per_app_config">Skonfiguruj aplikacje</string>
-    <string name="sidebar_per_app_config_summary">Wybierz aplikacje, które powinny automatycznie włączyć pasek boczny</string>
+    <string name="sidebar_per_app_config_summary">Wybierz aplikacje, które powinny automatycznie załączać pasek boczny</string>
     <!-- Sidebar customization -->
     <string name="sidebar_customization_title">Dostosowanie paska bocznego</string>
     <!-- Sections -->
@@ -25,16 +25,16 @@
     <string name="sidebar_length_value">Długość suwaka: %1$d</string>
     <string name="sidebar_width_value">Szerokość suwaka: %1$d</string>
     <string name="sidebar_position_label">Pozycja suwaka</string>
-    <string name="sidebar_left">Lewo</string>
-    <string name="sidebar_right">Prawo</string>
+    <string name="sidebar_left">Po lewo</string>
+    <string name="sidebar_right">Po prawo</string>
     <!-- Layout settings -->
     <plurals name="sidebar_columns_value">
-        <item quantity="one">%1$d Kolumny</item>
-        <item quantity="few">%1$d Kolumn</item>
-        <item quantity="many">%1$d Kolumn</item>
-        <item quantity="other">%1$d Kolumn</item>
+        <item quantity="one">%1$d kolumna</item>
+        <item quantity="few">%1$d kolumny</item>
+        <item quantity="many">%1$d kolumn</item>
+        <item quantity="other">%1$d kolumn</item>
     </plurals>
-    <string name="sidebar_icon_size_value">Rozmiar ikony: %1$d dp</string>
+    <string name="sidebar_icon_size_value">Rozmiar ikon: %1$d dp</string>
     <string name="sidebar_icon_padding_value">Wypełnienie ikon: %1$d dp</string>
     <string name="sidebar_icon_padding_summary">Miejsce wokół każdej ikony</string>
     <string name="sidebar_column_spacing_value">Odstęp kolumn: %1$d dp</string>
@@ -43,13 +43,13 @@
     <string name="sidebar_bg_transparency_value">Przezroczystość tła: %1$.2f</string>
     <string name="sidebar_reset_defaults">Przywróć ustawienia domyślne</string>
     <!-- Visual effects -->
-    <string name="sidebar_drop_shadow_title">Pokaż cień</string>
-    <string name="sidebar_drop_shadow_summary">Dodaj efekt cienia do paska bocznego</string>
+    <string name="sidebar_drop_shadow_title">Pokazuj cień</string>
+    <string name="sidebar_drop_shadow_summary">Dodawaj efekt cienia do paska bocznego</string>
     <!-- Miscellaneous -->
-    <string name="sidebar_tap_to_open_title">Otwórz szufladę po dotknięciu</string>
-    <string name="sidebar_tap_to_open_summary">Otwórz panel boczny po dotknięciu suwaka</string>
-    <string name="sidebar_swipe_to_open_title">Otwórz szufladę po przesunięciu palcem</string>
-    <string name="sidebar_swipe_to_open_summary">Otwórz panel boczny po poziomym przesunięciu suwaka</string>
+    <string name="sidebar_tap_to_open_title">Otwieraj szufladę po dotknięciu</string>
+    <string name="sidebar_tap_to_open_summary">Otwieraj panel boczny po dotknięciu suwaka</string>
+    <string name="sidebar_swipe_to_open_title">Otwieraj szufladę po przesunięciu palcem</string>
+    <string name="sidebar_swipe_to_open_summary">Otwieraj panel boczny po poziomym przesunięciu suwaka</string>
     <string name="sidebar_hide_on_gamespace_title">Ukrywaj, kiedy przestrzeń gier jest aktywna</string>
     <string name="sidebar_hide_on_gamespace_summary">Automatycznie ukrywaj suwak paska bocznego, gdy gra jest uruchomiona z poziomu przestrzeni gier</string>
 </resources>
