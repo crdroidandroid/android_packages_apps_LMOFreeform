@@ -49,5 +49,5 @@
     <string name="sidebar_swipe_to_open_title">Abrir cajón al deslizar</string>
     <string name="sidebar_swipe_to_open_summary">Abrir el cajón de la barra lateral cuando se toca el control deslizante</string>
     <string name="sidebar_hide_on_gamespace_title">Ocultar cuando Espacio de Juegos está activo</string>
-    <string name="sidebar_hide_on_gamespace_summary">Ocultar automáticamente el control deslizante de la barra lateral cuando se ejecute un juego con Espacio de Juegos</string>
+    <string name="sidebar_hide_on_gamespace_summary">Ocultar automáticamente el control deslizante de la barra lateral si se ejecuta un juego con Espacio de Juegos</string>
 </resources>
